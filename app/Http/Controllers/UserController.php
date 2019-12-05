@@ -37,18 +37,43 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed',
-            'password_confirmation' => 'required'
-        ]);
-        $newUser = new User;
+        if (isset($_POST['submit'])) {
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $data = [
+                'secret' => '6LeqRcYUAAAAABcma1DiapUfHaPrD0qREXSv4064',
+                'response' => $_POST['token']
+            ];
+            $options = array(
+                'http' => array(
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query($data)
+                )
+            );
+            $context  = stream_context_create($options);
+            $response = file_get_contents($url, false, $context);
+            $res = json_decode($response, true);
+            if ($res['success'] == true) {
+                // Perform you logic here for ex:- save you data to database
+                $request->validate([
+                    'name' => 'required',
+                    'email' => 'required|email',
+                    'password' => 'required|confirmed',
+                    'password_confirmation' => 'required'
+                ]);
+                $newUser = new User;
 
-        $newUser->name = $request->name;
-        $newUser->email = $request->email;
-        $newUser->password = Hash::make($request->password);
-        return $newUser;
+                $newUser->name = $request->name;
+                $newUser->email = $request->email;
+                $newUser->password = Hash::make($request->password);
+                $newUser->save();
+                return redirect('');
+            } else {
+                return view('register', ['loginError' => 'Bot datected.']);
+            }
+        } else {
+            return view('register', ['loginError' => 'Bot deeeeetected.']);
+        }
     }
 
     /**
@@ -97,13 +122,43 @@ class UserController extends Controller
     }
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-        //$users = App\User::all();
-        $loggedUser = new User;
-        //return $users;
+        //Code that I copied from the internet, its like magic. https://github.com/durgesh-sahani/google-recaptcha-integration-php/blob/master/index.php
+        if (isset($_POST['submit'])) {
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $data = [
+                'secret' => '6LeqRcYUAAAAABcma1DiapUfHaPrD0qREXSv4064',
+                'response' => $_POST['token']
+            ];
+            $options = array(
+                'http' => array(
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query($data)
+                )
+            );
+            $context  = stream_context_create($options);
+            $response = file_get_contents($url, false, $context);
+            $res = json_decode($response, true);
+            if ($res['success'] == true) {
+                // Perform you logic here for ex:- save you data to database
+                $request->validate([
+                    'email' => 'required|email',
+                    'password' => 'required'
+                ]);
+                $users = App\User::all();
+                if ($user = User::where('email', '=', $request->email)->first()) {
+                    if (Hash::check($request->password, $user->password)) {
+                        return $user;
+                    } else {
+                        return view('login', ['loginError' => 'Check your password and email.']);
+                    }
+                } else {
+                    return view('login', ['loginError' => 'Check your password and email.']);
+                }
+            } else {
+                return view('login', ['loginError' => 'Bot detected.']);
+            }
+        }
     }
     public function displayLoginForm()
     {

@@ -1,26 +1,19 @@
 @extends('layouts.container')
 
-@section('title','Yamm')
+@section('title','Helooooooooo')
 
 @section('content')
-@if($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+
+
+
+@if('loginError')
+    <?php echo $loginError; ?>
 @endif
-@if(isset($loginError))
-{{ $loginError }}
-@endif
-<form method="POST">
+
+<form action="?" method="POST">
     @csrf
-    <input type="text" name="name" placeholder="Name">
-    <input type="email" name="email" placeholder="Name">
-    <input type="password" name="password" placeholder="Name">
-    <input type="password" name="password_confirmation" placeholder="Name">
+    <input type="text" name="email" id="email">
+    <input type="password" name="password" id="password">
     <input type="hidden" name="token" id="token">
     <input type="submit" name="submit" value="Submit">
 </form>
@@ -33,6 +26,3 @@
         });
         </script>
 @endsection
-
-
-
