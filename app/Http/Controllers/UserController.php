@@ -67,6 +67,8 @@ class UserController extends Controller
                 $newUser->email = $request->email;
                 $newUser->password = Hash::make($request->password);
                 $newUser->save();
+
+                $request->session()->put('user', $newUser->name);
                 return redirect('');
             } else {
                 return view('register', ['loginError' => 'Bot datected.']);

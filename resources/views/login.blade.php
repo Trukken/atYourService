@@ -6,7 +6,7 @@
 
 
 
-@if('loginError')
+@if(isset($loginError))
     <?php echo $loginError; ?>
 @endif
 
