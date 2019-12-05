@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', 'ServiceController@index');
+
 
 Route::get('/register', 'UserController@index');
 Route::post('/register', 'UserController@store');
+
+
+//search page
+Route::get('/', 'ServiceController@index');
+//search results
+Route::get('/search-results', 'ServiceController@searchResults');

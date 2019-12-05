@@ -13,7 +13,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('homePage');
+        $randomservices = \App\Service::inRandomOrder()->limit(5)->get();
+
+
+        return view('homePage', ['randomservices' => $randomservices]);
     }
 
     /**
@@ -80,5 +83,15 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function searchResults(Request $request)
+    {
+        $servicesResult = \App\Service::where('name', 'like', '%' . $request->name . '%');
+        return view('search-results', ['servicesResult' => $servicesResult]);
+
+        // if ($request->has('name')) {
+        //     return $services->where('name', $request->input('name'))->get();
+        // }
     }
 }
