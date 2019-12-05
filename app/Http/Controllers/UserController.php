@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -35,8 +37,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
+        ]);
         $newUser = new User;
+
         $newUser->name = $request->name;
+        $newUser->email = $request->email;
+        $newUser->password = Hash::make($request->password);
         return $newUser;
     }
 
@@ -83,5 +94,19 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        //$users = App\User::all();
+        $loggedUser = new User;
+        //return $users;
+    }
+    public function displayLoginForm()
+    {
+        return view('login');
     }
 }
