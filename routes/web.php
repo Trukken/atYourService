@@ -20,3 +20,5 @@ Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 
 Route::get('/logout', 'LogOutController@index');
+
+Route::get('/token-validate/{token}','RegisterController@verify');
