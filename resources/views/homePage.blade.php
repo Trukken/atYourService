@@ -6,7 +6,7 @@
 @section('content')
 
 <section id="home">
-    <h1><span>@</span>yourService</a></h1>
+    <h1><span>at</span>YourService</a></h1>
     <h2>Linking expats to experts in Luxembourg</h2>
     <div class="search-container">
         <form action=""> <!--/action_page.php-->
