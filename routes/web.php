@@ -20,4 +20,6 @@ Route::post('/register', 'UserController@store');
 //search page
 Route::get('/', 'ServiceController@index');
 //search results
-Route::get('/search-results', 'ServiceController@searchResults');
+Route::post('/search-results', 'ServiceController@searchResults');
+Route::post('/livesearch', 'ServiceController@livesearch');
+

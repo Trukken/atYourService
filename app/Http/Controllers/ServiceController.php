@@ -87,11 +87,20 @@ class ServiceController extends Controller
 
     public function searchResults(Request $request)
     {
-        $servicesResult = \App\Service::where('name', 'like', '%' . $request->name . '%');
-        return view('search-results', ['servicesResult' => $servicesResult]);
+        $result = $request->searchbar;
+        $servicesResult = \App\Service::where('name', 'like', '%' . $result . '%')->get();
 
-        // if ($request->has('name')) {
-        //     return $services->where('name', $request->input('name'))->get();
-        // }
+        return view('search-results', ['servicesResult' => $servicesResult]);
+    }
+    
+    public function livesearch(Request $request)
+    {
+        $result = $request->searchbar;
+        $servicesResult = \App\Service::where('name', 'like', '%' . $result . '%')->get();
+        //echo '<div class="specialcontainer">';
+        foreach ($servicesResult as $service) {
+            $servicenames = $service->name;
+            echo '<a href="#">' .  $servicenames . '</a><br>';
+        }
     }
 }

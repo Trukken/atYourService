@@ -5,16 +5,17 @@
 
 @section('content')
 
-<p>Some content comes here in the future</p>
+<p>Search results: </p>
 
-<h3>Services: </h3>
+<h3>By service name: </h3>
+
 
 @foreach($servicesResult as $service)
 <div class="wrapper">
     <p>
         <strong>{{$service->name}}</strong>
         <br>
-        <strong>Description: </strong> {{$service->short_description}}
+        <strong>(short) description: </strong> {{$service->short_description}}
         <hr>
     </p>
 </div>
