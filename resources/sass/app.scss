@@ -1,1 +1,43 @@
-//
+* 
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    border: 0
+    list-style: none
+    transition-duration: .3s
+    scroll-behavior: smooth
+    
+header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background-color: #191919
+
+    h1
+        display: flex
+        justify-content: flex-start
+        padding: 10px
+    
+    a 
+        text-decoration: none
+        color: white
+
+    nav 
+        ul
+            display: flex
+            justify-content: flex-end
+            list-style: none
+            margin: 0
+        li
+            padding: 10px
+
+
+h1 span
+    color:rgba(192, 51, 51, 1)
+
+
+#home
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center

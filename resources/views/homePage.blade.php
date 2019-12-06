@@ -45,7 +45,6 @@
         </div>
         <div class="card-footer">
             <button type="button" class="btn btn-outline-danger">Details</button>
-
         </div>
     </div>
 </div>
