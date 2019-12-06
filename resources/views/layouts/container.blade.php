@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('sass/app.scss')}}">
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
     <title>@yield('title')</title>
 </head>
 <body>
     <header>
-        <h1><a href="#home"><span>@</span>yourService </a></h1>
-        <img src="../atYourService/style/images/waiter (1).png" alt="">
+        <h1><a href="#home"><span>@</span>yourService </a><img src="{{asset('images/waiter.png')}}" alt=""></h1>
+        
         <nav>
             <ul>
                 @if(!Auth::user())

@@ -18,6 +18,11 @@ header {
 header h1{
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}
+
+header img{
     padding: 10px;
 }
 
@@ -46,4 +51,11 @@ h1 span{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.content{
+    background-image: url("../images/anastasia-dulgier-OKOOGO578eo-unsplash.jpg");
+}
+
+.card-deck{
+    
 }
