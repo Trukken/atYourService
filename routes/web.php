@@ -23,3 +23,8 @@ Route::get('/', 'ServiceController@index');
 Route::post('/search-results', 'ServiceController@searchResults');
 Route::post('/livesearch', 'ServiceController@livesearch');
 
+Route::get('/search-results', 'ServiceController@searchbyname');
+
+
+Route::get('/services/{name}', 'ServiceController@searchbyname');
+//Route::get('/services/providers/{user}', 'ServiceController@searchbyname');

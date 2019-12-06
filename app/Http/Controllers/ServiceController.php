@@ -87,20 +87,31 @@ class ServiceController extends Controller
 
     public function searchResults(Request $request)
     {
-        $result = $request->searchbar;
-        $servicesResult = \App\Service::where('name', 'like', '%' . $result . '%')->get();
+        $usersearch = $request->searchbar;
+        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->get();
 
         return view('search-results', ['servicesResult' => $servicesResult]);
     }
-    
+
     public function livesearch(Request $request)
     {
         $result = $request->searchbar;
-        $servicesResult = \App\Service::where('name', 'like', '%' . $result . '%')->get();
+        $servicesResult = \App\Service::distinct()->select('name')->where('name', 'like', '%' . $result . '%')->get();
         //echo '<div class="specialcontainer">';
         foreach ($servicesResult as $service) {
             $servicenames = $service->name;
-            echo '<a href="#">' .  $servicenames . '</a><br>';
+            //$servicesid = $service->id;
+            echo '<a href="/services/' . $servicenames . '">' .  $servicenames . '</a><br>';
         }
+    }
+
+    public function searchbyname(Request $request)
+    {
+        $req = $request->name;
+        $query = \App\Service::where('name', 'like', '%' . $req . '%')->get();
+        foreach ($query as $service) {
+            $servicenames[] = $service;
+        }
+        return view('/serviceslist', ['query' => $query, 'request' => $request, 'name' => $req, 'servicename' => $servicenames]);
     }
 }

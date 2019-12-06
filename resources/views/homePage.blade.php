@@ -28,10 +28,10 @@
         <strong>{{$randomservice->name}}</strong>
         <br>
         <strong>Description: </strong> {{$randomservice->short_description}}
-        <hr>
     </p>
 
 </a>
+<hr>
 @endforeach
 
 <!-- AJAX call to create a live search -->
