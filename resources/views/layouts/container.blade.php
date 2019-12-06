@@ -9,6 +9,13 @@
 <body>
     <nav>
         blablabla
+        @if(!Auth::user())
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+        @endif
+        @if(Auth::user())
+        <a href="/logout">Logout</a>
+        @endif
     </nav>
 
     <div class="content">

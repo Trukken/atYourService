@@ -13,8 +13,10 @@
 
 Route::get('/', 'ServiceController@index');
 
-Route::get('/register', 'UserController@index');
-Route::post('/register', 'UserController@store');
+Route::get('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@store');
 
-Route::get('/login', 'UserController@displayLoginForm');
-Route::post('/login', 'UserController@login');
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login');
+
+Route::get('/logout', 'LogOutController@index');

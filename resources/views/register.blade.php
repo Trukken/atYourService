@@ -21,6 +21,7 @@
     <input type="email" name="email" placeholder="Name">
     <input type="password" name="password" placeholder="Name">
     <input type="password" name="password_confirmation" placeholder="Name">
+    <input type="text" name="phone" placeholder="Phone number">
     <input type="hidden" name="token" id="token">
     <input type="submit" name="submit" value="Submit">
 </form>
