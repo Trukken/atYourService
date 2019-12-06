@@ -12,7 +12,12 @@
 
 <form action="?" method="POST">
     @csrf
+    @if(Session::get('email'))
+    <input type="text" name="email" id="email" value="{{ Session::get('email') }}">
+    @endif
+    @if(!Session::get('email'))
     <input type="text" name="email" id="email">
+    @endif
     <input type="password" name="password" id="password">
     <input type="hidden" name="token" id="token">
     <input type="submit" name="submit" value="Submit">

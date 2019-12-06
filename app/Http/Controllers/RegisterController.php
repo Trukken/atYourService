@@ -69,17 +69,16 @@ class RegisterController extends Controller
                 $emails = User::all()->pluck('email');
                 foreach ($emails as $email) {
                     if ($email == $request->email) {
-                        return view('register', ['loginError' => 'Duplicate email']);
+                        $request->session()->put('email', $email);
+                        return view('register', ['loginError' => 'Email already exists, Do you want to <a href="/login">login</a>?']);
                     }
                 }
                 $user = User::create(request(['name', 'email', 'password', 'password']));
                 auth()->login($user);
                 return redirect('');
             } else {
-                return view('register', ['loginError' => 'Bot datected.']);
+                return view('register', ['loginError' => 'You can not enter data that fast.']);
             }
-        } else {
-            return view('register', ['loginError' => 'Bot deeeeetected.']);
         }
     }
 
