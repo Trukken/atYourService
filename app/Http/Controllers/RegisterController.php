@@ -87,7 +87,7 @@ class RegisterController extends Controller
                 ];
                 \Mail::to($newUser->email)->send(new \App\Mail\Mail($details));
                 auth()->login($newUser);
-                return redirect('register');
+                return redirect('/');
             } else {
                 return view('register', ['loginError' => 'You can not enter data that fast.']);
             }
