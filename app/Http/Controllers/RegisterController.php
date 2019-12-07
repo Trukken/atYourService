@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Mail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 class RegisterController extends Controller
 {
     /**
@@ -82,12 +84,12 @@ class RegisterController extends Controller
                 $newUser->verification_token = $token;
                 $newUser->save();
                 $details = [
-                'name'=>$newUser->name,
-                'token' => $token,
+                    'name' => $newUser->name,
+                    'token' => $token,
                 ];
                 \Mail::to($newUser->email)->send(new \App\Mail\Mail($details));
                 auth()->login($newUser);
-                return redirect('register');
+                return redirect('');
             } else {
                 return view('register', ['loginError' => 'You can not enter data that fast.']);
             }
@@ -117,13 +119,13 @@ class RegisterController extends Controller
         $users = User::all();
         foreach ($users as $user) {
             var_dump($user->verification_token);
-            if($user->verification_token == $token && !empty($user->verification_token)){
-                User::where('id','=',$user->id)->update(['email_verified'=>true,'verification_token'=>'']);
+            if ($user->verification_token == $token && !empty($user->verification_token)) {
+                User::where('id', '=', $user->id)->update(['email_verified' => true, 'verification_token' => null]);
                 return redirect('/');
-                }
             }
-        return 'The verification key had expired.';
         }
+        return 'The verification key had expired.';
+    }
 
     /**
      * Update the specified resource in storage.
@@ -147,5 +149,4 @@ class RegisterController extends Controller
     {
         //
     }
-
 }
