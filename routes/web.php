@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'ServiceController@index');
+
 
 Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@store');
@@ -21,4 +21,30 @@ Route::post('/login', 'LoginController@login');
 
 Route::get('/logout', 'LogOutController@index');
 
-Route::get('/token-validate/{token}','RegisterController@verify');
+
+Route::get('/token-validate/{token}', 'RegisterController@verify');
+
+
+//SEARCH page
+Route::get('/', 'ServiceController@index');
+//search results
+Route::post('/search-results', 'ServiceController@searchResults');
+Route::post('/livesearch', 'ServiceController@livesearch');
+
+Route::get('/search-results', 'ServiceController@searchbyname');
+
+
+Route::get('/services/select/{name}', 'ServiceController@searchbyname');
+//Route::get('/services/providers/{user}', 'ServiceController@searchbyname');
+
+
+//POST A SERVICE
+//add to database
+Route::get('/add/services', 'ServiceController@create');
+Route::post('/add/services', 'ServiceController@store');
+//show details
+Route::get('/services/detail/{id}', 'ServiceController@show');
+
+// COMMENTS
+//add to database
+Route::post('/services/comments/add/{id}', 'CommentController@store');
