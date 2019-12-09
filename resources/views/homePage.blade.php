@@ -434,6 +434,7 @@
 </div>
 <!--Carousel Wrapper-->
 
+
 <div class="container">
     <form action="/search-results" method="post" class="search-box" id="form">
         {{ csrf_field() }}
