@@ -9,10 +9,10 @@
     <h1><span>at</span>YourService</a></h1>
     <h2>Linking expats to experts in Luxembourg</h2>
     <div class="search-container">
-        <form action=""> <!--/action_page.php-->
-            <input type="text" placeholder="Search your service..." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+    <form class="form-inline mr-auto">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+    </form>
     </div>
 </section>
 
@@ -31,7 +31,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/29.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -42,12 +42,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Shoes</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Leather boots</a>
+                <a href="">Service Provider 1</a>
               </strong>
             </h4>
 
@@ -76,7 +73,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -87,12 +84,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Jeans</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Slim jeans</a>
+                <a href="">Service Provider 2</a>
               </strong>
             </h4>
 
@@ -121,7 +115,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" class="card-img-top" alt="">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -131,12 +125,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Shorts</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Denim shorts</a>
+                <a href="">Service Provider 3</a>
               </strong>
             </h4>
 
@@ -172,7 +163,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/women/23.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -183,12 +174,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Accessories</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Summer hat</a>
+                <a href="">Service Provider 4</a>
               </strong>
             </h4>
 
@@ -217,7 +205,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/83.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -228,12 +216,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Shoes</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Black heels</a>
+                <a href="">Service Provider 5</a>
               </strong>
             </h4>
 
@@ -263,7 +248,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(31).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -274,12 +259,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Outerwear</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Black jacket</a>
+                <a href="">Service Provider 6</a>
               </strong>
             </h4>
 
@@ -314,7 +296,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(38).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/women/79.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -325,12 +307,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Accessories</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Leather bag</a>
+                <a href="">Service Provider 7</a>
               </strong>
             </h4>
 
@@ -360,7 +339,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/belt.jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/20.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -371,12 +350,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Accessories</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Leather belt</a>
+                <a href="">Service Provider 8</a>
               </strong>
             </h4>
 
@@ -405,7 +381,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(57).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/86.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -416,12 +392,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Shoes</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Sneakers</a>
+                <a href="">Service Provider 9</a>
               </strong>
             </h4>
 
