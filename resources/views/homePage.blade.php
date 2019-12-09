@@ -746,6 +746,7 @@
 <!--Carousel Wrapper-->
 
 
+
 <form action="/search-results" method="post" class="search-box" id="form">
     {{ csrf_field() }}
     <input type="text" name="searchbar" id="search" autocomplete="off" value="">
