@@ -461,13 +461,17 @@
 
 <!-- AJAX call to create a live search -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
 <script>
     $(function() {
         $('#search').keyup(function(e) {
             console.log($(this).val());
             //let $value = $(this).val();
             e.preventDefault();
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+            });
             $.ajax({
                 url: '/livesearch',
                 type: 'post',
@@ -486,11 +490,7 @@
     });
 </script>
 <script type="text/javascript">
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+
 </script>
 
 @endsection
