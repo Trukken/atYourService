@@ -9,64 +9,53 @@
     <h1><span>at</span>YourService</a></h1>
     <h2>Linking expats to experts in Luxembourg</h2>
     <div class="search-container">
-        <form action="">
-            <!--/action_page.php-->
-            <input type="text" placeholder="Search your service..." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+    <form class="form-inline mr-auto">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+    </form>
     </div>
 </section>
 
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
 
-        <!--First slide-->
-        <div class="carousel-item active">
+    <!--First slide-->
+    <div class="carousel-item active">
 
-            <div class="col-md-4">
+      <div class="col-md-4">
 
-                <!--Card-->
-                <div class="card card-cascade narrower card-ecommerce">
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
 
-                    <!--Card image-->
-                    <div class="view view-cascade overlay">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" class="card-img-top" alt="">
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                    <!--Card image-->
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/men/29.jpg" class="card-img-top"
+              alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
 
-                    <!--Card content-->
-                    <div class="card-body card-body-cascade text-center no-padding">
-                        <!--Category & Title-->
-                        <a href="" class="text-muted">
-                            <h5>Shoes</h5>
-                        </a>
-                        <h4 class="card-title">
-                            <strong>
-                                <a href="">Leather boots</a>
-                            </strong>
-                        </h4>
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 1</a>
+              </strong>
+            </h4>
 
-                        <!--Description-->
-                        <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
-                            saepe eveniet ut et voluptates.
-                        </p>
+            <!--Description-->
+            <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
+              saepe eveniet ut et voluptates.
+            </p>
 
-                        <!--Card footer-->
-                        <div class="card-footer">
-                            <button type="button" class="btn btn-outline-danger">Details</button>
-                        </div>
-
-                    </div>
-                    <!--Card content-->
-
-                </div>
-                <!--Card-->
-
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
             <div class="col-md-4 clearfix d-none d-sm-block">
@@ -111,6 +100,43 @@
                 </div>
                 <!--Card-->
 
+        </div>
+        <!--Card-->
+
+      </div>
+
+      <div class="col-md-4 clearfix d-none d-sm-block">
+
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" class="card-img-top"
+              alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 2</a>
+              </strong>
+            </h4>
+
+            <!--Description-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit. Nam
+              incidunt eius est voluptatibus.
+            </p>
+
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
             <div class="col-md-4 clearfix d-none d-sm-block">
@@ -156,6 +182,43 @@
                 </div>
                 <!--Card-->
 
+        </div>
+        <!--Card-->
+
+      </div>
+
+      <div class="col-md-4 clearfix d-none d-sm-block">
+
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" class="card-img-top" alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 3</a>
+              </strong>
+            </h4>
+
+            <!--Description-->
+            <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci velit, sed quia
+              non.
+            </p>
+
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
         </div>
@@ -206,6 +269,46 @@
                 </div>
                 <!--Card-->
 
+      </div>
+
+    </div>
+    <!--First slide-->
+
+    <!--Second slide-->
+    <div class="carousel-item">
+
+      <div class="col-md-4">
+
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/women/23.jpg" class="card-img-top"
+              alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 4</a>
+              </strong>
+            </h4>
+
+            <!--Description-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit. Nam
+              incidunt eius est voluptatibus.
+            </p>
+
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
             <div class="col-md-4 clearfix d-none d-sm-block">
@@ -251,6 +354,44 @@
                 </div>
                 <!--Card-->
 
+        </div>
+        <!--Card-->
+
+      </div>
+
+      <div class="col-md-4 clearfix d-none d-sm-block">
+
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/men/83.jpg" class="card-img-top"
+              alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 5</a>
+              </strong>
+            </h4>
+
+            <!--Description-->
+            <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci velit, sed quia
+              non.
+            </p>
+
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
             <div class="col-md-4 clearfix d-none d-sm-block">
@@ -295,6 +436,43 @@
                 </div>
                 <!--Card-->
 
+        </div>
+        <!--Card-->
+
+      </div>
+
+      <div class="col-md-4 clearfix d-none d-sm-block">
+
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top"
+              alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 6</a>
+              </strong>
+            </h4>
+
+            <!--Description-->
+            <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
+              saepe eveniet ut et voluptates.
+            </p>
+
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
         </div>
@@ -346,6 +524,45 @@
                 </div>
                 <!--Card-->
 
+    </div>
+    <!--Second slide-->
+
+    <!--Third slide-->
+    <div class="carousel-item">
+
+      <div class="col-md-4">
+
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/women/79.jpg" class="card-img-top"
+              alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 7</a>
+              </strong>
+            </h4>
+
+            <!--Description-->
+            <p class="card-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci velit, sed quia
+              non.
+            </p>
+
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
             <div class="col-md-4 clearfix d-none d-sm-block">
@@ -390,6 +607,43 @@
                 </div>
                 <!--Card-->
 
+        </div>
+        <!--Card-->
+
+      </div>
+
+      <div class="col-md-4 clearfix d-none d-sm-block">
+
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/men/20.jpg" class="card-img-top"
+              alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 8</a>
+              </strong>
+            </h4>
+
+            <!--Description-->
+            <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
+              saepe eveniet ut et voluptates.
+            </p>
+
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
             <div class="col-md-4 clearfix d-none d-sm-block">
@@ -434,6 +688,43 @@
                 </div>
                 <!--Card-->
 
+        </div>
+        <!--Card-->
+
+      </div>
+
+      <div class="col-md-4 clearfix d-none d-sm-block">
+
+        <!--Card-->
+        <div class="card card-cascade narrower card-ecommerce">
+
+          <!--Card image-->
+          <div class="view view-cascade overlay">
+            <img src="https://randomuser.me/api/portraits/men/86.jpg" class="card-img-top"
+              alt="">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body card-body-cascade text-center no-padding">
+            <!--Category & Title-->
+            <h4 class="card-title">
+              <strong>
+                <a href="">Service Provider 9</a>
+              </strong>
+            </h4>
+
+            <!--Description-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit. Nam
+              incidunt eius est voluptatibus.
+            </p>
+
+            <!--Card footer-->
+            <div class="card-footer">
+            <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
         </div>
@@ -479,7 +770,6 @@
 @endforeach
 
 <!-- AJAX call to create a live search -->
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     $(function() {
@@ -488,9 +778,9 @@
             //let $value = $(this).val();
             e.preventDefault();
             $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
             });
             $.ajax({
                 url: '/livesearch',
@@ -508,6 +798,9 @@
             });
         });
     });
+</script>
+<script type="text/javascript">
+
 </script>
 
 @endsection
