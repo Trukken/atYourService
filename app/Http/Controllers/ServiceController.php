@@ -40,12 +40,12 @@ class ServiceController extends Controller
          * I need to connect user_id and banned somehow later when I have session etc
          * for now I'm using '1'
          */
-        $newService->user_id = 1;
-        $newService->banned = 1;
-
+        $newService->user_id = auth()->user()->id;   //$request->user_id
+        $newService->banned = 0;
+        return $newService;
         $newService->save();
 
-        // //the $request are data from the form, $request->title means that the input name should be title per example
+        //the $request are data from the form, $request->title means that the input name should be title per example
 
         return 'Service inserted: ' . $request->servicename . ', ' . $request->shortdescription . ', ' . $request->longdescription . '.';
     }

@@ -79,12 +79,9 @@
 
     <form id="form" action="/services/comments/add/{{$service->id}}" method="POST">
         @csrf
-
-        <!-- <input type="text" name="username" id="" placeholder="username">
-        <br> -->
         <br>
         <input type="hidden" name="service_id" value="{{$service->id}}">
-        
+
         <textarea name="message" id="" cols="30" rows="10" placeholder="message..."></textarea>
         <br>
         <input type="submit" name="comment" id="comment" value="Add a comment">
