@@ -97,9 +97,8 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
-    <script>
+    <script type="text/javascript">
+    
         $(function() {
             $('input[type="submit"]').click(function(e) {
                 console.log('you clicked');
@@ -120,8 +119,6 @@
                 });
             });
         });
-    </script>
-    <script type="text/javascript">
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
