@@ -34,7 +34,22 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newComment = new \App\Comment;
+        $newComment->message = $request->message;
+        $newComment->service_id = $request->service_id;
+
+        /**
+         * I need to connect user_id and banned somehow later when I have session etc
+         * for now I'm using '1'
+         */
+        $newComment->user_id = 1;
+        $newComment->banned = 1;
+
+        $newComment->save();
+
+        // //the $request are data from the form, $request->title means that the input name should be title per example
+
+        return 'Comment inserted: ' . $request->message ;
     }
 
     /**
@@ -81,4 +96,5 @@ class CommentController extends Controller
     {
         //
     }
+
 }
