@@ -22,10 +22,9 @@
 <!--View random offers-->
 <h4>Random services: </h4>
 @foreach($randomservices as $randomservice)
-<a href="#">
-
+<a href="/services/detail/{{$randomservice->id}}">
     <p>
-        <strong>{{$randomservice->name}}</strong>
+        <strong>{{ucwords($randomservice->name)}}</strong>
         <br>
         <strong>Description: </strong> {{$randomservice->short_description}}
     </p>
