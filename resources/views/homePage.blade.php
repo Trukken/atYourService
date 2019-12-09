@@ -457,7 +457,7 @@
 
 <form action="/search-results" method="post" class="search-box" id="form">
     {{ csrf_field() }}
-    <input type="text" name="searchbar" id="search" autocomplete="off" value="pet">
+    <input type="text" name="searchbar" id="search" autocomplete="off" value="">
     <input type="submit" value="search">
 </form>
 
@@ -480,7 +480,7 @@
 
 <!-- AJAX call to create a live search -->
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"> </script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     $(function() {
         $('#search').keyup(function(e) {
