@@ -20,7 +20,7 @@ class CreateCommentsTable extends Migration
             $table->foreign('service_id')->references('id')->on('services');
             $table->integer('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->boolean('banned');
+            $table->boolean('banned')->nullable();
             $table->timestamps();
         });
     }

@@ -13,16 +13,20 @@
 
 <body>
     <nav>
-        <p>nav will come here</p>
+        blablabla
+        @if(!Auth::user())
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+        @endif
+        @if(Auth::user())
+        <a href="/logout">Logout</a>
+        @endif
     </nav>
 
     <div class="content">
         @yield('content')
     </div>
 
-    <footer>
-        <p>footer here</p>
-    </footer>
 </body>
 
 </html>
