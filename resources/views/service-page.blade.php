@@ -12,7 +12,7 @@
 
 @if (!Auth::user())
 <div class="">
-    <p> <a href="#">log in</a> to see contact information and full description</p>
+    <p> <a href="/login">log in</a> to see contact information and full description</p>
 </div>
 @else
 
@@ -60,6 +60,11 @@
 
 
 <!--Leave a comment-->
+@if (!Auth::user())
+<div class="">
+    <p> <a href="/login">log in</a> to leave a comment</p>
+</div>
+@else
 
 <form id="form" action="/services/comments/add/{{$service->id}}" method="POST">
     @csrf
@@ -67,7 +72,7 @@
     <input type="hidden" name="service_id" value="{{$service->id}}">
     <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
 
-    <textarea name="message" id="" cols="30" rows="10" placeholder="message..."></textarea>
+    <textarea name="message" id="commentfield" cols="30" rows="10" placeholder="message..."></textarea>
     <br>
     <input type="submit" name="comment" id="comment" value="Add a comment">
 </form>
@@ -75,7 +80,7 @@
 {{$error}}
 <br>
 @endforeach
-
+@endif
 <div class="result"></div>
 <br>
 
@@ -93,6 +98,7 @@
                 data: $('#form').serialize(),
                 success: function(result) {
                     $('.reload').load('/services/detail/{{$service->id}}' + ' .reload');
+                    $('#commentfield').val('');
                     console.log(result);
                     $('.result').html('<p>' + result + '</p>');
                 },

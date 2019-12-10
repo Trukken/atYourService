@@ -5,15 +5,15 @@
 
 @section('content')
 
-<p>Search results: </p>
 
-<h3>By service name: </h3>
+
+<h3>Search results:</h3>
 
 
 @foreach($servicesResult as $service)
 <div class="wrapper">
     <p>
-        <strong>{{$service->name}}</strong>
+        <strong> <a href="/services/detail/{{$service->id}}">{{ucwords($service->name)}}</a></strong>
         <br>
         <strong>(short) description: </strong> {{$service->short_description}}
         <hr>

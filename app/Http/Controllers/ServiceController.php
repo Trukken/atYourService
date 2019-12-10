@@ -112,8 +112,8 @@ class ServiceController extends Controller
         $req = $request->name;
         $query = \App\Service::where('name', 'like', '%' . $req . '%')->get();
         foreach ($query as $service) {
-            $servicenames[] = $service;
+            $services[] = $service;
         }
-        return view('/serviceslist', ['query' => $query, 'request' => $request, 'name' => $req, 'servicename' => $servicenames]);
+        return view('/serviceslist', ['query' => $query, 'request' => $request, 'name' => $req, 'services' => $services]);
     }
 }
