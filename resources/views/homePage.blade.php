@@ -1,19 +1,27 @@
 @extends('layouts.container')
+@section('header')
+<link rel="stylesheet" href="{{ URL::asset('css/homepage.css')}}">
 
+@endsection
 
 @section('title','Home')
 
 @section('content')
 
 <section id="home">
+  <div>
     <h1><span>at</span>YourService</a></h1>
     <h2>Linking expats to experts in Luxembourg</h2>
+  </div>
     <div class="search-container">
-    <form class="form-inline mr-auto">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+    <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
+        {{ csrf_field() }}
+        <input class="form-control mr-sm-2" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+
+        <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
     </form>
     </div>
+    <div class="result dropdown-menu input-dropdown-menu" id="result"></div>
 </section>
 
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -435,15 +443,7 @@
 <!--Carousel Wrapper-->
 
 
-<div class="container">
-    <form action="/search-results" method="post" class="search-box" id="form">
-        {{ csrf_field() }}
-        <input type="text" name="searchbar" id="search" autocomplete="off">
-        <input type="submit" value="search">
-    </form>
 
-    <div class="result dropdown-menu input-dropdown-menu"></div>
-</div>
 
 
 <!--View random offers-->
@@ -463,34 +463,47 @@
 <!-- AJAX call to create a live search -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
-    $(function() {
-        $('#search').keyup(function(e) {
-            console.log($(this).val());
-            //let $value = $(this).val();
-            e.preventDefault();
-            $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-            });
-            $.ajax({
-                url: '/livesearch',
-                type: 'post',
-                data: $('#search').serialize(),
-                success: function(result) {
-                    console.log(typeof(result));
-                    $('.result').html('<p>' + result + '</p>');
-                    console.log(result);
-                },
-                error: function(err) {
-                    // If ajax errors happens
-                    $('.result').html('Error with ajax call');
-                }
-            });
+
+
+let $input = $('#result');
+$('.result').css('display','none');
+
+$(function() {
+    $('#search').keyup(function(e) {
+        e.preventDefault();
+
+        if($('#search').val() !== ''){
+
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
         });
+        $.ajax({
+            url: '/livesearch',
+            type: 'post',
+            data: $('#search').serialize(),
+            success: function(result) {
+                $('.result').html(result);
+                if(result !== ''){
+                    $('.result').css('display','block');
+                }else{
+                    $('.result').css('display','none');
+                }
+            },
+            error: function(err) {
+                // If ajax errors happens
+                $('.result').html('Error with ajax call');
+            }
+        });
+        }else{
+            $('#result').css('display','none');
+
+        }
+        //let $value = $(this).val();
+
     });
-</script>
-<script type="text/javascript">
+});
 
 </script>
 

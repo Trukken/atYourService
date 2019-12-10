@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
     <title>@yield('title')</title>
-
+    @yield('header')
 
 </head>
 
