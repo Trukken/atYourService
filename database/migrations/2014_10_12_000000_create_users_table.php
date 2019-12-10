@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('verification_token')->nullable();
             $table->string('password');
             $table->string('phone_number')->nullable();
+            $table->string('image')->nullable();
             $table->boolean('admin')->nullable();
             $table->boolean('banned')->nullable();
             $table->rememberToken();

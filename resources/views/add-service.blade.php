@@ -22,7 +22,7 @@
     <form id="resultForm" action="" method="post">
         @csrf
 
-        <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+        <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
 
         <input type="text" name="servicename" placeholder="Service name" id="">
         <br>
