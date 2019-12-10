@@ -48,7 +48,19 @@ Route::get('/add-services', 'ServiceController@create');
 Route::post('/add-services', 'ServiceController@store');
 //show details
 Route::get('/services/detail/{id}', 'ServiceController@show');
+//edit or update
+Route::get('/services/edit/{id}', 'ServiceController@edit');
+Route::put('/services/edit/{id}', 'ServiceController@update');
+//delete from database
+Route::get('/services/delete/{id}', 'ServiceController@destroy');
+Route::delete('/services/delete/{id}', 'ServiceController@destroy');
+
+
 
 // COMMENTS
 //add to database
 Route::post('/services/comments/add/{id}', 'CommentController@store');
+
+
+//MY SERVICES PAGE
+Route::get('/myservices/{id}', 'ServiceController@showmyservices');
