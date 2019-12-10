@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title','Helooooooooo')
+@section('title','Atyourservice Login')
 
 @section('content')
 
@@ -22,6 +22,7 @@
     <input type="hidden" name="token" id="token">
     <input type="submit" name="submit" value="Submit">
 </form>
+<p><a href="/forgotpassword">Forgotten password</a></p>
         <script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>
         <script>
         grecaptcha.ready(function() {

@@ -23,14 +23,14 @@
 
         <nav>
             <ul>
-                @if(!Auth::user())
                 <li><a href="#aboutus">About us</a></li>
                 <li><a href="/contact">Contact us</a></li>
+                @if(!Auth::user())
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
                 @endif
                 @if(Auth::user())
-                <a href="/logout">Logout</a>
+                <li><a href="/logout">Logout</a></li>
                 @endif
             </ul>
         </nav>

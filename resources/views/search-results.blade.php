@@ -1,7 +1,7 @@
 @extends('layouts.container')
 
 
-@section('title','Yamm')
+@section('title','Atyourservice Search')
 
 @section('content')
 

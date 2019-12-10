@@ -21,8 +21,14 @@ Route::post('/login', 'LoginController@login');
 
 Route::get('/logout', 'LogOutController@index');
 
-
+// Validate user email
 Route::get('/token-validate/{token}', 'RegisterController@verify');
+
+//Forgotten password
+Route::get('/forgotpassword', 'ForgotController@index');
+Route::post('/forgotpassword', 'ForgotController@send');
+Route::get('/forgotpassword/{token}', 'ForgotController@edit');
+Route::post('/forgotpassword/{token}', 'ForgotController@edit');
 
 
 //SEARCH page
