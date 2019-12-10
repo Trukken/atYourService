@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ForgotController extends Controller
 {
@@ -62,6 +63,7 @@ class ForgotController extends Controller
         foreach ($users as $user) {
             if ($user->password_reset == $token && !empty($user->password_reset)) {
                 //User::where('id', '=', $user->id)->update(['email_verified' => true, 'verification_token' => null]);
+                return view('forgotInput');
             }
         }
     }
@@ -73,9 +75,24 @@ class ForgotController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $token)
     {
         //
+        $request->validate([
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
+        ]);
+        $users = User::all();
+        foreach ($users as $user) {
+            if ($user->password_reset == $token && !empty($user->password_reset)) {
+                //User::where('id', '=', $user->id)->update(['email_verified' => true, 'verification_token' => null]);
+                $password = filter_var($request->password, FILTER_SANITIZE_STRING);
+
+                User::where('id', '=', $user->id)->update(['password' => Hash::make($password)]);
+                $request->session()->put('email', $user->email);
+                return redirect('login');
+            }
+        }
     }
 
     /**
@@ -98,22 +115,24 @@ class ForgotController extends Controller
         $userFound = false;
         $name = '';
         foreach ($users as $user) {
-            if($user->email == $request->email){
+            if ($user->email == $request->email) {
                 $userFound = true;
                 $name = $user->name;
             }
         }
-        if($userFound){
-        $details = [
-            'email' => $request->email,
-            'name' => $name,
-            'token' => sha1(time()) . mt_rand(1000000, 9999999)
-        ];
-        \Mail::to($request->email)->send(new \App\Mail\ResetPassword($details));
-        return 'An e-mail was sent to the given address, follow the instructions in the email.';
-        }else{
-            return view('forgotPassword',['emailError'=>'The email you have entered does not exist.']);
-        }
+        $token = sha1(time()) . mt_rand(1000000, 9999999);
+        if ($userFound) {
+            $details = [
+                'email' => $request->email,
+                'name' => $name,
+                'token' => $token
+            ];
 
+            User::where('id', '=', $user->id)->update(['password_reset' => $token]);
+            \Mail::to($request->email)->send(new \App\Mail\ResetPassword($details));
+            return view('login', ['loginError' => 'An e-mail was sent to the given address, follow the instructions in the email.']);
+        } else {
+            return view('forgotPassword', ['emailError' => 'The email you have entered does not exist.']);
+        }
     }
 }

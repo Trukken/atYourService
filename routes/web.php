@@ -28,7 +28,7 @@ Route::get('/token-validate/{token}', 'RegisterController@verify');
 Route::get('/forgotpassword', 'ForgotController@index');
 Route::post('/forgotpassword', 'ForgotController@send');
 Route::get('/forgotpassword/{token}', 'ForgotController@edit');
-Route::post('/forgotpassword/{token}', 'ForgotController@edit');
+Route::post('/forgotpassword/{token}', 'ForgotController@update');
 
 
 //SEARCH page

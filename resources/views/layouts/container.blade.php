@@ -30,6 +30,8 @@
                 <li><a href="/register">Register</a></li>
                 @endif
                 @if(Auth::user())
+                <li><a href="">My services
+                    </a></li>
                 <li><a href="/logout">Logout</a></li>
                 @endif
             </ul>
