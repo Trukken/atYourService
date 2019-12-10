@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class ForgotController extends Controller
@@ -92,14 +93,27 @@ class ForgotController extends Controller
         $request->validate([
             'email' => 'required|email'
         ]);
+        $emails = User::all()->pluck('email');
         $users = User::all();
+        $userFound = false;
+        $name = '';
         foreach ($users as $user) {
-            
+            if($user->email == $request->email){
+                $userFound = true;
+                $name = $user->name;
+            }
         }
+        if($userFound){
         $details = [
             'email' => $request->email,
+            'name' => $name,
             'token' => sha1(time()) . mt_rand(1000000, 9999999)
         ];
         \Mail::to($request->email)->send(new \App\Mail\ResetPassword($details));
+        return 'An e-mail was sent to the given address, follow the instructions in the email.';
+        }else{
+            return view('forgotPassword',['emailError'=>'The email you have entered does not exist.']);
+        }
+
     }
 }
