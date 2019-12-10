@@ -6,7 +6,7 @@
 @section('content')
 
 <section id="home">
-    <h1><span>at</span>YourService</a></h1>
+    <h1><span>@</span>YourService</a></h1>
     <h2>Linking expats to experts in Luxembourg</h2>
     <div class="search-container">
     <form class="form-inline mr-auto">
@@ -52,12 +52,7 @@
             <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
               saepe eveniet ut et voluptates.
             </p>
-
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
-
+             <button class="btn peach-gradient">Details</button>
           </div>
           <!--Card content-->
 
@@ -94,11 +89,7 @@
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit. Nam
               incidunt eius est voluptatibus.
             </p>
-
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
+            <button class="btn peach-gradient">Details</button>
 
           </div>
           <!--Card content-->
@@ -136,12 +127,7 @@
               adipisci velit, sed quia
               non.
             </p>
-
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
-
+            <button class="btn peach-gradient">Details</button>
           </div>
           <!--Card content-->
 
@@ -185,10 +171,7 @@
               incidunt eius est voluptatibus.
             </p>
 
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
+            <button class="btn peach-gradient">Details</button>
 
           </div>
           <!--Card content-->
@@ -227,12 +210,7 @@
               adipisci velit, sed quia
               non.
             </p>
-
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
-
+            <button class="btn peach-gradient">Details</button>
           </div>
           <!--Card content-->
 
@@ -269,12 +247,7 @@
             <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
               saepe eveniet ut et voluptates.
             </p>
-
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
-
+            <button class="btn peach-gradient">Details</button>
           </div>
           <!--Card content-->
 
@@ -318,12 +291,7 @@
               adipisci velit, sed quia
               non.
             </p>
-
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
-
+            <button class="btn peach-gradient">Details</button>
           </div>
           <!--Card content-->
 
@@ -360,12 +328,7 @@
             <p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
               saepe eveniet ut et voluptates.
             </p>
-
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
-
+            <button class="btn peach-gradient">Details</button>
           </div>
           <!--Card content-->
 
@@ -402,12 +365,7 @@
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit. Nam
               incidunt eius est voluptatibus.
             </p>
-
-            <!--Card footer-->
-            <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
-            </div>
-
+            <button class="btn peach-gradient">Details</button>
           </div>
           <!--Card content-->
 

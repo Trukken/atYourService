@@ -52,7 +52,7 @@ li{
 
 h1{
     padding: 40px;
-    margin-top: 80px;
+    margin-top: 60px;
     font-weight: 600;
     font-size: 5.5rem;
 }
@@ -72,3 +72,24 @@ h2{
     margin: 50px;
 }
 
+.card-title a{
+    color: #ff4a4a;
+}
+
+.card-img-top {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+
+.card.card-cascade .view.view-cascade {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.carousel-multi-item .card-cascade.narrower{
+    padding-top: 15px;
+}
