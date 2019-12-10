@@ -40,7 +40,6 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         //
-        ])
         if (isset($_POST['submit'])) {
             $url = 'https://www.google.com/recaptcha/api/siteverify';
             $data = [
