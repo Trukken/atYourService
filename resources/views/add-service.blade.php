@@ -12,7 +12,7 @@
 
     @if (!Auth::user())
     <div class="">
-        <p> <a href="#">log in</a> post an offer</p>
+        <p> <a href="/login">log in</a> post an offer</p>
     </div>
 
     @elseif(Auth::user())
