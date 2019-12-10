@@ -69,7 +69,8 @@ h2{
 
 
 .carousel-multi-item{
-    margin: 50px 100px;
+    margin: 50px 0px;
+    width: 100%;
 }
 
 .card-title strong{
@@ -77,16 +78,16 @@ h2{
 }
 
 .card-img-top {
-    width: 200px;
-    height: 200px;
+    width: auto;
+    height: 500px;
     margin: auto;
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
 }
 
 .card.card-cascade .view.view-cascade {
-    width: 200px;
-    height: 200px;
+    width: auto;
+    height: 500px;
     margin: auto;
 }
 .card.card-cascade.narrower .view.view-cascade {
@@ -95,12 +96,16 @@ h2{
 
 .carousel-multi-item .card-cascade.narrower {
     padding-top: 15px;
-    width: 300px;
+    width: auto;
     height: 500px;
 }
 
 .carousel-multi-item .controls-top .btn-floating {
     background: rgb(255, 74, 74);
+}
+
+.btn-secondary {
+    background-color: rgb(255, 74, 74) !important;
 }
 
 #btn{

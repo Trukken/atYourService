@@ -30,58 +30,40 @@
 
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
-            <!--First slide-->
+      <!--First slide-->
 
-            <div class="carousel-item" style="display:hidden;">
+      <div class="carousel-item mockup-carousel-item">
 
-                    <div class="col-md-4">
-                      <div class="card mb-2">
-                        <img class="card-img-top"
-                          src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                          alt="Card image cap">
-                        <div class="card-body">
-                          <h4 class="card-title">Card title</h4>
-                          <p class="card-text"></p>
-                          <a class="btn btn-primary">Button</a>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-    <div class="carousel-item active">
-
-            <div class="col-md-4">
-              <div class="card mb-2">
-                <img class="card-img-top"
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                  alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                  <a class="btn btn-primary">Button</a>
-                </div>
-              </div>
+        <div class="col-md-4 mockup-col-md-4">
+          <div class="card mb-2">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text"></p>
+              <a class="btn btn-secondary">Button</a>
             </div>
-
           </div>
-          <!--/.First slide-->
-        <!--Slides-->
-
-        <!--Controls-->
-        <div class="controls-top">
-          <a class="btn-floating" href="#multi-item-example" data-slide="prev">
-            <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
-          </a>
-          <a class="btn-floating" href="#multi-item-example" data-slide="next">
-            <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
-          </a>
         </div>
-        <!--/.Slides-->
 
       </div>
-      <!--/.Carousel Wrapper-->
+
+    </div>
+    <!--/.First slide-->
+    <!--Slides-->
+
+    <!--Controls-->
+    <div class="controls-top">
+      <a class="btn-floating" href="#multi-item-example" data-slide="prev">
+        <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
+      </a>
+      <a class="btn-floating" href="#multi-item-example" data-slide="next">
+        <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
+      </a>
+    </div>
+    <!--/.Slides-->
+
+  </div>
+  <!--/.Carousel Wrapper-->
 </section>
 
 
@@ -129,27 +111,37 @@
     });
   });
 
-  let $cards = <?php echo $randomservices; ?> ;
+  let cards = <?php echo $randomservices; ?>;
 
-  let counter = 1;
-  for(const card of $cards) {
-    const mockup = document.querySelector(".col-md-4");
-    const newClone = mockup.cloneNode(true);
-    if (counter % 3 == 0) {
-      let newItem = document.querySelector(".carousel-item").cloneNode(true)
-      document.querySelector(".carousel-inner").appendChild(newItem);
-      newItem.append(newClone);
-    } else {
-        document.querySelector(".carousel-item").append(newClone);
+  let counter = 0;
+  let slide = document.querySelector('.mockup-carousel-item');
+  let liveSlide = slide.cloneNode(true);
+  let item = document.querySelector('.mockup-col-md-4');
+  for (const card of cards) {
+    let newClone = item.cloneNode(true);
+    item.remove();
+    newClone.className = 'col-md-4';
+    newClone.querySelector('img').src = card.image;
+    newClone.querySelector('p').innerText = card.short_description;
+    newClone.querySelector('a').innerText = card.id;
 
+
+
+    if (counter % 3 == 0 || counter == 0) {
+
+      let newSlide = slide.cloneNode(true);
+      newSlide.className = ('carousel-item');
+      let slideHolder = document.querySelector('.carousel-inner');
+      slideHolder.append(newSlide);
+      liveSlide = newSlide;
+      if (counter == 3) {
+        liveSlide.className = 'carousel-item active';
+      }
     }
-    newClone.querySelector("img").innerText = card.image;
-    newClone.querySelector("h4").innerText = card.title;
-    newClone.querySelector("p").innerText = card.description;
-    newClone.querySelector("a").href = card.url;
-    counter++;
 
-}
-  document.querySelectorAll(".col-md-4")[0].style.display = "none";
+    liveSlide.append(newClone);
+    counter++;
+  }
+  document.querySelector('.mockup-carousel-item').remove();
 </script>
 @endsection
