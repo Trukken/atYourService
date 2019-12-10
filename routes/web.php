@@ -39,15 +39,13 @@ Route::post('/livesearch', 'ServiceController@livesearch');
 
 Route::get('/search-results', 'ServiceController@searchbyname');
 
-
 Route::get('/services/select/{name}', 'ServiceController@searchbyname');
-//Route::get('/services/providers/{user}', 'ServiceController@searchbyname');
 
 
 //POST A SERVICE
 //add to database
-Route::get('/add/services', 'ServiceController@create');
-Route::post('/add/services', 'ServiceController@store');
+Route::get('/add-services', 'ServiceController@create');
+Route::post('/add-services', 'ServiceController@store');
 //show details
 Route::get('/services/detail/{id}', 'ServiceController@show');
 

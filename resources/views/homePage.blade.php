@@ -42,8 +42,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://randomuser.me/api/portraits/men/29.jpg" class="card-img-top"
-              alt="">
+            <img src="https://randomuser.me/api/portraits/men/29.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -66,7 +65,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -84,8 +83,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://randomuser.me/api/portraits/men/85.jpg" class="card-img-top"
-              alt="">
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -108,7 +106,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -150,7 +148,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -174,8 +172,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://randomuser.me/api/portraits/women/23.jpg" class="card-img-top"
-              alt="">
+            <img src="https://randomuser.me/api/portraits/women/23.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -198,7 +195,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -216,8 +213,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://randomuser.me/api/portraits/men/83.jpg" class="card-img-top"
-              alt="">
+            <img src="https://randomuser.me/api/portraits/men/83.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -241,7 +237,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -259,8 +255,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top"
-              alt="">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -283,7 +278,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -307,8 +302,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://randomuser.me/api/portraits/women/79.jpg" class="card-img-top"
-              alt="">
+            <img src="https://randomuser.me/api/portraits/women/79.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -332,7 +326,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -350,8 +344,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://randomuser.me/api/portraits/men/20.jpg" class="card-img-top"
-              alt="">
+            <img src="https://randomuser.me/api/portraits/men/20.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -374,7 +367,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -392,8 +385,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://randomuser.me/api/portraits/men/86.jpg" class="card-img-top"
-              alt="">
+            <img src="https://randomuser.me/api/portraits/men/86.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -416,7 +408,7 @@
 
             <!--Card footer-->
             <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Details</button>
+              <button type="button" class="btn btn-outline-danger">Details</button>
             </div>
 
           </div>
@@ -432,20 +424,18 @@
 
   </div>
   <!--Slides-->
-<!--Controls-->
-          <div class="controls-top">
-            <a class="btn-floating primary-color" href="#multi-item-example" data-slide="prev">
-            <img src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
-            </a>
-            <a class="btn-floating primary-color" href="#multi-item-example" data-slide="next">
-            <img src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
-            </a>
-          </div>
-          <!--Controls-->
+  <!--Controls-->
+  <div class="controls-top">
+    <a class="btn-floating primary-color" href="#multi-item-example" data-slide="prev">
+      <img src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
+    </a>
+    <a class="btn-floating primary-color" href="#multi-item-example" data-slide="next">
+      <img src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
+    </a>
+  </div>
+  <!--Controls-->
 </div>
 <!--Carousel Wrapper-->
-
-
 
 
 
@@ -453,11 +443,11 @@
 <h4>Random services: </h4>
 @foreach($randomservices as $randomservice)
 <a href="/services/detail/{{$randomservice->id}}">
-    <p>
-        <strong>{{ucwords($randomservice->name)}}</strong>
-        <br>
-        <strong>Description: </strong> {{$randomservice->short_description}}
-    </p>
+  <p>
+    <strong>{{ucwords($randomservice->name)}}</strong>
+    <br>
+    <strong>Description: </strong> {{$randomservice->short_description}}
+  </p>
 
 </a>
 <hr>

@@ -12,15 +12,17 @@
 
     @if (!Auth::user())
     <div class="">
-        <p> <a href="#">log in</a> post an offer</p>
+        <p> <a href="/login">log in</a> post an offer</p>
     </div>
 
-    @else
+    @elseif(Auth::user())
 
     <h1>Add a service</h1>
 
     <form id="resultForm" action="" method="post">
         @csrf
+
+        <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
 
         <input type="text" name="servicename" placeholder="Service name" id="">
         <br>
@@ -44,7 +46,7 @@
                 console.log('you clicked');
                 e.preventDefault();
                 $.ajax({
-                    url: '/add/services',
+                    url: '/add-services',
                     type: 'post',
                     data: $('#resultForm').serialize(),
                     success: function(result) {
