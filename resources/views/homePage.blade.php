@@ -1,19 +1,30 @@
 @extends('layouts.container')
 
+@section('title','Atyourservice')
+
+@section('header')
+<link rel="stylesheet" href="{{ URL::asset('css/homepage.css')}}">
+
+@endsection
 
 @section('title','Home')
 
 @section('content')
 
 <section id="home">
+  <div>
     <h1><span>at</span>YourService</a></h1>
     <h2>Linking expats to experts in Luxembourg</h2>
+  </div>
     <div class="search-container">
-        <form action=""> <!--/action_page.php-->
-            <input type="text" placeholder="Search your service..." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+    <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
+        {{ csrf_field() }}
+        <input class="form-control mr-sm-2" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+
+        <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+    </form>
     </div>
+    <div class="result dropdown-menu input-dropdown-menu" id="result"></div>
 </section>
 
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -31,7 +42,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/29.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -42,12 +53,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Shoes</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Leather boots</a>
+                <a href="">Service Provider 1</a>
               </strong>
             </h4>
 
@@ -76,7 +84,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -87,12 +95,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Jeans</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Slim jeans</a>
+                <a href="">Service Provider 2</a>
               </strong>
             </h4>
 
@@ -121,7 +126,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" class="card-img-top" alt="">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" class="card-img-top" alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -131,12 +136,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Shorts</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Denim shorts</a>
+                <a href="">Service Provider 3</a>
               </strong>
             </h4>
 
@@ -172,7 +174,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/women/23.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -183,12 +185,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Accessories</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Summer hat</a>
+                <a href="">Service Provider 4</a>
               </strong>
             </h4>
 
@@ -217,7 +216,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/83.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -228,12 +227,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Shoes</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Black heels</a>
+                <a href="">Service Provider 5</a>
               </strong>
             </h4>
 
@@ -263,7 +259,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(31).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -274,12 +270,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Outerwear</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Black jacket</a>
+                <a href="">Service Provider 6</a>
               </strong>
             </h4>
 
@@ -314,7 +307,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(38).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/women/79.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -325,12 +318,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Accessories</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Leather bag</a>
+                <a href="">Service Provider 7</a>
               </strong>
             </h4>
 
@@ -360,7 +350,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/belt.jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/20.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -371,12 +361,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Accessories</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Leather belt</a>
+                <a href="">Service Provider 8</a>
               </strong>
             </h4>
 
@@ -405,7 +392,7 @@
 
           <!--Card image-->
           <div class="view view-cascade overlay">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(57).jpg" class="card-img-top"
+            <img src="https://randomuser.me/api/portraits/men/86.jpg" class="card-img-top"
               alt="">
             <a>
               <div class="mask rgba-white-slight"></div>
@@ -416,12 +403,9 @@
           <!--Card content-->
           <div class="card-body card-body-cascade text-center no-padding">
             <!--Category & Title-->
-            <a href="" class="text-muted">
-              <h5>Shoes</h5>
-            </a>
             <h4 class="card-title">
               <strong>
-                <a href="">Sneakers</a>
+                <a href="">Service Provider 9</a>
               </strong>
             </h4>
 
@@ -461,15 +445,8 @@
 </div>
 <!--Carousel Wrapper-->
 
-<div class="container">
-    <form action="/search-results" method="post" class="search-box" id="form">
-        {{ csrf_field() }}
-        <input type="text" name="searchbar" id="search" autocomplete="off">
-        <input type="submit" value="search">
-    </form>
 
-    <div class="result dropdown-menu input-dropdown-menu"></div>
-</div>
+
 
 
 <!--View random offers-->
@@ -488,36 +465,49 @@
 
 <!-- AJAX call to create a live search -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
 <script>
-    $(function() {
-        $('#search').keyup(function(e) {
-            console.log($(this).val());
-            //let $value = $(this).val();
-            e.preventDefault();
-            $.ajax({
-                url: '/livesearch',
-                type: 'post',
-                data: $('#search').serialize(),
-                success: function(result) {
-                    console.log(typeof(result));
-                    $('.result').html('<p>' + result + '</p>');
-                    console.log(result);
-                },
-                error: function(err) {
-                    // If ajax errors happens
-                    $('.result').html('Error with ajax call');
-                }
-            });
-        });
-    });
-</script>
-<script type="text/javascript">
-    $.ajaxSetup({
+
+
+let $input = $('#result');
+$('.result').css('display','none');
+
+$(function() {
+    $('#search').keyup(function(e) {
+        e.preventDefault();
+
+        if($('#search').val() !== ''){
+
+        $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
+        });
+        $.ajax({
+            url: '/livesearch',
+            type: 'post',
+            data: $('#search').serialize(),
+            success: function(result) {
+                $('.result').html(result);
+                if(result !== ''){
+                    $('.result').css('display','block');
+                }else{
+                    $('.result').css('display','none');
+                }
+            },
+            error: function(err) {
+                // If ajax errors happens
+                $('.result').html('Error with ajax call');
+            }
+        });
+        }else{
+            $('#result').css('display','none');
+
+        }
+        //let $value = $(this).val();
+
     });
+});
+
 </script>
 
 @endsection

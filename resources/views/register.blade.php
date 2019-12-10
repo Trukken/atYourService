@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title','Yamm')
+@section('title','Register')
 
 @section('content')
 @if($errors->any())

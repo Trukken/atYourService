@@ -40,6 +40,7 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         //
+        ])
         if (isset($_POST['submit'])) {
             $url = 'https://www.google.com/recaptcha/api/siteverify';
             $data = [
@@ -118,7 +119,6 @@ class RegisterController extends Controller
         //9fe1d37ece96644eaf44f2252b8384813cfbc757203642
         $users = User::all();
         foreach ($users as $user) {
-            var_dump($user->verification_token);
             if ($user->verification_token == $token && !empty($user->verification_token)) {
                 User::where('id', '=', $user->id)->update(['email_verified' => true, 'verification_token' => null]);
                 return redirect('/');
