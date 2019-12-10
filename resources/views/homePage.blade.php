@@ -30,45 +30,43 @@
 
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
+            <!--First slide-->
 
-      <!--First slide-->
-      <div class="carousel-item active">
+            <div class="carousel-item" style="display:hidden;">
 
-        <div class="col-md-4 clearfix d-none d-sm-block">
+                    <div class="col-md-4">
+                      <div class="card mb-2">
+                        <img class="card-img-top"
+                          src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                          alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card title</h4>
+                          <p class="card-text"></p>
+                          <a class="btn btn-primary">Button</a>
+                        </div>
+                      </div>
+                    </div>
 
-          <!--Card-->
-          <div class="card card-cascade narrower card-ecommerce">
+                  </div>
 
-            <!--Card image-->
-            <div class="view view-cascade overlay">
-              <img src="dsqdsqdsqdsqdsq" class="card-img-top" alt="">
-              <a>
-                <div class="mask rgba-white-slight"></div>
-              </a>
+    <div class="carousel-item active">
+
+            <div class="col-md-4">
+              <div class="card mb-2">
+                <img class="card-img-top"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Button</a>
+                </div>
+              </div>
             </div>
-            <!--Card image-->
-
-            <!--Card content-->
-            <div class="card-body card-body-cascade text-center no-padding">
-              <!--Category & Title-->
-              <h4 class="card-title">
-                <strong>dsqdsqdsq</strong>
-              </h4>
-
-              <!--Description-->
-              <p class="card-text"><strong>Description: </strong> dsqdsqdsq
-              </p>
-              <a href="/services/detail/dsqdsqdqsdqs22222"><button class="btn peach-gradient">Details</button></a>
-            </div>
-            <!--Card content-->
 
           </div>
-          <!--Card-->
-
-
-          <!--Third slide-->
-
-        </div>
+          <!--/.First slide-->
         <!--Slides-->
 
         <!--Controls-->
@@ -80,9 +78,10 @@
             <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
           </a>
         </div>
-        <!--Controls-->
+        <!--/.Slides-->
+
       </div>
-      <!--Carousel Wrapper-->
+      <!--/.Carousel Wrapper-->
 </section>
 
 
@@ -130,18 +129,18 @@
     });
   });
 
-  let $cards = <?php echo $randomservices; ?>;
-  console.log($cards[0]);
+  let $cards = <?php echo $randomservices; ?> ;
 
-  counter = 1;
-  for (const card of $cards) {
+  let counter = 1;
+  for(const card of $cards) {
     const mockup = document.querySelector(".col-md-4");
     const newClone = mockup.cloneNode(true);
     if (counter % 3 == 0) {
-      document.querySelecto(".carousel-item").append(document.querySelector(".carousel-item").cloneNode(true));
-      document.querySelector(".carousel-item").append(newClone);
+      let newItem = document.querySelector(".carousel-item").cloneNode(true)
+      document.querySelector(".carousel-inner").appendChild(newItem);
+      newItem.append(newClone);
     } else {
-      document.querySelector(".carousel-item").append(newClone);
+        document.querySelector(".carousel-item").append(newClone);
 
     }
     newClone.querySelector("img").innerText = card.image;
@@ -149,7 +148,8 @@
     newClone.querySelector("p").innerText = card.description;
     newClone.querySelector("a").href = card.url;
     counter++;
-  }
-  document.querySelectorAll(".card")[0].style.display = "none";
+
+}
+  document.querySelectorAll(".col-md-4")[0].style.display = "none";
 </script>
 @endsection
