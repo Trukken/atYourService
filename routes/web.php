@@ -35,7 +35,7 @@ Route::post('/forgotpassword/{token}', 'ForgotController@edit');
 Route::get('/', 'ServiceController@index');
 //search results
 Route::post('/search-results', 'ServiceController@searchResults');
-Route::post('/livesearch', 'ServiceController@livesearch');
+Route::get('/livesearch', 'ServiceController@livesearch');
 
 Route::get('/search-results', 'ServiceController@searchbyname');
 

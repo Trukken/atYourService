@@ -100,6 +100,8 @@ class ServiceController extends Controller
         //echo '<div class="specialcontainer">';
         foreach ($servicesResult as $service) {
             echo '<a href="/services/select/' . $service->name . '">' .  ucwords($service->name) . '</a><br>';
+            //echo '<span name ="' . $service->name . '"><a href="/search-results" name ="' . $service->name . '">' .  ucwords($service->name) . '</a></span><br>';
+            //echo '<a href="search-results" data-value="' . $service->name . '">' .  ucwords($service->name) . '</a><br>';
         }
     }
 
@@ -109,6 +111,7 @@ class ServiceController extends Controller
      */
     public function searchbyname(Request $request)
     {
+        
         $req = $request->name;
         $query = \App\Service::where('name', 'like', '%' . $req . '%')->get();
         foreach ($query as $service) {
