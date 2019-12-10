@@ -13,7 +13,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $randomservices = \App\Service::inRandomOrder()->limit(3)->get();
+        $randomservices = \App\Service::inRandomOrder()->limit(4)->get();
         $services = \App\Service::all();
 
 

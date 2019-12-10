@@ -69,10 +69,10 @@ h2{
 
 
 .carousel-multi-item{
-    margin: 50px;
+    margin: 50px 100px;
 }
 
-.card-title a{
+.card-title strong{
     color: #ff4a4a;
 }
 
@@ -89,7 +89,20 @@ h2{
     height: 200px;
     margin: auto;
 }
+.card.card-cascade.narrower .view.view-cascade {
+    margin: auto;
+}
 
-.carousel-multi-item .card-cascade.narrower{
+.carousel-multi-item .card-cascade.narrower {
     padding-top: 15px;
+    width: 300px;
+    height: 500px;
+}
+
+.carousel-multi-item .controls-top .btn-floating {
+    background: rgb(255, 74, 74);
+}
+
+#btn{
+    margin-top: 5px;
 }
