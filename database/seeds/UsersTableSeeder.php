@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
                     'name' => 'John Doe',
                     'email' => 'johndoe@mail.com',
                     'password' => '$2y$10$85EaL5UQ9qldySgJ8tfjXu4d4ayMDnoGGdC3lX9ppy7qdfXfYVZd.',
+                    'email_verified' => false,
                     'phone_number' => 661666666,
                     'admin' => false,
                     'banned' => false
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder
                     'name' => 'Jane Doe',
                     'email' => 'janedoe@mail.com',
                     'password' => '$2y$10$85EaL5UQ9qldySgJ8tfjXu4d4ayMDnoGGdC3lX9ppy7qdfXfYVZd.',
+                    'email_verified' => false,
                     'phone_number' => 662666666,
                     'admin' => false,
                     'banned' => false

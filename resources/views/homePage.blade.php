@@ -1,5 +1,8 @@
 @extends('layouts.container')
+@section('header')
+<link rel="stylesheet" href="{{ URL::asset('css/homepage.css')}}">
 
+@endsection
 
 @section('title','Home')
 
@@ -8,12 +11,16 @@
 <section id="home">
     <h1><span>@</span>YourService</a></h1>
     <h2>Linking expats to experts in Luxembourg</h2>
+  </div>
     <div class="search-container">
-    <form class="form-inline mr-auto">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+    <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
+        {{ csrf_field() }}
+        <input class="form-control mr-sm-2" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+
+        <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
     </form>
     </div>
+    <div class="result dropdown-menu input-dropdown-menu" id="result"></div>
 </section>
 
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -391,5 +398,70 @@
           <!--Controls-->
 </div>
 <!--Carousel Wrapper-->
+
+
+
+
+
+<!--View random offers-->
+<h4>Random services: </h4>
+@foreach($randomservices as $randomservice)
+<a href="/services/detail/{{$randomservice->id}}">
+    <p>
+        <strong>{{ucwords($randomservice->name)}}</strong>
+        <br>
+        <strong>Description: </strong> {{$randomservice->short_description}}
+    </p>
+
+</a>
+<hr>
+@endforeach
+
+<!-- AJAX call to create a live search -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+
+
+let $input = $('#result');
+$('.result').css('display','none');
+
+$(function() {
+    $('#search').keyup(function(e) {
+        e.preventDefault();
+
+        if($('#search').val() !== ''){
+
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+        $.ajax({
+            url: '/livesearch',
+            type: 'post',
+            data: $('#search').serialize(),
+            success: function(result) {
+                $('.result').html(result);
+                if(result !== ''){
+                    $('.result').css('display','block');
+                }else{
+                    $('.result').css('display','none');
+                }
+            },
+            error: function(err) {
+                // If ajax errors happens
+                $('.result').html('Error with ajax call');
+            }
+        });
+        }else{
+            $('#result').css('display','none');
+
+        }
+        //let $value = $(this).val();
+
+    });
+});
+
+</script>
 
 @endsection
