@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->boolean('email_verified');
             $table->string('verification_token')->nullable();
             $table->string('password');
+            $table->string('password_reset')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('image')->nullable();
             $table->boolean('admin')->nullable();

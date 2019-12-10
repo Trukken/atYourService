@@ -1,4 +1,7 @@
 @extends('layouts.container')
+
+@section('title','Atyourservice')
+
 @section('header')
 <link rel="stylesheet" href="{{ URL::asset('css/homepage.css')}}">
 
