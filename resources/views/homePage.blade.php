@@ -90,7 +90,7 @@
         });
         $.ajax({
           url: '/livesearch',
-          type: 'post',
+          type: 'get',
           data: $('#search').serialize(),
           success: function(result) {
             $('.result').html(result);
@@ -114,8 +114,9 @@
     });
   });
 
-  let cards = <?php echo $randomservices; ?>;
 
+  let cards = <?php echo $randomservices; ?>;
+  console.log(cards);
   let counter = 0;
   let slide = document.querySelector('.mockup-carousel-item');
   let liveSlide = slide.cloneNode(true);
@@ -124,6 +125,7 @@
     let newClone = item.cloneNode(true);
     item.remove();
     newClone.className = 'col-md-4';
+    newClone.querySelector('h4').innerText = card.name;
     newClone.querySelector('img').src = card.image;
     newClone.querySelector('p').innerText = card.short_description;
     newClone.querySelector('a').innerText = card.id;

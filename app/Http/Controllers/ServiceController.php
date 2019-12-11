@@ -14,7 +14,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $randomservices = \App\Service::inRandomOrder()->limit(9)->get();
+        $randomservices = \App\Service::inRandomOrder()->limit(9)->join('users', 'users.id', '=', 'services.user_id')->select('services.*', 'users.image')->get();
         $services = \App\Service::all();
 
 
@@ -110,7 +110,7 @@ class ServiceController extends Controller
         $usersearch = $request->searchbar;
         $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->orderBy($ordered, 'DESC')->get();
 
-        //return $ordered;
+        return $ordered;
         return view('search-results', ['servicesResult' => $servicesResult]);
     }
 
@@ -129,8 +129,6 @@ class ServiceController extends Controller
         //echo '<div class="specialcontainer">';
         foreach ($servicesResult as $service) {
             echo '<a href="/services/select/' . $service->name . '">' .  ucwords($service->name) . '</a><br>';
-            //echo '<span name ="' . $service->name . '"><a href="/search-results" name ="' . $service->name . '">' .  ucwords($service->name) . '</a></span><br>';
-            //echo '<a href="search-results" data-value="' . $service->name . '">' .  ucwords($service->name) . '</a><br>';
         }
     }
 
@@ -142,7 +140,7 @@ class ServiceController extends Controller
     {
 
         $req = $request->name;
-        $query = \App\Service::where('name', 'like', '%' . $req . '%')->get();
+        $query = \App\Service::where('name', $req)->get();
         foreach ($query as $service) {
             $services[] = $service;
         }
