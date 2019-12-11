@@ -17,24 +17,6 @@
 
 <body>
 
-<<<<<<< Updated upstream
-        <nav>
-            <ul>
-                @if(!Auth::user())
-                <li><a href="#aboutus">About us</a></li>
-                <li><a href="/contact">Contact us</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-                @endif
-                @if(Auth::user())
-                <a href="/logout">Logout</a>
-                @endif
-            </ul>
-        </nav>
-    </header>
--->
-=======
->>>>>>> Stashed changes
 <!--Navbar -->
 <header>
     <a class="navbar-brand" href="/home"><img src="{{asset('images/logo5.png')}}" alt=""></a>
