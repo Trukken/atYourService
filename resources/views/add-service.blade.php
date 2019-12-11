@@ -18,11 +18,11 @@
 
     <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
 
-    <input type="text" name="servicename" placeholder="Service name" id="">
+    <input type="text" name="servicename" placeholder="Service name">
     <br>
-    <textarea name="shortdescription" id="" cols="30" rows="5"></textarea>
+    <textarea name="shortdescription" cols="30" rows="5"></textarea>
     <br>
-    <textarea name="longdescription" id="" cols="30" rows="10"></textarea>
+    <textarea name="longdescription" cols="30" rows="10"></textarea>
     <br>
     <input type="submit" name="submit" value="send">
 
@@ -44,6 +44,7 @@
                 type: 'post',
                 data: $('#resultForm').serialize(),
                 success: function(result) {
+                    console.log('here is the result')
                     console.log(result);
                     $('.result').html('<p>' + result + '</p>');
                 },

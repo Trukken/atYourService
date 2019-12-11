@@ -63,4 +63,4 @@ Route::post('/services/comments/add/{id}', 'CommentController@store');
 
 
 //MY SERVICES PAGE
-Route::get('/myservices/{id}', 'ServiceController@showmyservices');
+Route::get('/myaccount/{id}', 'ServiceController@showmyaccount');
