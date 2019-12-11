@@ -1,13 +1,20 @@
-<h1>{{$request->name}}</h1>
+@extends('layouts.container')
 
-<?php
-foreach ($servicename as $singleservice) {
-    echo '<a href="/services/detail/' . $singleservice->id . '">';
-    echo '<div>';
-    echo '<strong>Provider: </strong>' . $singleservice->User->name . '<br>';
-    echo '<strong>Description: </strong>' . $singleservice->short_description . '<br>';
-    echo '<br></a>';
-    echo '</div>';
-    echo '<hr>';
-}
-?>
+
+@section('title','Atyourservice Search')
+
+@section('content')
+
+<h3>Search results:</h3>
+
+@foreach($services as $service)
+<div class="wrapper">
+    <p>
+        <strong> <a href="/services/detail/{{$service->id}}">{{ucwords($service->name)}}</a></strong>
+        <br>
+        <strong>(short) description: </strong> {{$service->short_description}}
+        <hr>
+    </p>
+</div>
+@endforeach
+@endsection

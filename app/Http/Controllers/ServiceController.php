@@ -59,30 +59,60 @@ class ServiceController extends Controller
         return view('service-page', ['user' => $user, 'service' => $service, 'comments' => $comments]);
     }
 
+    public function showmyservices($id)
+    {
+        $service = \App\Service::find($id);
+        $user = \App\User::find($id);
+        $comments = $service->comments;
+
+        return view('myservices', ['user' => $user, 'service' => $service, 'comments' => $comments]);
+    }
+
 
     public function edit($id)
     {
-        //
+        $service = \App\Service::find($id);
+        return view('edit-service', ["service" => $service]);
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        //UPDATE THE FORM
+        $service = \App\Service::find($id);
+        $service->name = $request->name;
+        $service->short_description = $request->short_description;
+        $service->long_description = $request->long_description;
+        //make it hidden, pass value of logged in user:
+        $service->user_id = $request->user_id;
+        $service->banned = 0;
+
+        $service->save();
+        return 'service was updated';
     }
 
 
     public function destroy($id)
     {
-        //
+        \App\Service::destroy($id);
+        return 'Author was deleted';
     }
 
     public function searchResults(Request $request)
     {
+        $ordered = 'created_at';
+        if ($request->order == 'updated_at') {
+            $ordered = 'updated_at';
+        } else if ($request->order == 'name') {
+            $ordered = 'name';
+        } else {
+            $ordered = 'created_at';
+        }
         $usersearch = $request->searchbar;
-        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->get();
+        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->orderBy($ordered, 'DESC')->get();
 
-        return view('search-results', ['servicesResult' => $servicesResult]);
+        return $ordered;
+        //return view('search-results', ['servicesResult' => $servicesResult]);
     }
 
     /**
@@ -100,6 +130,8 @@ class ServiceController extends Controller
         //echo '<div class="specialcontainer">';
         foreach ($servicesResult as $service) {
             echo '<a href="/services/select/' . $service->name . '">' .  ucwords($service->name) . '</a><br>';
+            //echo '<span name ="' . $service->name . '"><a href="/search-results" name ="' . $service->name . '">' .  ucwords($service->name) . '</a></span><br>';
+            //echo '<a href="search-results" data-value="' . $service->name . '">' .  ucwords($service->name) . '</a><br>';
         }
     }
 
@@ -109,11 +141,12 @@ class ServiceController extends Controller
      */
     public function searchbyname(Request $request)
     {
+
         $req = $request->name;
         $query = \App\Service::where('name', 'like', '%' . $req . '%')->get();
         foreach ($query as $service) {
-            $servicenames[] = $service;
+            $services[] = $service;
         }
-        return view('/serviceslist', ['query' => $query, 'request' => $request, 'name' => $req, 'servicename' => $servicenames]);
+        return view('/serviceslist', ['query' => $query, 'request' => $request, 'name' => $req, 'services' => $services]);
     }
 }
