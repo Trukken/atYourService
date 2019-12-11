@@ -9,7 +9,24 @@
 @section('content')
 
 <section id="home">
-  <h1><span>@</span>YourService</a></h1>
+
+<div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url('{{asset('images/background.jpg')}}'); 
+background-repeat: no-repeat; background-size: cover; background-position: center center;">
+  <div class="mask rgba-purple-slight">
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+      <div class="row pt-5 mt-3">
+        <div class="col-md-12 wow fadeIn mb-3">
+          <div class="text-center">
+            <h1 class="display-4 font-weight-bold mb-5 wow fadeInUp"><span>@</span>YourService</h1>
+            <h5 class="mb-5 wow fadeInUp" data-wow-delay="0.2s">Linking expats to experts in Luxembourg</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <h1><span>@</span>YourService</h1>
   <h2>Linking expats to experts in Luxembourg</h2>
 
   <div class="search-container">
@@ -22,7 +39,7 @@
   </div>
   <div class="result dropdown-menu input-dropdown-menu" id="result"></div>
 
-
+  </section>
   <!--View random offers-->
 
   <!--Carousel Wrapper-->
@@ -35,7 +52,7 @@
       <div class="carousel-item mockup-carousel-item">
 
         <div class="col-md-4 mockup-col-md-4">
-          <div class="card mb-2">
+          <div class="card mb-2 text-center">
             <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">Card title</h4>
@@ -64,7 +81,6 @@
 
   </div>
   <!--/.Carousel Wrapper-->
-</section>
 
 
 

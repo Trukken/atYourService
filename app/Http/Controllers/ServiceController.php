@@ -13,9 +13,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $randomservices = \App\Service::inRandomOrder()->limit(9)->get();
+        $randomservices = \App\Service::inRandomOrder()->limit(9)->join('users', 'users.id', '=', 'services.user_id')->select('services.*', 'users.image')->get();
         $services = \App\Service::all();
-
 
         return view('homePage', ['randomservices' => $randomservices, 'services' => $services]);
     }

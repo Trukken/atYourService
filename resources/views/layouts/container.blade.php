@@ -7,19 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
     <title>@yield('title')</title>
     @yield('header')
-
 </head>
 
 <body>
 
 <!--Navbar -->
 <header>
-    <a class="navbar-brand" href="/home"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+    <a class="navbar-brand" href="/homePage"><img src="{{asset('images/logo5.png')}}" alt=""></a>
 
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
@@ -65,7 +65,7 @@
 <footer>
   
 <!-- Copyright -->
-<div>© 2019 Copyright: JFS Company</div>
+<div>© 2019 Copyright: <strong>AYS Company</strong></div>
 <!-- Copyright -->
 
 </footer>
