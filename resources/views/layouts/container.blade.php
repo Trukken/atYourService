@@ -41,8 +41,10 @@
       <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
-      @endif
-      @if(Auth::user())
+      @elseif(Auth::user()->admin == true)
+      <p>REEEEEEEEEEEEEEEEEE</p>
+
+      @elseif(Auth::user())
       <li class="nav-item">
         <a class="nav-link" href="/myaccount">My account</a>
       </li>
