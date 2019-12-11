@@ -17,6 +17,7 @@ header {
     background-color: #24292E;
 }
 
+<<<<<<< Updated upstream
 header h1{
     display: flex;
     justify-content: flex-start;
@@ -24,6 +25,8 @@ header h1{
     padding: 10px;
 }
 
+=======
+>>>>>>> Stashed changes
 header a {
     text-decoration: none;
     color: white;
@@ -37,8 +40,15 @@ nav ul{
     list-style: none;
     margin: 0;
 }
+<<<<<<< Updated upstream
 
 li{
+=======
+.navbar{
+    box-shadow: none;
+}
+li {
+>>>>>>> Stashed changes
     padding: 10px;
 }
 
