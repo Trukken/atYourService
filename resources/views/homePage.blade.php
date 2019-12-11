@@ -122,6 +122,7 @@
     item.remove();
     newClone.className = 'col-md-4';
     newClone.querySelector('img').src = card.image;
+    newClone.querySelector('h4').innerText = card.title;
     newClone.querySelector('p').innerText = card.short_description;
     newClone.querySelector('a').href = "/services/detail/"+card.id;
 

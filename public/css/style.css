@@ -21,22 +21,12 @@ header a {
     text-decoration: none;
     color: white;
 }
-header a:hover{
-    color: #ff4a4a ;
-}
-nav ul{
-    display: flex;
-    justify-content: flex-end;
-    list-style: none;
-    margin: 0;
-}
 .navbar{
     box-shadow: none;
 }
 li {
     padding: 10px;
 }
-
 
 #home{
     display: flex;
@@ -65,7 +55,7 @@ h2{
 
 .carousel-multi-item{
     margin: 50px 0px;
-    width: 100%;
+    width: 80%;
 }
 
 .card-title strong{
