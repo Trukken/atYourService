@@ -97,17 +97,6 @@ class ServiceController extends Controller
         return 'Service was deleted';
     }
 
-
-    //search results
-    // + filter
-    // if ($request->order == 'updated_at') {
-    //     $ordered = 'updated_at';
-    // } else if ($request->order == 'name') {
-    //     $ordered = 'name';
-    // } else {
-    //     $ordered = 'created_at';
-    // }
-
     public function searchResults(Request $request)
     {
         $usersearch = $request->searchbar;
@@ -116,7 +105,7 @@ class ServiceController extends Controller
         return view('search-results', ['servicesResult' => $servicesResult]);
     }
 
-    
+
     public function searchResults2(Request $request)
     {
         if ($request->order) {

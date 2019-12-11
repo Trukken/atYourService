@@ -57,7 +57,6 @@ Route::get('/services/delete/{id}', 'ServiceController@destroy');
 Route::delete('/services/delete/{id}', 'ServiceController@destroy');
 
 
-
 // COMMENTS
 //add to database
 Route::post('/services/comments/add/{id}', 'CommentController@store');

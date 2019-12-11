@@ -42,11 +42,6 @@ class CommentController extends Controller
 
         $newComment->save();
 
-        /**
-         * default for banned = 0
-         */
-
-
         // //the $request are data from the form, $request->title means that the input name should be title per example
 
         return 'Comment inserted.';
