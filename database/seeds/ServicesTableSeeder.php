@@ -19,112 +19,84 @@ class ServicesTableSeeder extends Seeder
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => true,
-                    'reported_reason' => 'Dayum'
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => true,
-                    'reported_reason' => 'Dayum'
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => true,
-                    'reported_reason' => 'Dayum'
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => false,
-                    'reported_reason' => null
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => true,
-                    'reported_reason' => 'Dayum'
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => false,
-                    'reported_reason' => null
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => false,
-                    'reported_reason' => null
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => true,
-                    'reported_reason' => 'Dayum'
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => false,
-                    'reported_reason' => null
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => true,
-                    'reported_reason' => 'Dayum'
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => true,
-                    'reported_reason' => 'Dayum'
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => true,
-                    'reported_reason' => 'Dayum'
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => false,
-                    'reported_reason' => null
                 ], [
                     'name' => 'Plumber',
                     'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                    'reported' => false,
-                    'reported_reason' => null
                 ],
             ]
         );

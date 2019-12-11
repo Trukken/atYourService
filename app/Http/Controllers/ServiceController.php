@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -115,11 +116,11 @@ class ServiceController extends Controller
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * LIVE SEARCH
-     * 
-     * 
+     *
+     *
      */
 
     public function livesearch(Request $request)
@@ -147,5 +148,22 @@ class ServiceController extends Controller
             $services[] = $service;
         }
         return view('/serviceslist', ['query' => $query, 'request' => $request, 'name' => $req, 'services' => $services]);
+    }
+    public function reportService(Request $request)
+    {
+        if (Auth::user()) {
+            $report = Service::where('id', '=', $request->id)->get();
+            return view('reportForm', ['report' => $report[0]]);
+        } else {
+            return redirect('');
+        }
+    }
+    public function sendReport(Request $request)
+    {
+        if (Auth::user()) {
+            
+         } else {
+            return redirect('');
+        }
     }
 }

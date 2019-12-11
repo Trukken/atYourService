@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Report;
 use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +17,10 @@ class AdminController extends Controller
     public function index()
     {
         if (Auth::user() && Auth::user()->admin == true) {
-            $services = Service::all()->where('reported', '=', 1);
-            return view('controlPanel', ['services' => $services]);
+            $reports = Report::join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->get();
+            return view('controlPanel', ['reports' => $reports]);
         } else {
-            return 'You are not an admin!';
+            return redirect('');
         }
     }
 
@@ -61,7 +62,28 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user() && Auth::user()->admin == true) {
+            Service::where('id', '=', $id)->update(['banned' => true]);
+            //TODO: Remove reports, or make them handled;
+            Report::where('service_id', '=', $id)->update(['handled' => true]);
+            $reports = Report::join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->get();
+            return view('controlPanel', ['notification' => 'Service id: ' . $id . ' had been black-listed.', 'reports' => $reports]);
+        } else {
+            return redirect('');
+        }
+    }
+
+    public function unban($id)
+    {
+        if (Auth::user() && Auth::user()->admin == true) {
+            Service::where('id', '=', $id)->update(['banned' => false]);
+            //TODO: Remove reports, or make them handled;
+            Report::where('service_id', '=', $id)->update(['handled' => true]);
+            $reports = Report::join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->get();
+            return view('controlPanel', ['notification' => 'Service id: ' . $id . ' had been removed from black-list.', 'reports' => $reports]);
+        } else {
+            return redirect('');
+        }
     }
 
     /**
@@ -72,9 +94,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
+    { }
 
     /**
      * Remove the specified resource from storage.
@@ -85,5 +105,16 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function trash(Request $request)
+    {
+        if (Auth::user()->admin == true) {
+
+            Report::where('id', '=', $request->id)->update(['handled' => true]);
+            $reports = Report::join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->get();
+            return view('controlPanel', ['notification' => 'Report id: ' . $request->id . ' had been trashed, you can still find it under handled reports.', 'reports' => $reports]);
+        } else {
+            return redirect('');
+        }
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServicesTable extends Migration
+class CreateReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('short_description');
-            $table->string('long_description');
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->boolean('banned')->nullable();
+            $table->integer('service_id');
+            $table->foreign('service_id')->references('id')->on('services');
+            $table->string('report_reason')->nullable();
+            $table->boolean('handled')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('reports');
     }
 }

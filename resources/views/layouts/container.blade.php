@@ -19,7 +19,7 @@
 
 <!--Navbar -->
 <header>
-    <a class="navbar-brand" href="/home"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+    <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
 
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"

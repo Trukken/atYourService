@@ -3,18 +3,30 @@
 @section('title','Helooooooooo')
 
 @section('content')
+@if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
 <h1> {{ucwords($service->name)}} </h1>
 
 <h2>Description</h2>
 
-{{$service->short_description}}
+<p>{{$service->short_description}}</p>
 
-
+<br>
 @if (!Auth::user())
 <div class="">
     <p> <a href="/login">log in</a> to see contact information and full description</p>
 </div>
-@else
+@elseif(Auth::user())
+<form action="/report-service" method="POST">
+    @csrf
+    <button name="id" value="{{ $service->id }}">Report service</button>
+</form>
+@if(Auth::user()->admin == true)
+<br>
+    <a href="/ban-service/{{ $service->id }}">Ban service</a>
+    @if($service->banned == true)
+        <a href="/unban-service/{{ $service->id }}">Unban service</a>
+    @endif
+@endif
 
 <div class="">
     <h2>Provider: </h2>
@@ -116,4 +128,8 @@
         }
     });
 </script>
+@elseif($service->banned == true)
+<h2>This service is banned.</h2>
+<h4><a href="/">Return to homepage.</a></h4>
+@endif
 @endsection

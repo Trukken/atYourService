@@ -15,4 +15,8 @@ class Service extends Model
     {
         return $this->hasMany('\App\Comment');
     }
+    public function reports()
+    {
+        return $this->hasMany('\App\Report');
+    }
 }
