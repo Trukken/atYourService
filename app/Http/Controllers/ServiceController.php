@@ -111,9 +111,8 @@ class ServiceController extends Controller
         $usersearch = $request->searchbar;
         $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->orderBy($ordered, 'DESC')->get();
 
-        //->orderBy('created_at', 'DESC')
-        //return $ordered;
-        return view('search-results', ['servicesResult' => $servicesResult]);
+        return $ordered;
+        //return view('search-results', ['servicesResult' => $servicesResult]);
     }
 
     /**

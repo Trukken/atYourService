@@ -16,16 +16,16 @@
 </select>
 
 
-@foreach($servicesResult as $service)
 <div class="wrapper">
+    @foreach($servicesResult as $service)
     <p>
         <strong> <a href="/services/detail/{{$service->id}}">{{ucwords($service->name)}}</a></strong>
         <br>
         <strong>(short) description: </strong> {{$service->short_description}}
         <hr>
     </p>
+    @endforeach
 </div>
-@endforeach
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
