@@ -20,16 +20,18 @@ class UsersTableSeeder extends Seeder
                     'password' => '$2y$10$85EaL5UQ9qldySgJ8tfjXu4d4ayMDnoGGdC3lX9ppy7qdfXfYVZd.',
                     'email_verified' => false,
                     'phone_number' => 661666666,
+                    'image' => 'https://randomuser.me/api/portraits/men/29.jpg',
                     'admin' => false,
                     'banned' => false
                 ],
                 [
-                    'name' => 'Jane Doe',
+                    'name' => 'John Doe',
                     'email' => 'janedoe@mail.com',
                     'email_verified_at' => 'now',
                     'password' => '$2y$10$85EaL5UQ9qldySgJ8tfjXu4d4ayMDnoGGdC3lX9ppy7qdfXfYVZd.',
                     'email_verified' => false,
-                    'phone_number' => 662666666,
+                    'phone_number' => 661666666,
+                    'image' => 'https://randomuser.me/api/portraits/men/29.jpg',
                     'admin' => false,
                     'banned' => false
                 ]

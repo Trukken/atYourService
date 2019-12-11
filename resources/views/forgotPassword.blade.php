@@ -3,6 +3,9 @@
 @section('title','Forgotpassword')
 
 @section('content')
+@if(!empty($emailError))
+    {{ $emailError }}
+@endif
 <form method="POST">
     @csrf
     <input type="text" name="email" placeholder="Your email">

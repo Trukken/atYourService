@@ -4,20 +4,20 @@
     padding: 0;
     border: 0;
     list-style: none;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
     scroll-behavior: smooth;
 }
-body{
-    font-family: 'Bree Serif', serif;
+body {
+    font-family: "Bree Serif", serif;
 }
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #24292E;
+    background-color: #24292e;
 }
 
-header h1{
+header h1 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -28,47 +28,84 @@ header a {
     text-decoration: none;
     color: white;
 }
-header a:hover{
-    color: #ff4a4a ;
+header a:hover {
+    color: #ff4a4a;
 }
-nav ul{
+nav ul {
     display: flex;
     justify-content: flex-end;
     list-style: none;
     margin: 0;
 }
 
-li{
+li {
     padding: 10px;
 }
 
-
-#home{
+#home {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-h1{
+h1 {
     padding: 40px;
-    margin-top: 80px;
+    margin-top: 60px;
     font-weight: 600;
     font-size: 5.5rem;
 }
-h1 span{
-    color:#ff4a4a;
+h1 span {
+    color: #ff4a4a;
 }
 
-h2{
+h2 {
     padding-bottom: 20px;
 }
-.form-control{
+.form-control {
     border: 2px solid #ff954a;
 }
 
-
-.carousel-multi-item{
-    margin: 50px;
+.carousel-multi-item {
+    margin: 50px 0px;
+    width: 80%;
 }
 
+.card-title strong {
+    color: #ff4a4a;
+}
+
+.card-img-top {
+    width: auto;
+    height: 30%;
+    margin: auto;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card.card-cascade .view.view-cascade {
+    width: auto;
+    height: 30%;
+    margin: auto;
+}
+.card.card-cascade.narrower .view.view-cascade {
+    margin: auto;
+}
+
+.carousel-multi-item .card-cascade.narrower {
+    padding-top: 15px;
+    width: auto;
+    height: 30%;
+}
+
+.carousel-multi-item .controls-top .btn-floating {
+    background: rgb(255, 74, 74);
+}
+
+.btn-secondary {
+    background-color: rgb(255, 74, 74) !important;
+}
+
+#btn {
+    margin-top: 5px;
+}
