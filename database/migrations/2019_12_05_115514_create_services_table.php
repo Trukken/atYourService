@@ -22,6 +22,7 @@ class CreateServicesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('banned')->nullable();
             $table->boolean('reported')->nullable();
+            $table->string('reported_reason')->nullable();
             $table->timestamps();
         });
     }

@@ -12,7 +12,6 @@
 */
 
 
-
 Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@store');
 
@@ -55,7 +54,7 @@ Route::put('/services/edit/{id}', 'ServiceController@update');
 Route::get('/services/delete/{id}', 'ServiceController@destroy');
 Route::delete('/services/delete/{id}', 'ServiceController@destroy');
 
-
+Route::get('/admin','AdminController@index');
 
 // COMMENTS
 //add to database

@@ -18,7 +18,11 @@ class RegisterController extends Controller
     public function index()
     {
         //
-        return view('register');
+        if (Auth::user()) {
+            return redirect('');
+        } else if (!Auth::user()) {
+            return view('register');
+        }
     }
 
     /**
