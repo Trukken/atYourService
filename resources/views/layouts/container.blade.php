@@ -19,39 +19,35 @@
 
 <!--Navbar -->
 <header>
-    <a class="navbar-brand" href="#home"><img src="{{asset('images/logo5.png')}}" alt=""></a>
-    <nav class="mb-1 navbar navbar-expand-lg">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-        aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">About us
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact us</a>
-            </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i> Profile </a>
-    @if(!Auth::user())
+    <a class="navbar-brand" href="/home"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
+        <a class="nav-link" href="">About us</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact us</a>
+      </li>
+      @if(!Auth::user())
       <li class="nav-item">
         <a class="nav-link" href="/login">Login</a>
       </li>
-      @elseif(Auth::user())
-
-        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-          <a class="dropdown-item" href="/myservices">My account</a>
-          <a class="dropdown-item" href="/logout">Log out</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Register</a>
+      </li>
+      @endif
+      @if(Auth::user())
+      <li class="nav-item">
+        <a class="nav-link" href="/myaccount">My account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Log out</a>
       </li>
       @endif
     </ul>

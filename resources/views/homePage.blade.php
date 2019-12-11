@@ -43,7 +43,7 @@
             <div class="card-body">
               <h4 class="card-title">Card title</h4>
               <p class="card-text"></p>
-              <a class="btn btn-secondary">Button</a>
+              <a href="/services/detail/"><button class="btn peach-gradient">Details</button></a>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@
     newClone.className = 'col-md-4';
     newClone.querySelector('img').src = card.image;
     newClone.querySelector('p').innerText = card.short_description;
-    newClone.querySelector('a').innerText = card.id;
+    newClone.querySelector('a').href = "/services/detail/"+card.id;
 
 
 

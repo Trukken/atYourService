@@ -17,13 +17,6 @@ header {
     background-color: #24292e;
 }
 
-header h1 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px;
-}
-
 header a {
     text-decoration: none;
     color: white;
@@ -37,7 +30,9 @@ nav ul {
     list-style: none;
     margin: 0;
 }
-
+.navbar{
+    box-shadow: none;
+}
 li {
     padding: 10px;
 }
