@@ -33,7 +33,7 @@
 
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
-      <!--First slide-->
+      <!--First slide Mockup used to create the displayed carousel, and cards, later on removed-->
 
       <div class="carousel-item mockup-carousel-item">
 
@@ -56,12 +56,12 @@
 
     <!--Controls-->
     <div class="controls-top">
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev">
+      <button class="btn-floating" href="#multi-item-example" data-slide="prev">
         <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
-      </a>
-      <a class="btn-floating" href="#multi-item-example" data-slide="next">
+      </button>
+      <button class="btn-floating" href="#multi-item-example" data-slide="next">
         <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
-      </a>
+      </button>
     </div>
     <!--/.Slides-->
 
@@ -137,7 +137,7 @@
       let slideHolder = document.querySelector('.carousel-inner');
       slideHolder.append(newSlide);
       liveSlide = newSlide;
-      if (counter == 3) {
+      if (counter == 0) {
         liveSlide.className = 'carousel-item active';
       }
     }
