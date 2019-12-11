@@ -50,43 +50,43 @@
     **/
 
 
-    
-    // let mockup = $('.mockup').clone();
-    // $(function() {
-    //     $('#order').on('change', function(e) {
-    //         if ($('#order').val() !== '') {
 
-    //             $.ajaxSetup({
-    //                 headers: {
-    //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //                 }
-    //             });
-    //             $.ajax({
-    //                 url: '/search-results2',
-    //                 type: 'post',
-    //                 data: $('#order').serialize(),
-    //                 success: function(results) {
-    //                     if (results !== '') {
-    //                         console.log(results);
-    //                         $('.wrapper').html('');
-    //                         for (const result of results) {
+     let mockup = $('.mockup').clone();
+     $(function() {
+         $('#order').on('change', function(e) {
+             if ($('#order').val() !== '') {
 
-    //                             mockup.find('a').href = '/services/detail/' + result.id
-    //                             $('.wrapper').append(mockup);
-    //                         }
+                 $.ajaxSetup({
+                     headers: {
+                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                     }
+                 });
+                 $.ajax({
+                     url: '/search-results2',
+                     type: 'post',
+                     data: $('#order').serialize(),
+                     success: function(results) {
+                     if (results !== '') {
+                             console.log(results);
+                             $('.wrapper').html('');
+                             for (const result of results) {
 
-    //                     }
-    //                 },
-    //                 error: function(err) {
-    //                     // If ajax errors happens
-    //                     console.log('Error with ajax call');
-    //                 }
-    //             });
-    //         } else {
-    //             console.log('what is even here?');
-    //         }
-    //     });
-    // });
+                                 mockup.find('a').href = '/services/detail/' + result.id
+                                 $('.wrapper').append(mockup);
+                             }
+
+                         }
+                     },
+                     error: function(err) {
+                         // If ajax errors happens
+                         console.log('Error with ajax call');
+                     }
+                 });
+             } else {
+                 console.log('what is even here?');
+             }
+         });
+     });
 </script>
 
 
