@@ -115,7 +115,7 @@
   });
 
 
-  let cards = <?php echo $randomservices; ?>;
+  let cards = <?= $randomservices ?>;
   console.log(cards);
   let counter = 0;
   let slide = document.querySelector('.mockup-carousel-item');

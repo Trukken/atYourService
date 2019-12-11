@@ -29,7 +29,7 @@
 
 <div id="resultForm"></div>
 
-<a href="./">Back to Services list</a>
+<a href="/myaccount/{{ auth()->user()->id }}">Back to My Account</a>
 
 
 
@@ -46,7 +46,7 @@
                 success: function(result) {
                     console.log(result);
                     console.log('success');
-                    $('#resultForm').html('<div class="green">' + result + '</div>');
+                    $('#resultForm').html('<div>' + result + '</div>');
                 },
                 error: function(err) {
                     // Si une erreur AJAX se produit
