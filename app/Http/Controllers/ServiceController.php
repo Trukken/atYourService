@@ -110,10 +110,7 @@ class ServiceController extends Controller
     public function searchbyname(Request $request)
     {
         $req = $request->name;
-        $query = \App\Service::where('name', 'like', '%' . $req . '%')->get();
-        foreach ($query as $service) {
-            $servicenames[] = $service;
-        }
-        return view('/serviceslist', ['query' => $query, 'request' => $request, 'name' => $req, 'servicename' => $servicenames]);
+        $services = \App\Service::where('name', 'like', '%' . $req . '%')->where('banned', '=', 0)->get();
+        return view('serviceslist', ['services' => $services]);
     }
 }
