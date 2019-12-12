@@ -15,15 +15,20 @@
   <h1><span>@</span>YourService</a></h1>
   <h2>Linking expats to experts in Luxembourg</h2>
 
-  <div class="search-container">
+  <div class="search-container position-relative">
     <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
       {{ csrf_field() }}
-      <input class="form-control mr-sm-2" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+      <div class="search-results-and-buttom d-flex align-items-start justify-between">
+        <div class="search-and-results">
+          <input class="form-control mr-sm-2 position-relative" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+          <br>
+          <div class="result dropdown-menu input-dropdown-menu position-relative" id="result"></div>
+        </div>
+        <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
 
-      <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+      </div>
     </form>
   </div>
-  <div class="result dropdown-menu input-dropdown-menu" id="result"></div>
 
 
   <!--View random offers-->

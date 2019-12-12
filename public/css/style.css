@@ -109,3 +109,7 @@ h2 {
 #btn {
     margin-top: 5px;
 }
+
+#result, #search{
+    width: 100%;
+}
