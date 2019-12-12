@@ -5,9 +5,9 @@
 @section('content')
 
 <h1>My services:</h1>
-<h2>{{$user->name}}</h2>
+
 @if(Auth::user() && Auth::user()->admin == true)
-    <form action="/user-control" method="POST">
+<form action="/user-control" method="POST">
     @csrf
     <input type="hidden" name="id" value="{{ $user->id }}">
     @if($user->banned == false)
@@ -15,7 +15,7 @@
     @elseif($user->banned == true)
     <button name="status" value="unban">Unban user</button>
     @endif
-    </form>
+</form>
 @endif
 @foreach($user->services as $service)
 <br>
@@ -36,11 +36,11 @@
 </div>
 
 
-    @if(Auth::user() && Auth::user()->id == $user->id)
-    <p>(<a href="/services/edit/{{$service->id}}">Update</a>/
+@if(Auth::user() && Auth::user()->id == $user->id)
+<p>(<a href="/services/edit/{{$service->id}}">Update</a>/
     <a id="delete" href="/services/delete/{{$service->id}}">Delete</a>)</p>
 
-    @endif
+@endif
 @endforeach
 <div class="result"></div>
 
