@@ -13,9 +13,9 @@
 
 <section id="home">
 
-  
-<h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
-<h2 class="h2-reponsive mb-5 white-text wow fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
+
+  <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
+  <h2 class="h2-reponsive mb-5 white-text wow fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
 
   <div class="search-container position-relative">
     <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
@@ -24,7 +24,7 @@
         <div class="search-and-results">
           <input class="form-control mr-sm-2 position-relative searchhome" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
           <br>
-          <div class="result dropdown-menu input-dropdown-menu position-relative resulthome" id="result"></div>
+          <div class="result dropdown-menu input-dropdown-menu position-absolute resulthome" id="result"></div>
         </div>
         <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
 
@@ -33,10 +33,10 @@
   </div>
 
 </section>
-  <!--View random offers-->
+<!--View random offers-->
 <h1 id="title" class="h1-reponsive text-center font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">Our services</h1>
-  <!--Carousel Wrapper-->
-  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+<!--Carousel Wrapper-->
+<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
   <!--Slides-->
   <div class="carousel-inner" role="listbox">

@@ -10,9 +10,9 @@
         {{ csrf_field() }}
         <div class="search-results-and-buttom d-flex align-items-start justify-between">
             <div class="search-and-results">
-                <input class="form-control mr-sm-2 position-relative searchhome" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2 position-relative" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
                 <br>
-                <div class="result dropdown-menu input-dropdown-menu position-relative resulthome" id="result"></div>
+                <div class="result dropdown-menu input-dropdown-menu position-relative" id="result"></div>
             </div>
             <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
 
@@ -46,10 +46,9 @@
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
-
     /**LIVE SEARCH AJAX CALL */
 
-    
+
     let $input = $('#result');
     $('.result').css('display', 'none');
 

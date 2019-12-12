@@ -65,19 +65,33 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
+        $service = \App\Service::find($id);
+        return view('edit-service', ["service" => $service]);
         //
     }
 
 
     public function update(Request $request, $id)
     {
+        //UPDATE THE FORM
+        $service = \App\Service::find($id);
+        $service->name = $request->name;
+        $service->short_description = $request->short_description;
+        $service->long_description = $request->long_description;
+        //make it hidden, pass value of logged in user:
+        $service->user_id = auth()->user()->id;
+        $service->banned = 0;
+
+        $service->save();
+        return 'Service was updated';
         //
     }
 
 
     public function destroy($id)
     {
-        //
+        \App\Service::destroy($id);
+        return 'Service was deleted';
     }
 
     public function searchResults(Request $request)
@@ -150,6 +164,18 @@ class ServiceController extends Controller
             return view('search-results', ['servicesResult' => $services]);
         } else {
             return redirect('');
+        }
+    }
+
+    public function showmyaccount($id)
+    {
+        $service = \App\Service::find($id);
+        $user = \App\User::find($id);
+        $comments = $service->comments;
+        if (Auth::user() && Auth::user()->id == $id) {
+            return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
+        } else {
+            return 'Access denied';
         }
     }
 }
