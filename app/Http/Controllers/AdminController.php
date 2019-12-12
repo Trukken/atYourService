@@ -21,7 +21,7 @@ class AdminController extends Controller
 
             $handledReports = Report::where('handled', '=', 1)->join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->paginate(5, ['*'], 'handledReports');
             $unhandledReports = Report::where('handled', '=', 0)->join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->paginate(5, ['*'], 'unhandledReports');
-            return view('controlPanel', ['handledReports' => $handledReports, 'unhandledReports' => $unhandledReports]);
+            return view('reportControlPanel', ['handledReports' => $handledReports, 'unhandledReports' => $unhandledReports]);
         } else {
             return redirect('');
         }
@@ -129,6 +129,29 @@ class AdminController extends Controller
             }
         } else {
             return redirect('');
+        }
+    }
+    public function displayOptions(){
+        if(Auth::user() && Auth::user()->admin == true){
+            return view('admin-panel');
+        }else{
+            return redirect('')->withErrors(['msg'=>'You do not have permission to see that page.']);
+        }
+    }
+    public function redirect(Request $request){
+        if(Auth::user()&&Auth::user()->admin==true){
+            $request->validate([
+                'adminControl'=>'required'
+            ]);
+            if($request->adminControl=="displayUsers"){
+                return 'TODO:: users';
+            }else if($request->adminControl=="displayServices"){
+                return 'TODO:: services';
+            }else if($request->adminControl=="displayReports"){
+                return redirect('/control-panel');
+            }
+        }else{
+            return redirect('')->withErrors(['msg'=>'You do not have permission to see that page.']);
         }
     }
 }

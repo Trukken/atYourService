@@ -4,31 +4,31 @@
 
 @section('content')
 
-<h4>Edit service</h4>
+<h2>Edit service</h2>
 
 <form id="form" method="POST">
     @csrf
     @method('PUT')
     <label for="name">Service offered:</label>
-    <input type="text" name="name" value="{{$service->name}}" id="">
+    <br>
+    <input type="text" class="inner" name="name" value="{{$service->name}}" id="">
     <br>
     <label for="short_description">Short description:</label>
     <br>
-    <textarea name="short_description" id="" cols="30" rows="10">{{$service->short_description}}</textarea>
+    <textarea name="short_description" class="inner" id="" cols="30" rows="10">{{$service->short_description}}</textarea>
     <br>
     <label for="long_description">Complete description:</label>
     <br>
-    <textarea name="long_description" id="" cols="30" rows="10" value="">{{$service->long_description}}</textarea>
+    <textarea name="long_description" class="inner" id="" cols="30" rows="10" value="">{{$service->long_description}}</textarea>
     <br>
-    <input type="hidden" name="user_id" value="1">
+    <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Edit</button>
 
-
-    <input type="submit" name="edit" value="edit">
+    <!-- <input type="submit" name="edit" value="edit"> -->
 
 </form>
 
 <div id="resultForm"></div>
-
+<br>
 <a href="/myaccount/{{ auth()->user()->id }}">Back to My Account</a>
 
 

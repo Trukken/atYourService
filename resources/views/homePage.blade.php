@@ -132,7 +132,7 @@
   });
 
 
-  let cards = <?= $randomservices ?>;
+  let cards = <?= $randomservices ?> ;
   console.log(cards);
   let counter = 0;
   let slide = document.querySelector('.mockup-carousel-item');
@@ -144,7 +144,6 @@
     newClone.className = 'col-md-4';
     newClone.querySelector('h4').innerText = card.name;
     newClone.querySelector('img').src = card.image;
-    newClone.querySelector('h4').innerText = card.title;
     newClone.querySelector('p').innerText = card.short_description;
     newClone.querySelector('a').href = "/services/detail/" + card.id;
 
