@@ -40,7 +40,7 @@
         @elseif(Auth::user())
         @if(Auth::user()->admin == true)
       <li class="nav-item">
-          <a class="nav-link" href="/admin">Control panel</a>
+          <a class="nav-link" href="/admin-panel">Admin panel</a>
         </li>
       @endif
         <li class="nav-item">

@@ -15,7 +15,11 @@ class LoginController extends Controller
     public function index()
     {
         //
-        return view('login');
+        if (Auth::user()) {
+            return redirect('')->withErrors(['You are already logged in!']);
+        } else {
+            return view('login');
+        }
     }
 
     /**
@@ -109,6 +113,10 @@ class LoginController extends Controller
                     'password' => 'required'
                 ]);
                 if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true)) {
+                    if (Auth::user()->banned == true) {
+                        Auth::logout();
+                        return redirect('/')->withErrors(['msg' => 'Your account is suspended, contact our support to gain more information.']);
+                    }
                     return redirect('/');
                 } else {
                     return view('login', ['loginError' => 'Check your password and email.']);

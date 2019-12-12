@@ -4,8 +4,14 @@
 
 @section('content')
 
-@if(!empty($notification))
-    {{ $notification }}
+@if($errors->any())
+<div class="alert alert-info">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 @endif
 
 
@@ -21,7 +27,7 @@
             @if(!empty($unhandledReport->report_reason))
             {{ $unhandledReport->report_reason }}
                 @endif
-        <form action="/admin" method="POST">
+        <form action="/control-panel" method="POST">
         @csrf
         <input type="hidden" name="id" value="{{ $unhandledReport->id }}">
         <button>Trash report</button>

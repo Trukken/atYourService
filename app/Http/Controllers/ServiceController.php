@@ -83,7 +83,7 @@ class ServiceController extends Controller
         $service->banned = 0;
 
         $service->save();
-        return 'Service was updated';
+        return  redirect('')->withErrors(['msg' => 'Service had been updated!']);
         //
     }
 
@@ -91,7 +91,7 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         \App\Service::destroy($id);
-        return 'Service was deleted';
+        return redirect('')->withErrors(['msg' => 'Service had been deleted!']);
     }
 
     public function searchResults(Request $request)
@@ -145,7 +145,7 @@ class ServiceController extends Controller
             $report = Service::where('id', '=', $request->id)->get();
             return view('reportForm', ['report' => $report[0]]);
         } else {
-            return redirect('');
+            return redirect('')->withErrors(['msg' => 'You are not logged in!']);
         }
     }
     public function sendReport(Request $request)
@@ -163,7 +163,7 @@ class ServiceController extends Controller
             $services = Service::all();
             return view('search-results', ['servicesResult' => $services]);
         } else {
-            return redirect('');
+            return redirect('')->withErrors(['msg' => 'Your report had been sent.']);
         }
     }
 
@@ -172,10 +172,10 @@ class ServiceController extends Controller
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
         $comments = $service->comments;
-        if (Auth::user() && Auth::user()->id == $id) {
+        if (Auth::user() && Auth::user()->id == $id || Auth::user() && Auth::user()->admin == true) {
             return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
         } else {
-            return 'Access denied';
+            return redirect('')->withErrors(['msg' => 'Access denied']);
         }
     }
 }

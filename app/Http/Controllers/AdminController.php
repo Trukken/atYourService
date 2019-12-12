@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Report;
 use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -68,9 +69,7 @@ class AdminController extends Controller
             Service::where('id', '=', $id)->update(['banned' => true]);
             //TODO: Remove reports, or make them handled;
             Report::where('service_id', '=', $id)->update(['handled' => true]);
-            $handledReports = Report::where('handled', '=', 1)->join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->paginate(5, ['*'], 'handledReports');
-            $unhandledReports = Report::where('handled', '=', 0)->join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->paginate(5, ['*'], 'unhandledReports');
-            return view('controlPanel', ['notification' => 'Service id: ' . $id . ' had been black-listed.', 'handledReports' => $handledReports, 'unhandledReports' => $unhandledReports]);
+            return redirect('/control-panel')->withErrors(['msg' => 'Service id: ' . $id . ' had been black-listed.']);
         } else {
             return redirect('');
         }
@@ -82,9 +81,7 @@ class AdminController extends Controller
             Service::where('id', '=', $id)->update(['banned' => false]);
             //TODO: Remove reports, or make them handled;
             Report::where('service_id', '=', $id)->update(['handled' => true]);
-            $handledReports = Report::where('handled', '=', 1)->join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->paginate(5, ['*'], 'handledReports');
-            $unhandledReports = Report::where('handled', '=', 0)->join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->paginate(5, ['*'], 'unhandledReports');
-            return view('controlPanel', ['notification' => 'Service id: ' . $id . ' had been black-listed.', 'handledReports' => $handledReports, 'unhandledReports' => $unhandledReports]);
+            return redirect('/control-panel')->withErrors(['msg' => 'User id: ' . $id . ' had been unbanned.']);
         } else {
             return redirect('');
         }
@@ -115,9 +112,21 @@ class AdminController extends Controller
         if (Auth::user()->admin == true) {
 
             Report::where('id', '=', $request->id)->update(['handled' => true]);
-            $handledReports = Report::where('handled', '=', 1)->join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->paginate(5, ['*'], 'handledReports');
-            $unhandledReports = Report::where('handled', '=', 0)->join('services', 'reports.service_id', '=', 'services.id')->join('users', 'services.user_id', '=', 'users.id')->select('reports.*', 'services.name', 'users.name as user_name')->paginate(5, ['*'], 'unhandledReports');
-            return view('controlPanel', ['notification' => 'Report id: ' . $request->id . ' had been trashed.', 'handledReports' => $handledReports, 'unhandledReports' => $unhandledReports]);
+            return redirect('/control-panel')->withErrors(['msg' => 'Report id: ' . $request->id . ' had been trashed.']);
+        } else {
+            return redirect('');
+        }
+    }
+    public function userControl(Request $request)
+    {
+        if (Auth::user() && Auth::user()->admin == true) {
+            if ($request->status == 'ban') {
+                User::where('id', '=', $request->id)->update(['banned' => true]);
+                return redirect('/control-panel')->withErrors(['msg' => 'User id: ' . $request->id . ' had been banned.']);
+            } else if ($request->status == 'unban') {
+                User::where('id', '=', $request->id)->update(['banned' => false]);
+                return redirect('/control-panel')->withErrors(['msg' => 'User id: ' . $request->id . ' had been unbanned.']);
+            }
         } else {
             return redirect('');
         }

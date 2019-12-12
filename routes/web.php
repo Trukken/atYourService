@@ -63,8 +63,8 @@ Route::delete('/services/delete/{id}', 'ServiceController@destroy');
 Route::post('/report-service', 'ServiceController@reportService');
 Route::post('/send-report', 'ServiceController@sendReport');
 
-Route::get('/admin', 'AdminController@index');
-Route::post('/admin', 'AdminController@trash');
+Route::get('/control-panel', 'AdminController@index');
+Route::post('/control-panel', 'AdminController@trash');
 
 // COMMENTS
 //add to database
@@ -72,4 +72,5 @@ Route::post('/services/comments/add/{id}', 'CommentController@store');
 
 
 //MY SERVICES PAGE
-Route::get('/myaccount/{id}', 'ServiceController@showmyaccount');
+Route::get('/user/{id}', 'ServiceController@showmyaccount');
+Route::post('/user-control', 'AdminController@userControl');
