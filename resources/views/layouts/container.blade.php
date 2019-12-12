@@ -31,9 +31,6 @@
       <li class="nav-item">
         <a class="nav-link" href="">About us</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/contact">Contact us</a>
-      </li>
       @if(!Auth::user())
       <li class="nav-item">
         <a class="nav-link" href="/login">Login</a>
