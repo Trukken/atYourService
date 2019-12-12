@@ -96,7 +96,10 @@ h1#title{
     margin-top: 5px;
 }
 
-footer {
+#result, #search{
+    width: 100%;
+}
+footer{
     background-color: #272727;
     color:white;
     padding:5px;

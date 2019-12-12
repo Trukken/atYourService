@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
-    <title>@yield('title')</title>
-    @yield('header')
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
+  <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
+  <title>@yield('title')</title>
+  @yield('header')
 </head>
 
 <body>
@@ -44,7 +44,7 @@
         </li>
       @endif
         <li class="nav-item">
-          <a class="nav-link" href="/myaccount">My account</a>
+          <a class="nav-link" href="/myaccount/{{auth()->user()->id}}">My account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Log out</a>
@@ -56,9 +56,9 @@
 <!--/.Navbar -->
 </header>
 
-    <div class="content">
-        @yield('content')
-    </div>
+  <div class="content">
+    @yield('content')
+  </div>
 
 
 <!--Footer-->
