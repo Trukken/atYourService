@@ -90,12 +90,12 @@ class RegisterController extends Controller
                     $newUser->phone_number = $request->phone;
                     $newUser->email_verified = false;
                     $newUser->verification_token = $token;
-                    $newUser->save();
                     $details = [
                         'name' => $newUser->name,
                         'token' => $token,
                     ];
                     \Mail::to($newUser->email)->send(new \App\Mail\Mail($details));
+                    $newUser->save();
                     auth()->login($newUser);
                     return redirect('');
                 } else {
