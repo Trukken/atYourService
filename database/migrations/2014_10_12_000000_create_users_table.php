@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->boolean('admin')->nullable();
             $table->boolean('banned')->nullable();
+            $table->boolean('reported')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

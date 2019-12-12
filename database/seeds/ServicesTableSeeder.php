@@ -97,12 +97,6 @@ class ServicesTableSeeder extends Seeder
                     'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
                     'user_id' => 2,
                     'banned' => false,
-                ], [
-                    'name' => 'Plumber',
-                    'short_description' => 'dhsajkdhasjkdhsakjdhaskjdas',
-                    'long_description' => 'dsghadgsadgashjdgsajhdgassahdgasjddasy32tyu516576tfhghfdgbhdfsheftyrthj.',
-                    'user_id' => 2,
-                    'banned' => false,
                 ],
             ]
         );

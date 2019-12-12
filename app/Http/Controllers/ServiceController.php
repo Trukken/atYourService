@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Report;
+use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +18,6 @@ class ServiceController extends Controller
     {
         $randomservices = \App\Service::inRandomOrder()->limit(9)->join('users', 'users.id', '=', 'services.user_id')->select('services.*', 'users.image')->get();
         $services = \App\Service::all();
-
 
         return view('homePage', ['randomservices' => $randomservices, 'services' => $services]);
     }
@@ -125,11 +126,11 @@ class ServiceController extends Controller
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * LIVE SEARCH
-     * 
-     * 
+     *
+     *
      */
 
     public function livesearch(Request $request)
@@ -142,4 +143,31 @@ class ServiceController extends Controller
         }
     }
 
+    public function reportService(Request $request)
+    {
+        if (Auth::user()) {
+            $report = Service::where('id', '=', $request->id)->get();
+            return view('reportForm', ['report' => $report[0]]);
+        } else {
+            return redirect('');
+        }
+    }
+    public function sendReport(Request $request)
+    {
+        if (Auth::user()) {
+            $request->validate([
+                'reportedService' => 'required',
+                'reportReason' => 'required'
+            ]);
+            $report = new Report;
+            $report->service_id = strip_tags($request->reportedService);
+            $report->report_reason = strip_tags($request->reportReason);
+            $report->handled = false;
+            $report->save();
+            $services = Service::all();
+            return view('search-results', ['servicesResult' => $services]);
+        } else {
+            return redirect('');
+        }
+    }
 }

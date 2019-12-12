@@ -12,7 +12,6 @@
 */
 
 
-
 Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@store');
 
@@ -43,6 +42,11 @@ Route::get('/search-results', 'ServiceController@searchResults');
 Route::get('/services/select/{name}', 'ServiceController@searchResults');
 
 
+//Ban service! Only by admins
+Route::get('/ban-service/{id}', 'AdminController@edit');
+Route::get('/unban-service/{id}', 'AdminController@unban');
+
+
 //POST A SERVICE
 //add to database
 Route::get('/add-services', 'ServiceController@create');
@@ -56,6 +60,11 @@ Route::put('/services/edit/{id}', 'ServiceController@update');
 Route::get('/services/delete/{id}', 'ServiceController@destroy');
 Route::delete('/services/delete/{id}', 'ServiceController@destroy');
 
+Route::post('/report-service', 'ServiceController@reportService');
+Route::post('/send-report', 'ServiceController@sendReport');
+
+Route::get('/admin', 'AdminController@index');
+Route::post('/admin', 'AdminController@trash');
 
 // COMMENTS
 //add to database
