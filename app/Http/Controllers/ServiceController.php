@@ -16,8 +16,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $randomservices = \App\Service::inRandomOrder()->limit(9)->join('users', 'users.id', '=', 'services.user_id')->select('services.*', 'users.image')->get();
+        $randomservices = \App\Service::inRandomOrder()->limit(9)->get();
         $services = \App\Service::all();
+
 
         return view('homePage', ['randomservices' => $randomservices, 'services' => $services]);
     }
@@ -37,14 +38,19 @@ class ServiceController extends Controller
         $newService->name = $request->servicename;
         $newService->short_description = $request->shortdescription;
         $newService->long_description = $request->longdescription;
-        $newService->user_id = auth()->user()->id;
-        $newService->banned = 0;
 
+        /**
+         * I need to connect user_id and banned somehow later when I have session etc
+         * for now I'm using '1'
+         */
+        $newService->user_id = auth()->user()->id;   //$request->user_id
+        $newService->banned = 0;
+        return $newService;
         $newService->save();
 
         //the $request are data from the form, $request->title means that the input name should be title per example
 
-        return 'The following service was inserted: ' . $request->servicename . '.';
+        return 'Service inserted: ' . $request->servicename . ', ' . $request->shortdescription . ', ' . $request->longdescription . '.';
     }
 
     public function show($id)
@@ -56,46 +62,22 @@ class ServiceController extends Controller
         return view('service-page', ['user' => $user, 'service' => $service, 'comments' => $comments]);
     }
 
-    public function showmyaccount($id)
-    {
-        $service = \App\Service::find($id);
-        $user = \App\User::find($id);
-        $comments = $service->comments;
-        if (Auth::user() && Auth::user()->id == $id) {
-            return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
-        } else {
-            return 'Access denied';
-        }
-    }
-
 
     public function edit($id)
     {
-        $service = \App\Service::find($id);
-        return view('edit-service', ["service" => $service]);
+        //
     }
 
 
     public function update(Request $request, $id)
     {
-        //UPDATE THE FORM
-        $service = \App\Service::find($id);
-        $service->name = $request->name;
-        $service->short_description = $request->short_description;
-        $service->long_description = $request->long_description;
-        //make it hidden, pass value of logged in user:
-        $service->user_id = auth()->user()->id;
-        $service->banned = 0;
-
-        $service->save();
-        return 'Service was updated';
+        //
     }
 
 
     public function destroy($id)
     {
-        \App\Service::destroy($id);
-        return 'Service was deleted';
+        //
     }
 
     public function searchResults(Request $request)
@@ -106,7 +88,7 @@ class ServiceController extends Controller
             $usersearch = $request->searchbar;
         }
 
-        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->orderBy('created_at', 'DESC')->get();
+        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->where('banned', '=', 0)->orderBy('created_at', 'DESC')->get();
 
         return view('search-results', ['servicesResult' => $servicesResult]);
     }
@@ -136,7 +118,7 @@ class ServiceController extends Controller
     public function livesearch(Request $request)
     {
         $result = $request->searchbar;
-        $servicesResult = \App\Service::distinct()->select('name')->where('name', 'like', '%' . $result . '%')->get();
+        $servicesResult = \App\Service::distinct()->select('name')->where('name', 'like', '%' . $result . '%')->where('banned', '=', 0)->get();
         //echo '<div class="specialcontainer">';
         foreach ($servicesResult as $service) {
             echo '<a href="/services/select/' . $service->name . '">' .  ucwords($service->name) . '</a><br>';

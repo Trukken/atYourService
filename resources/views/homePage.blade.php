@@ -13,24 +13,9 @@
 
 <section id="home">
 
-  <div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url('{{asset('images/background.jpg')}}'); 
-background-repeat: no-repeat; background-size: cover; background-position: center center;">
-    <div class="mask rgba-purple-slight">
-      <div class="container h-100 d-flex justify-content-center align-items-center">
-        <div class="row pt-5 mt-3">
-          <div class="col-md-12 wow fadeIn mb-3">
-            <div class="text-center">
-              <h1 class="display-4 font-weight-bold mb-5 wow fadeInUp"><span>@</span>YourService</h1>
-              <h5 class="mb-5 wow fadeInUp" data-wow-delay="0.2s">Linking expats to experts in Luxembourg</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <h1><span>@</span>YourService</h1>
-  <h2>Linking expats to experts in Luxembourg</h2>
+  
+<h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
+<h2 class="h2-reponsive mb-5 white-text wow fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
 
   <div class="search-container position-relative">
     <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
@@ -48,10 +33,10 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
   </div>
 
 </section>
-<!--View random offers-->
-
-<!--Carousel Wrapper-->
-<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+  <!--View random offers-->
+<h1 id="title" class="h1-reponsive text-center font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">Our services</h1>
+  <!--Carousel Wrapper-->
+  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
   <!--Slides-->
   <div class="carousel-inner" role="listbox">
