@@ -19,41 +19,40 @@
 
 <!--Navbar -->
 <header>
-
-<nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark lighten-1">
-    <a class="navbar-brand d-flex justify-content-start" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+  <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="d-flex justify-content-end collapse navbar-collapse" id="navbarSupportedContent-555">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="">About us</a>
-      </li>
-      @if(!Auth::user())
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
-      </li>
-
-      @elseif(Auth::user())
-      @if(Auth::user()->admin == true)
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="">About us</a>
+        </li>
+        @if(!Auth::user())
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        @elseif(Auth::user())
+        @if(Auth::user()->admin == true)
       <li class="nav-item">
           <a class="nav-link" href="/admin">Control panel</a>
         </li>
       @endif
-      <li class="nav-item">
-        <a class="nav-link" href="/myaccount">My account</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Log out</a>
-      </li>
-      @endif
-    </ul>
-</nav>
+        <li class="nav-item">
+          <a class="nav-link" href="/myaccount">My account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log out</a>
+        </li>
+        @endif
+      </ul>
+      </div>
+  </nav>
 <!--/.Navbar -->
 </header>
 

@@ -14,13 +14,12 @@
 <section id="home">
 
 <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
-<h2 class="mb-5 white-text wow fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
+<h2 class="h2-reponsive mb-5 white-text wow fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
 
   <div class="search-container">
     <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
       {{ csrf_field() }}
       <input class="form-control mr-sm-2" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
-
       <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
     </form>
   </div>
