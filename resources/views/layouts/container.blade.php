@@ -2,24 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
-    <title>@yield('title')</title>
-    @yield('header')
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
+  <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
+  <title>@yield('title')</title>
+  @yield('header')
 </head>
 
 <body>
 
 <!--Navbar -->
 <header>
-  <a class="navbar-brand" href="/homePage"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+  <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
   <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
       aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,9 +30,6 @@
         <li class="nav-item">
           <a class="nav-link" href="">About us</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact us</a>
-        </li>
         @if(!Auth::user())
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
@@ -40,10 +37,14 @@
         <li class="nav-item">
           <a class="nav-link" href="/register">Register</a>
         </li>
-        @endif
-        @if(Auth::user())
+        @elseif(Auth::user())
+        @if(Auth::user()->admin == true)
+      <li class="nav-item">
+          <a class="nav-link" href="/admin-panel">Admin panel</a>
+        </li>
+      @endif
         <li class="nav-item">
-          <a class="nav-link" href="/myaccount">My account</a>
+          <a class="nav-link" href="/myaccount/{{auth()->user()->id}}">My account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Log out</a>
@@ -55,9 +56,9 @@
 <!--/.Navbar -->
 </header>
 
-    <div class="content">
-        @yield('content')
-    </div>
+  <div class="content">
+    @yield('content')
+  </div>
 
 
 <!--Footer-->

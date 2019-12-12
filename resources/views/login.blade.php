@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title','Helooooooooo')
+@section('title','Atyourservice Login')
 
 @section('content')
 
@@ -24,6 +24,7 @@
                     </div>
     
                     <!--Body--> 
+                    <form action="" method="POST">
                 @csrf
                 @if(Session::get('email'))   
                     <div class="md-form">
@@ -47,8 +48,10 @@
                     </div>
     
                     <div class="text-center">
-                    <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" value="Submit">
-                </div>
+                        <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" value="Submit">
+                    </div>
+
+                </form>
     
                 </div>
                 </div>

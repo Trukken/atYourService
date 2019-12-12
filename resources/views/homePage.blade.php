@@ -1,4 +1,7 @@
 @extends('layouts.container')
+
+@section('title','Atyourservice')
+
 @section('header')
 <link rel="stylesheet" href="{{ URL::asset('css/homepage.css')}}">
 
@@ -8,19 +11,39 @@
 
 @section('content')
 
+
+@if($errors->any())
+<div class="alert alert-info">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <section id="home">
 
 <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
 <h2 class="h2-reponsive text-center mb-5 white-text fadeInDown"" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
 
-  <div class="search-container">
+  <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
+  <h2 class="h2-reponsive mb-5 white-text wow fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
+
+  <div class="search-container position-relative">
     <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
       {{ csrf_field() }}
-      <input class="form-control mr-sm-2" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
-      <button class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit">Search</button>
+      <div class="search-results-and-buttom d-flex align-items-start justify-between">
+        <div class="search-and-results">
+          <input class="form-control mr-sm-2 position-relative searchhome" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+          <br>
+          <div class="result dropdown-menu input-dropdown-menu position-absolute resulthome" id="result"></div>
+        </div>
+        <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
+
+      </div>
     </form>
   </div>
-  <div class="result dropdown-menu input-dropdown-menu" id="result"></div>
 
 </section>
 
@@ -80,7 +103,7 @@
     $('#search').keyup(function(e) {
       e.preventDefault();
 
-      if ($('#search').val() !== '') {
+      if ($('#search').val() !== '' && $('#search').val().length > 2) {
 
         $.ajaxSetup({
           headers: {
@@ -89,7 +112,7 @@
         });
         $.ajax({
           url: '/livesearch',
-          type: 'post',
+          type: 'get',
           data: $('#search').serialize(),
           success: function(result) {
             $('.result').html(result);
@@ -113,8 +136,9 @@
     });
   });
 
-  let cards = <?php echo $randomservices; ?>;
 
+  let cards = <?= $randomservices ?>;
+  console.log(cards);
   let counter = 0;
   let slide = document.querySelector('.mockup-carousel-item');
   let liveSlide = slide.cloneNode(true);
@@ -123,10 +147,11 @@
     let newClone = item.cloneNode(true);
     item.remove();
     newClone.className = 'col-md-4';
+    newClone.querySelector('h4').innerText = card.name;
     newClone.querySelector('img').src = card.image;
     newClone.querySelector('h4').innerText = card.title;
     newClone.querySelector('p').innerText = card.short_description;
-    newClone.querySelector('a').href = "/services/detail/"+card.id;
+    newClone.querySelector('a').href = "/services/detail/" + card.id;
 
 
 
@@ -137,7 +162,7 @@
       let slideHolder = document.querySelector('.carousel-inner');
       slideHolder.append(newSlide);
       liveSlide = newSlide;
-      if (counter == 3) {
+      if (counter == 0) {
         liveSlide.className = 'carousel-item active';
       }
     }

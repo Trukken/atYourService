@@ -18,7 +18,11 @@ class RegisterController extends Controller
     public function index()
     {
         //
-        return view('register');
+        if (Auth::user()) {
+            return redirect('');
+        } else if (!Auth::user()) {
+            return view('register');
+        }
     }
 
     /**
@@ -65,31 +69,38 @@ class RegisterController extends Controller
                     'password_confirmation' => 'required',
                     'phone' => 'required'
                 ]);
-
-                //Return duplicate email error to the user
-                $emails = User::all()->pluck('email');
-                foreach ($emails as $email) {
-                    if ($email == $request->email) {
-                        $request->session()->put('email', $email);
-                        return view('register', ['loginError' => 'Email already exists, Do you want to <a href="/login">login</a>?']);
+                $emailRegEx = '/[a-zA-Z0-9]{2,}@[a-zA-Z]{2,}.[a-z]{2,3}/';
+                $email = filter_var($request->email, FILTER_SANITIZE_EMAIL);
+                $name = filter_var($request->name, FILTER_SANITIZE_STRING);
+                $password = (filter_var($request->password, FILTER_SANITIZE_STRING));
+                if (preg_match($emailRegEx, $email) && strlen($name) > 0 && strlen($password) > 0) {
+                    //Return duplicate email error to the user
+                    $emails = User::all()->pluck('email');
+                    foreach ($emails as $email) {
+                        if ($email == $request->email) {
+                            $request->session()->put('email', $email);
+                            return view('register', ['loginError' => 'Email already exists, Do you want to <a href="/login">login</a>?']);
+                        }
                     }
+                    $token = sha1(time()) . mt_rand(100000, 999999);
+                    $newUser = new User;
+                    $newUser->name = $request->name;
+                    $newUser->email = $request->email;
+                    $newUser->password = Hash::make($request->password);
+                    $newUser->phone_number = $request->phone;
+                    $newUser->email_verified = false;
+                    $newUser->verification_token = $token;
+                    $details = [
+                        'name' => $newUser->name,
+                        'token' => $token,
+                    ];
+                    \Mail::to($newUser->email)->send(new \App\Mail\Mail($details));
+                    $newUser->save();
+                    auth()->login($newUser);
+                    return redirect('');
+                } else {
+                    return 'Your email is invalid.';
                 }
-                $token = sha1(time()) . mt_rand(100000, 999999);
-                $newUser = new User;
-                $newUser->name = $request->name;
-                $newUser->email = $request->email;
-                $newUser->password = Hash::make($request->password);
-                $newUser->phone_number = $request->phone;
-                $newUser->email_verified = false;
-                $newUser->verification_token = $token;
-                $newUser->save();
-                $details = [
-                    'name' => $newUser->name,
-                    'token' => $token,
-                ];
-                \Mail::to($newUser->email)->send(new \App\Mail\Mail($details));
-                auth()->login($newUser);
-                return redirect('');
             } else {
                 return view('register', ['loginError' => 'You can not enter data that fast.']);
             }
@@ -118,7 +129,6 @@ class RegisterController extends Controller
         //9fe1d37ece96644eaf44f2252b8384813cfbc757203642
         $users = User::all();
         foreach ($users as $user) {
-            var_dump($user->verification_token);
             if ($user->verification_token == $token && !empty($user->verification_token)) {
                 User::where('id', '=', $user->id)->update(['email_verified' => true, 'verification_token' => null]);
                 return redirect('/');

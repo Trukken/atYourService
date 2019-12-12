@@ -21,7 +21,8 @@ class UsersTableSeeder extends Seeder
                     'phone_number' => 661666666,
                     'image' => 'https://randomuser.me/api/portraits/men/29.jpg',
                     'admin' => false,
-                    'banned' => false
+                    'banned' => false,
+                    'reported' => false,
                 ],
                 [
                     'name' => 'John Doe',
@@ -31,7 +32,8 @@ class UsersTableSeeder extends Seeder
                     'phone_number' => 661666666,
                     'image' => 'https://randomuser.me/api/portraits/men/29.jpg',
                     'admin' => false,
-                    'banned' => false
+                    'banned' => false,
+                    'reported' => false,
                 ]
             ]
         );
