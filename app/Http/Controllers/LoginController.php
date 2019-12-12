@@ -119,10 +119,10 @@ class LoginController extends Controller
                     }
                     return redirect('/');
                 } else {
-                    return view('login', ['loginError' => 'Check your password and email.']);
+                    return redirect('login')->withErrors(['msg' => 'Check your password and email.']);
                 }
             } else {
-                return view('login', ['loginError' => 'Bot detected.']);
+                return redirect('login')->withErrors(['msg' => 'Bot detected.']);
             }
         }
     }
