@@ -81,7 +81,7 @@
     $('#search').keyup(function(e) {
       e.preventDefault();
 
-      if ($('#search').val() !== '') {
+      if ($('#search').val() !== '' && $('#search').val().length > 2) {
 
         $.ajaxSetup({
           headers: {
