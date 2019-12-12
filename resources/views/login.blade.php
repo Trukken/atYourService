@@ -38,26 +38,25 @@
                 @if(Session::get('email'))
                     <div class="md-form">
                     <i class="fas fa-envelope prefix"></i>
-                    <input type="text" id="orangeForm-email" class="form-control" value="{{ Session::get('email') }}">
+                    <input type="text" name="email" id="orangeForm-email email" class="form-control" value="{{ Session::get('email') }}">
                     <label for="orangeForm-email">Your email</label>
                     </div>
-                @endif
-                @if(!Session::get('email'))
+                @elseif(!Session::get('email'))
                     <div class="md-form">
                     <i class="fas fa-envelope prefix"></i>
-                    <input type="text" id="orangeForm-email" class="form-control" value="{{ Session::get('email') }}">
+                    <input type="text" name="email" id="orangeForm-email email" class="form-control">
                     <label for="orangeForm-email">Your email</label>
                     </div>
                 @endif
                     <div class="md-form">
                     <i class="fas fa-lock prefix"></i>
-                    <input type="password" id="orangeForm-pass" class="form-control">
-                    <input type="hidden" name="token" id="token">
+                    <input type="password" name="password"id="orangeForm-pass password" class="form-control">
                     <label for="orangeForm-pass">Your password</label>
-                    </div>
+                </div>
 
-                    <div class="text-center">
-                        <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" value="Submit">
+                <input type="hidden" name="token" id="token">
+                <div class="text-center">
+                        <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" name="submit" value="Submit">
                     </div>
                 </form>
 
