@@ -14,7 +14,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     background-color: #272727;
 }
 
@@ -59,7 +58,7 @@ h2{
 
 h1#title{
     color: #ff4a4a;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .form-control{
     border: 2px solid #ff954a;
