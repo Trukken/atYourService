@@ -7,8 +7,6 @@
 
 @endsection
 
-@section('title','Home')
-
 @section('content')
 
 
@@ -26,9 +24,6 @@
 
 <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
 <h2 class="h2-reponsive text-center mb-5 white-text fadeInDown"" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
-
-  <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
-  <h2 class="h2-reponsive mb-5 white-text wow fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
 
   <div class="search-container position-relative">
     <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">

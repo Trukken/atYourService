@@ -29,7 +29,7 @@
 
                     <!--Header-->
                     <div class="form-header peach-gradient">
-                    <h3><i class="fas fa-user mt-2 mb-2"></i> Log in:</h3>
+                    <h3><i class="fas fa-user mt-2 mb-2"></i> Log in</h3>
                     </div>
 
                     <!--Body-->
@@ -51,7 +51,7 @@
                     <div class="md-form"  onclick="document.querySelector('.password-input').focus()">
                     <i class="fas fa-lock prefix"></i>
                     <input type="password" name="password" id="orangeForm-pass password" class="form-control password-input">
-                    <label for="orangeForm-pass" >Your password</label>
+                    <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.password-input').focus()">Your password</label>
                 </div>
 
                 <input type="hidden" name="token" id="token">
