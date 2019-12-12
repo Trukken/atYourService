@@ -106,6 +106,21 @@ h1#title {
     height: 80vh;
     background-color: none;
 }
+
+
+#alertLogin{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 70%;
+}
+#alertRegister{
+    position: absolute;
+    left: 80%;
+    transform: translate(-50%);
+    top: 30%;
+}
+
 .fas{
     color: #ff4a4a;
 }

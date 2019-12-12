@@ -5,15 +5,16 @@
 @section('content')
 
 @if($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
+<section id="alertLogin">
+    <div class="alert alert-danger ">
+        <ul>
+            @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
+            @endforeach
+        </ul>
+    </div>
+</section>
 @endif
-
 @if(isset($loginError))
     <?php echo $loginError; ?>
 @endif
@@ -69,7 +70,7 @@
         </div>
         </div>
     </section>
-
+    
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>
 <script>
