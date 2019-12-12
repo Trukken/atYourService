@@ -106,7 +106,7 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
         });
         $.ajax({
           url: '/livesearch',
-          type: 'post',
+          type: 'get',
           data: $('#search').serialize(),
           success: function(result) {
             $('.result').html(result);
@@ -130,8 +130,9 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
     });
   });
 
-  let cards = <?php echo $randomservices; ?>;
 
+  let cards = <?= $randomservices ?>;
+  console.log(cards);
   let counter = 0;
   let slide = document.querySelector('.mockup-carousel-item');
   let liveSlide = slide.cloneNode(true);
@@ -140,6 +141,7 @@ background-repeat: no-repeat; background-size: cover; background-position: cente
     let newClone = item.cloneNode(true);
     item.remove();
     newClone.className = 'col-md-4';
+    newClone.querySelector('h4').innerText = card.name;
     newClone.querySelector('img').src = card.image;
     newClone.querySelector('h4').innerText = card.title;
     newClone.querySelector('p').innerText = card.short_description;

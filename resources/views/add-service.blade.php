@@ -17,12 +17,17 @@
     @csrf
 
     <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
-
-    <input type="text" name="servicename" placeholder="Service name">
+    <label for="servicename">Service: </label>
     <br>
-    <textarea name="shortdescription" cols="30" rows="5"></textarea>
+    <input type="text" name="servicename">
     <br>
-    <textarea name="longdescription" cols="30" rows="10"></textarea>
+    <label for="shortdescription">Write a short description (max. 144 characters): </label>
+    <br>
+    <textarea name="shortdescription" maxlength="144" cols="30" rows="5"></textarea>
+    <br>
+    <label for="longdescription">Full description: </label>
+    <br>
+    <textarea name="longdescription" maxlength="500" cols="30" rows="10"></textarea>
     <br>
     <input type="submit" name="submit" value="send">
 
