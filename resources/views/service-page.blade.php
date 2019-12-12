@@ -4,7 +4,7 @@
 
 @section('content')
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
-<h1> {{ucwords($service->name)}} </h1>
+<h1> {{ucwords($service->name)}} @if($service->banned) - This service is currently banned @endif</h1>
 
 <h2>Description</h2>
 

@@ -22,17 +22,17 @@ header a {
     color: white;
 }
 
-header img{
+header img {
     padding-left: 10px;
 }
 li {
     padding: 10px;
 }
-.navbar{
+.navbar {
     box-shadow: none;
 }
 
-#home{
+#home {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,25 +47,24 @@ h1 {
     margin-top: 60px;
     font-weight: 600;
     font-size: 5.5rem;
-    color: white;
 }
 h1 span {
     color: #ff4a4a;
 }
 
-h2{
-    color:white;
+h2 {
+    color: white;
     padding-bottom: 20px;
 }
 .form-control {
     border: 2px solid #ff954a;
 }
 
-.carousel-multi-item{
+.carousel-multi-item {
     margin: 5rem 0px;
     width: 80%;
 }
-.card-title strong{
+.card-title strong {
     color: #ff4a4a;
 }
 
@@ -73,8 +72,8 @@ h2{
     width: 70%;
     height: 30%;
     margin: 20px auto;
-    border-top-left-radius: calc(.25rem - 1px);
-    border-top-right-radius: calc(.25rem - 1px);
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
 }
 
 .card.card-cascade .view.view-cascade {
@@ -104,8 +103,8 @@ h2{
     margin-top: 5px;
 }
 
-footer{
+footer {
     background-color: #272727;
-    color:white;
-    padding:5px;
+    color: white;
+    padding: 5px;
 }
