@@ -104,9 +104,13 @@ h2{
     margin-top: 5px;
 }
 
-#result, #search{
+.searchhome{
     width: 100%;
 }
+.resulthome{
+    width:97%;
+}
+
 footer{
     background-color: #272727;
     color:white;
