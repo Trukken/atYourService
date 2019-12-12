@@ -17,17 +17,6 @@
     <li> {!! $loginError !!}</li>
 </ul>
 @endif
-<form method="POST">
-    @csrf
-    <input type="text" name="name" placeholder="Name">
-    <input type="email" name="email" placeholder="Emil">
-    <input type="password" name="password" placeholder="Password">
-    <input type="password" name="password_confirmation" placeholder="Password confirmation">
-    <input type="text" name="phone" placeholder="Phone Number">
-    <input type="hidden" name="token" id="token">
-    <input type="submit" name="submit" value="Submit">
-</form>
-
 
 <section id="login">
     <div  class="mask h-100 d-flex justify-content-center align-items-center">
@@ -41,39 +30,48 @@
 
                 <!--Header-->
                 <div class="form-header peach-gradient">
-                <h3><i class="fas fa-user mt-2 mb-2"></i> Join us:</h3>
+                <h3><i class="fas fa-user mt-2 mb-2"></i> Join us</h3>
                 </div>
 
                 <!--Body--> 
-                <div class="md-form">
-                    <i class="fas fa-user prefix"></i>
-                    <input type="text" id="orangeForm-name" class="form-control">
-                    <label for="orangeForm-name">Your name</label>
-                </div>
+                <form action="" method="POST">
+                    @csrf
+                    <div class="md-form">
+                        <i class="fas fa-user prefix" onclick="document.querySelector('.name-input').focus()"></i>
+                        <input type="text" id="orangeForm-name" name="name" class="form-control">
+                        <label for="orangeForm-name" onclick="className='active'; document.querySelector('.name-input').focus()">Your name</label>
+                    </div>
 
-                <div class="md-form">
-                    <i class="fas fa-envelope prefix"></i>
-                    <input type="text" id="orangeForm-email" class="form-control" value="{{ Session::get('email') }}">
-                    <label for="orangeForm-email">Your email</label>
-                </div>
-            
-                <div class="md-form">
-                    <i class="fas fa-lock prefix"></i>
-                    <input type="password" id="orangeForm-pass" class="form-control">
-                    <input type="hidden" name="token" id="token">
-                    <label for="orangeForm-pass">Your password</label>
-                </div>
+                    <div class="md-form" onclick="document.querySelector('.email-input').focus()">
+                        <i class="fas fa-envelope prefix"></i>
+                        <input type="text" id="orangeForm-email" name="email" class="form-control" value="{{ Session::get('email') }}">
+                        <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
+                    </div>
                 
-                <div class="md-form">
-                    <i class="fas fa-lock prefix"></i>
-                    <input type="password" id="orangeForm-pass" class="form-control">
-                    <input type="hidden" name="token" id="token">
-                    <label for="orangeForm-pass">Your password</label>
-                </div>
+                    <div class="md-form">
+                        <i class="fas fa-lock prefix" onclick="document.querySelector('.password-input').focus()"></i>
+                        <input type="password" id="orangeForm-pass" name="password" class="form-control">
+                        <label for="orangeForm-pass">Your password</label>
+                    </div>
+                    
+                    <div class="md-form">
+                        <i class="fas fa-lock prefix" onclick="document.querySelector('.password_confirmation-input').focus()"></i>
+                        <input type="password" id="orangeForm-pass" name="password_confirmation" class="form-control">
+                        <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.password_confirmation-input').focus()">Confirmation password</label>
+                    </div>
 
-                <div class="text-center">
-                <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" value="Submit">
-            </div>
+                    <div class="md-form">
+                        <i class="fas fa-phone prefix" onclick="document.querySelector('.phone-input').focus()"></i>
+                        <input type="text" id="orangeForm-pass" name="phone" class="form-control">
+                        <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.phone-input').focus()">Your phone number</label>
+                    </div>
+                    
+                    <input type="hidden" name="token" id="token">
+
+                    <div class="text-center">
+                    <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" value="Submit">
+                    </div>
+                </form>
 
             </div>
             </div>
