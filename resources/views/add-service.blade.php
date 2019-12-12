@@ -13,26 +13,28 @@
 
 <h1>Add a service</h1>
 
-<form id="resultForm" action="" method="post">
-    @csrf
-
-    <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
-    <label for="servicename">Service: </label>
-    <br>
-    <input type="text" name="servicename">
-    <br>
-    <label for="shortdescription">Write a short description (max. 144 characters): </label>
-    <br>
-    <textarea name="shortdescription" maxlength="144" cols="30" rows="5"></textarea>
-    <br>
-    <label for="longdescription">Full description: </label>
-    <br>
-    <textarea name="longdescription" maxlength="500" cols="30" rows="10"></textarea>
-    <br>
-    <input type="submit" name="submit" value="send">
-
-</form>
+<div class="form-container">
+    <form id="resultForm" action="" method="post">
+        @csrf
+        <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
+        <label for="servicename">Service: </label>
+        <br>
+        <input type="text" class="inner" name="servicename">
+        <br>
+        <label for="shortdescription">Write a short description (max. 144 characters): </label>
+        <br>
+        <textarea name="shortdescription" class="inner" maxlength="144" cols="30" rows="5"></textarea>
+        <br>
+        <label for="longdescription">Full description: </label>
+        <br>
+        <textarea name="longdescription" class="inner" maxlength="500" cols="30" rows="10"></textarea>
+        <br>
+        <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Send</button>
+        <!-- <input type="submit" name="submit" value="send"> -->
+    </form>
+</div>
 <div class="result"></div>
+<br>
 <a href="./">Back</a>
 @endif
 

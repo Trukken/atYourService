@@ -4,24 +4,23 @@
 
 @section('content')
 
-<h2>My services</h2>
+<h1>My services</h1>
 
 @foreach($user->services as $service)
 <br>
-<h4>{{$service->name}}</h4>
+<h3>{{$service->name}}</h3>
 
 <a class="read-more-toggle">Read More <i class="fas fa-angle-down"></i></a>
 <div class="read-more-content">
     <br>
-    <p>Short description:
-        {{$service->short_description}}</p>
+    <h5>Short description:</h5>
+    <p> {{$service->short_description}}</p>
 
-    <p>Complete description:
-        {{$service->long_description}}</p>
+    <h5>Complete description:</h5>
+    <p> {{$service->long_description}}</p>
 
-    <p>Date created:
-        {{date('d.m.Y', strtotime($service->created_at))}}</p>
-    <br>
+    <h5>Date created:</h5>
+    <p>{{date('d.m.Y', strtotime($service->created_at))}}</p>
 
 </div>
 
@@ -31,6 +30,9 @@
 @endforeach
 
 <div class="result"></div>
+
+
+
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
