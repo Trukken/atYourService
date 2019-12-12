@@ -44,7 +44,7 @@
         </li>
       @endif
         <li class="nav-item">
-          <a class="nav-link" href="/myaccount/{{auth()->user()->id}}">My account</a>
+          <a class="nav-link" href="/user/{{auth()->user()->id}}">My account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Log out</a>
