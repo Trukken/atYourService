@@ -36,22 +36,22 @@
                 <form action="" method="POST">
                 @csrf
                 @if(Session::get('email'))
-                    <div class="md-form">
+                    <div class="md-form" onclick="document.querySelector('.email-input').focus()">
                     <i class="fas fa-envelope prefix"></i>
-                    <input type="text" name="email" id="orangeForm-email email" class="form-control" value="{{ Session::get('email') }}">
-                    <label for="orangeForm-email">Your email</label>
+                    <input type="text" name="email" id="orangeForm-email email" class="form-control email-input" value="{{ Session::get('email') }}">
+                    <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                     </div>
                 @elseif(!Session::get('email'))
-                    <div class="md-form">
+                    <div class="md-form" onclick="document.querySelector('.email-input').focus()">
                     <i class="fas fa-envelope prefix"></i>
-                    <input type="text" name="email" id="orangeForm-email email" class="form-control">
-                    <label for="orangeForm-email">Your email</label>
+                    <input type="text" name="email" id="orangeForm-email email" class="form-control email-input">
+                    <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                     </div>
                 @endif
-                    <div class="md-form">
+                    <div class="md-form"  onclick="document.querySelector('.password-input').focus()">
                     <i class="fas fa-lock prefix"></i>
-                    <input type="password" name="password"id="orangeForm-pass password" class="form-control">
-                    <label for="orangeForm-pass">Your password</label>
+                    <input type="password" name="password" id="orangeForm-pass password" class="form-control password-input">
+                    <label for="orangeForm-pass" >Your password</label>
                 </div>
 
                 <input type="hidden" name="token" id="token">
@@ -73,6 +73,7 @@
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>
 <script>
+
 grecaptcha.ready(function() {
     grecaptcha.execute('6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL', {action: 'login'}).then(function(token) {
         document.querySelector('#token').value = token;
