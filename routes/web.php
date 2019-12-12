@@ -74,3 +74,6 @@ Route::post('/services/comments/add/{id}', 'CommentController@store');
 //MY SERVICES PAGE
 Route::get('/user/{id}', 'ServiceController@showmyaccount');
 Route::post('/user-control', 'AdminController@userControl');
+
+Route::get('/admin-panel', 'AdminController@displayOptions');
+Route::post('/admin-panel', 'AdminController@redirect');
