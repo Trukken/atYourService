@@ -99,7 +99,12 @@ class ServiceController extends Controller
 
     public function searchResults(Request $request)
     {
-        $usersearch = $request->searchbar;
+        if (!empty($request->name)) {
+            $usersearch = $request->name;
+        } else {
+            $usersearch = $request->searchbar;
+        }
+
         $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->orderBy('created_at', 'DESC')->get();
 
         return view('search-results', ['servicesResult' => $servicesResult]);
@@ -117,7 +122,6 @@ class ServiceController extends Controller
         $query = \App\Service::where('name', 'like', '%' . $usersearch . '%')->orderBy($ordered, 'DESC')->get();
 
         return $query;
-
     }
 
     /**
@@ -138,18 +142,4 @@ class ServiceController extends Controller
         }
     }
 
-    /**
-     * This might not be necessary
-     * (below)
-     */
-    public function searchbyname(Request $request)
-    {
-
-        $req = $request->name;
-        $query = \App\Service::where('name', $req)->get();
-        foreach ($query as $service) {
-            $services[] = $service;
-        }
-        return view('/serviceslist', ['query' => $query, 'request' => $request, 'name' => $req, 'services' => $services]);
-    }
 }

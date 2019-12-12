@@ -38,9 +38,9 @@ Route::post('/search-results', 'ServiceController@searchResults');
 Route::post('/search-results2', 'ServiceController@searchResults2');
 Route::get('/livesearch', 'ServiceController@livesearch');
 
-Route::get('/search-results', 'ServiceController@searchbyname');
+Route::get('/search-results', 'ServiceController@searchResults');
 
-Route::get('/services/select/{name}', 'ServiceController@searchbyname');
+Route::get('/services/select/{name}', 'ServiceController@searchResults');
 
 
 //POST A SERVICE
