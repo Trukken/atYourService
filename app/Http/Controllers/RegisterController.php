@@ -79,7 +79,7 @@ class RegisterController extends Controller
                     foreach ($emails as $email) {
                         if ($email == $request->email) {
                             $request->session()->put('email', $email);
-                            return view('register', ['loginError' => 'Email already exists, Do you want to <a href="/login">login</a>?']);
+                            return redirect('register')->withErrors(['msg' => 'Email already exists, Do you want to <a href="/login">login</a>?']);
                         }
                     }
                     $token = sha1(time()) . mt_rand(100000, 999999);
@@ -102,7 +102,7 @@ class RegisterController extends Controller
                     return 'Your email is invalid.';
                 }
             } else {
-                return view('register', ['loginError' => 'You can not enter data that fast.']);
+                return redirect('register')->withErrors(['msg' => 'You can not enter data that fast.']);
             }
         }
     }
