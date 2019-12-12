@@ -4,12 +4,27 @@
 
 @section('content')
 
-<h2>{{$user->name}}</h2>
-<h4>My services:</h4>
+<h2>My services</h2>
 
 @foreach($user->services as $service)
 <br>
-{{$service->name}} <br>
+<h4>{{$service->name}}</h4>
+
+<a class="read-more-toggle">Read More <i class="fas fa-angle-down"></i></a>
+<div class="read-more-content">
+    <br>
+    <p>Short description:
+        {{$service->short_description}}</p>
+
+    <p>Complete description:
+        {{$service->long_description}}</p>
+
+    <p>Date created:
+        {{date('d.m.Y', strtotime($service->created_at))}}</p>
+    <br>
+
+</div>
+
 <p>(<a href="/services/edit/{{$service->id}}">Update</a>/
     <a id="delete" href="/services/delete/{{$service->id}}">Delete</a>)</p>
 
@@ -47,6 +62,18 @@
                 }
             });
         });
+    });
+
+    /*
+     *
+     */
+
+    // Hide the extra content initially, using JS so that if JS is disabled, no problemo.
+    $('.read-more-content').addClass('hide');
+
+    // Set up the toggle.
+    $('.read-more-toggle').on('click', function() {
+        $(this).next('.read-more-content').toggleClass('hide');
     });
 </script>
 

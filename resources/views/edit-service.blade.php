@@ -20,7 +20,6 @@
     <br>
     <textarea name="long_description" id="" cols="30" rows="10" value="">{{$service->long_description}}</textarea>
     <br>
-    <input type="hidden" name="user_id" value="1">
 
 
     <input type="submit" name="edit" value="edit">

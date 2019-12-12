@@ -112,3 +112,11 @@ footer{
 footer a:hover{
     color:#ff4a4a;
 }
+
+article {
+  border-bottom: 1px solid black;
+}
+
+.hide {
+  display: none;
+}

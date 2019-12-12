@@ -11,10 +11,8 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $randomservices = \App\Service::inRandomOrder()->join('users', 'users.id', '=', 'services.user_id')
-            ->select('services.*', 'users.image')->limit(9)->get();
+        $randomservices = \App\Service::inRandomOrder()->join('users', 'users.id', '=', 'services.user_id')->select('services.*', 'users.image')->limit(9)->get();
         $services = \App\Service::all();
-
 
         return view('homePage', ['randomservices' => $randomservices, 'services' => $services]);
     }
@@ -34,7 +32,7 @@ class ServiceController extends Controller
         $newService->name = $request->servicename;
         $newService->short_description = $request->shortdescription;
         $newService->long_description = $request->longdescription;
-        $newService->user_id = auth()->user()->id;   //$request->user_id
+        $newService->user_id = auth()->user()->id;
         $newService->banned = 0;
         return $newService;
         $newService->save();
@@ -67,7 +65,6 @@ class ServiceController extends Controller
         $service->name = $request->name;
         $service->short_description = $request->short_description;
         $service->long_description = $request->long_description;
-        //make it hidden, pass value of logged in user:
         $service->user_id = auth()->user()->id;
         $service->banned = 0;
 
