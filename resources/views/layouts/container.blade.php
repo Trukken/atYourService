@@ -44,6 +44,9 @@
         </li>
       @endif
         <li class="nav-item">
+            <a class="nav-link" href="/add-services">Add a service</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/user/{{auth()->user()->id}}">My account</a>
         </li>
         <li class="nav-item">
@@ -52,59 +55,59 @@
         @endif
       </ul>
       </div>
-  </nav>
-<!--/.Navbar -->
-</header>
+    </nav>
+    <!--/.Navbar -->
+  </header>
 
   <div class="content">
     @yield('content')
   </div>
 
 
-<!--Footer-->
-<footer class="page-footer pt-0">
+  <!--Footer-->
+  <footer class="page-footer pt-0">
 
-<!--Footer Links-->
-<div class="container">
+    <!--Footer Links-->
+    <div class="container">
 
-  <!--First row-->
-  <div class="row">
+      <!--First row-->
+      <div class="row">
 
-    <!--First column-->
-    <div class="col-md-12 wow fadeIn" data-wow-delay="0.3s">
+        <!--First column-->
+        <div class="col-md-12 wow fadeIn" data-wow-delay="0.3s">
 
-      <div class="text-center d-flex justify-content-center my-4">
+          <div class="text-center d-flex justify-content-center my-4">
 
-        <!--Facebook-->
-        <a class="p-2 m-2 fa-lg fb-ic"><i class="fab fa-facebook-f white-text fa-lg pr-md-4"> </i></a>
-        <!--Twitter-->
-        <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-twitter white-text fa-lg pr-md-4"> </i></a>
-        <!--Google +-->
-        <a class="p-2 m-2 fa-lg gplus-ic"><i class="fab fa-google-plus-g white-text fa-lg pr-md-4"> </i></a>
-        <!--Linkedin-->
-        <a class="p-2 m-2 fa-lg li-ic"><i class="fab fa-linkedin-in white-text fa-lg pr-md-4"> </i></a>
-        <!--Instagram-->
-        <a class="p-2 m-2 fa-lg ins-ic"><i class="fab fa-instagram white-text fa-lg pr-md-4"> </i></a>
-        <!--Pinterest-->
-        <a class="p-2 m-2 fa-lg pin-ic"><i class="fab fa-pinterest white-text fa-lg pr-md-4"> </i></a>
+            <!--Facebook-->
+            <a class="p-2 m-2 fa-lg fb-ic"><i class="fab fa-facebook-f white-text fa-lg pr-md-4"> </i></a>
+            <!--Twitter-->
+            <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-twitter white-text fa-lg pr-md-4"> </i></a>
+            <!--Google +-->
+            <a class="p-2 m-2 fa-lg gplus-ic"><i class="fab fa-google-plus-g white-text fa-lg pr-md-4"> </i></a>
+            <!--Linkedin-->
+            <a class="p-2 m-2 fa-lg li-ic"><i class="fab fa-linkedin-in white-text fa-lg pr-md-4"> </i></a>
+            <!--Instagram-->
+            <a class="p-2 m-2 fa-lg ins-ic"><i class="fab fa-instagram white-text fa-lg pr-md-4"> </i></a>
+            <!--Pinterest-->
+            <a class="p-2 m-2 fa-lg pin-ic"><i class="fab fa-pinterest white-text fa-lg pr-md-4"> </i></a>
+          </div>
+
+        </div>
+        <!--/First column-->
+
       </div>
+      <!--/First row-->
 
     </div>
-    <!--/First column-->
+    <!--/Footer Links-->
 
-  </div>
-  <!--/First row-->
-
-</div>
-<!--/Footer Links-->
-
-<!--Copyright-->
-<div class="footer-copyright py-3 text-center wow fadeIn" data-wow-delay="0.3s">
-  <div class="container-fluid">
-    © 2019 Copyright: atYourService </a>
-  </div>
-</div>
-<!--/.Copyright-->
+    <!--Copyright-->
+    <div class="footer-copyright py-3 text-center wow fadeIn" data-wow-delay="0.3s">
+      <div class="container-fluid">
+        © 2019 Copyright: atYourService </a>
+      </div>
+    </div>
+    <!--/.Copyright-->
 
 </footer>
     <!--  SCRIPTS  -->
@@ -116,6 +119,9 @@
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="../js/mdb.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>

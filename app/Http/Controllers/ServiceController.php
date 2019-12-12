@@ -9,16 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $randomservices = \App\Service::inRandomOrder()->limit(9)->get();
+        $randomservices = \App\Service::inRandomOrder()->join('users', 'users.id', '=', 'services.user_id')->select('services.*', 'users.image')->limit(9)->get();
         $services = \App\Service::all();
-
 
         return view('homePage', ['randomservices' => $randomservices, 'services' => $services]);
     }
@@ -38,19 +32,12 @@ class ServiceController extends Controller
         $newService->name = $request->servicename;
         $newService->short_description = $request->shortdescription;
         $newService->long_description = $request->longdescription;
-
-        /**
-         * I need to connect user_id and banned somehow later when I have session etc
-         * for now I'm using '1'
-         */
-        $newService->user_id = auth()->user()->id;   //$request->user_id
+        $newService->user_id = auth()->user()->id;
         $newService->banned = 0;
         return $newService;
         $newService->save();
 
-        //the $request are data from the form, $request->title means that the input name should be title per example
-
-        return 'Service inserted: ' . $request->servicename . ', ' . $request->shortdescription . ', ' . $request->longdescription . '.';
+        return 'Service inserted: ' . $request->servicename;
     }
 
     public function show($id)
@@ -78,7 +65,6 @@ class ServiceController extends Controller
         $service->name = $request->name;
         $service->short_description = $request->short_description;
         $service->long_description = $request->long_description;
-        //make it hidden, pass value of logged in user:
         $service->user_id = auth()->user()->id;
         $service->banned = 0;
 
@@ -121,13 +107,7 @@ class ServiceController extends Controller
         return $query;
     }
 
-    /**
-     *
-     *
-     * LIVE SEARCH
-     *
-     *
-     */
+    // LIVE SEARCH
 
     public function livesearch(Request $request)
     {
