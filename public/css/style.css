@@ -16,10 +16,7 @@ header a {
     color: white;
 }
 
-header img {
-    padding-left: 10px;
-}
-
+/*HOME*/
 #home {
     display: flex;
     justify-content: center;
@@ -44,10 +41,7 @@ header img {
     text-shadow: 1px 1px 2px #272727;
 }
 
-h1#title {
-    color: #ff4a4a;
-    padding: 50px;
-}
+/*SEARCH BAR*/
 .form-control {
     border: 2px solid #ff954a;
 }
@@ -61,8 +55,12 @@ color: #ff954a;
 #result{
     width: 64%;
 }
-#services{
-    background-color: #F8F9FA;
+
+/*HOME SERVICES*/
+
+h1#title {
+    color: #ff4a4a;
+    padding: 50px 50px 0 50px;
 }
 
 .hr-light {
@@ -101,6 +99,7 @@ color: #ff954a;
 #btn {
     margin-top: 5px;
 }
+/*LOGIN REGISTER*/
 #login {
     background-image: url("../images/background.jpg");
     background-size: cover;
@@ -113,9 +112,6 @@ color: #ff954a;
     border-radius: .25rem;
     left: 50%;
     transform: translate(-50%);
-}
-
-.alert-danger {
     color: #de0303;
     background-color: #ffb580;
     border-color: #ff954a;
@@ -133,6 +129,8 @@ footer {
 footer a:hover {
     color: #ff4a4a;
 }
+
+/*ADMIN*/
 
 article {
     border-bottom: 1px solid black;
