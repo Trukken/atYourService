@@ -137,7 +137,7 @@ class AdminController extends Controller
         if (Auth::user() && Auth::user()->admin == true) {
             $mostRecentReport = Report::where('updated_at', '<', 'CURDATE()')->orderBy('updated_at', 'DESC')->limit(1)->select('updated_at')->get();
             //2019-12-13 08:35:25
-            if (empty($mostRecentReport)) {
+            if (!empty($mostRecentReport[0])) {
                 $dateNow = new DateTime(date('Y-m-d H:i:s', time()));
                 $timeDiff = $dateNow->diff($mostRecentReport[0]->updated_at);
                 return view('admin-panel', ['mostRecentReport' => $timeDiff]);
