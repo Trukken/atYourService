@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title','Report misconduct')
+@section('title','Report Misconduct')
 
 @section('content')
 <h1>Reporting: <a href="/services/detail/{{ $report->id }}">{{ $report->name }}</a></h1>

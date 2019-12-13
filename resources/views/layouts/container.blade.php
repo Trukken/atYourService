@@ -46,8 +46,8 @@
         </li>
         @elseif(Auth::user())
         @if(Auth::user()->admin == true)
-        <li class="nav-item">
-          <a class="nav-link" href="/control-panel">Admin panel</a>
+      <li class="nav-item">
+          <a class="nav-link" href="/admin-panel">Admin panel</a>
         </li>
         @endif
         <li class="nav-item">
@@ -126,7 +126,6 @@
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="../js/mdb.min.js"></script>
-  
- </body>
+</body>
 
 </html>

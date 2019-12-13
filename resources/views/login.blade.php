@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title','Atyourservice Login')
+@section('title','Login')
 
 @section('content')
 

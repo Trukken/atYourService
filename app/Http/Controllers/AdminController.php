@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Report;
 use App\Service;
 use App\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -131,27 +132,33 @@ class AdminController extends Controller
             return redirect('');
         }
     }
-    public function displayOptions(){
-        if(Auth::user() && Auth::user()->admin == true){
-            return view('admin-panel');
-        }else{
-            return redirect('')->withErrors(['msg'=>'You do not have permission to see that page.']);
+    public function displayOptions()
+    {
+        if (Auth::user() && Auth::user()->admin == true) {
+            $mostRecentReport = Report::where('updated_at', '<', 'CURDATE()')->orderBy('updated_at', 'DESC')->limit(1)->select('updated_at')->get();
+            //2019-12-13 08:35:25
+            $dateNow = new DateTime(date('Y-m-d H:i:s', time()));
+            $timeDiff = $dateNow->diff($mostRecentReport[0]->updated_at);
+            return view('admin-panel', ['mostRecentReport' => $timeDiff]);
+        } else {
+            return redirect('')->withErrors(['msg' => 'You do not have permission to see that page.']);
         }
     }
-    public function redirect(Request $request){
-        if(Auth::user()&&Auth::user()->admin==true){
+    public function redirect(Request $request)
+    {
+        if (Auth::user() && Auth::user()->admin == true) {
             $request->validate([
-                'adminControl'=>'required'
+                'adminControl' => 'required'
             ]);
-            if($request->adminControl=="displayUsers"){
+            if ($request->adminControl == "displayUsers") {
                 return 'TODO:: users';
-            }else if($request->adminControl=="displayServices"){
+            } else if ($request->adminControl == "displayServices") {
                 return 'TODO:: services';
-            }else if($request->adminControl=="displayReports"){
+            } else if ($request->adminControl == "displayReports") {
                 return redirect('/control-panel');
             }
-        }else{
-            return redirect('')->withErrors(['msg'=>'You do not have permission to see that page.']);
+        } else {
+            return redirect('')->withErrors(['msg' => 'You do not have permission to see that page.']);
         }
     }
 }
