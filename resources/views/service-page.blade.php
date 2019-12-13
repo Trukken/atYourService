@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title',{{ $service->name }})
+@section('title', $service->name)
 
 @section('content')
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
@@ -22,10 +22,10 @@
 </form>
 @if(Auth::user()->admin == true)
 <br>
-    <a href="/ban-service/{{ $service->id }}">Ban service</a>
-    @if($service->banned == true)
-        <a href="/unban-service/{{ $service->id }}">Unban service</a>
-    @endif
+<a href="/ban-service/{{ $service->id }}">Ban service</a>
+@if($service->banned == true)
+<a href="/unban-service/{{ $service->id }}">Unban service</a>
+@endif
 @endif
 
 <div class="">

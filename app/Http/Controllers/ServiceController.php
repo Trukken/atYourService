@@ -34,7 +34,6 @@ class ServiceController extends Controller
         $newService->long_description = $request->longdescription;
         $newService->user_id = auth()->user()->id;
         $newService->banned = 0;
-        return $newService;
         $newService->save();
 
         return 'Service inserted: ' . $request->servicename;
