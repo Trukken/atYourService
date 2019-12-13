@@ -32,6 +32,7 @@
                   <p class="card-text">In this section you will see the most recent reports and handle those reports, pay attention as this feature is live.</p>
                   <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="adminControl" value="displayReports">Go to Reports</button>
                   <p class="card-text"><small class="text-muted"><?php
+                  if(!empty($mostRecentReport)){
                   if($mostRecentReport->d > 0)
                   { echo 'Last report '.$mostRecentReport->d.' days ago';
                     }
@@ -41,7 +42,11 @@
                       echo 'Last report '.$mostRecentReport->i.' minutes ago.';
                   }else if($mostRecentReport->s >= 0 && $mostRecentReport->i == 0 && $mostRecentReport->h == 0 && $mostRecentReport->d == 0){
                       echo 'Last report a few seconds ago.';
-                  } ?></small></p>
+                  }
+                 }else if(!empty($msg)){
+                     echo $msg;
+                 }
+                  ?></small></p>
                 </div>
               </div>
         </div>
