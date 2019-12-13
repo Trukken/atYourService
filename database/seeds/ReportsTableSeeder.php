@@ -16,7 +16,8 @@ class ReportsTableSeeder extends Seeder
                 [
                     'service_id' => 1,
                     'report_reason' => 'Too smelly.',
-                    'handled' => false
+                    'handled' => false,
+                    'updated_at' => '1970-01-01 00:00:00'
                 ], [
                     'service_id' => 1,
                     'report_reason' => 'Too smelly.',
