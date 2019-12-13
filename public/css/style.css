@@ -19,10 +19,6 @@ header a {
 header img {
     padding-left: 10px;
 }
-li {
-    padding: 10px;
-}
-
 
 #home {
     display: flex;
@@ -62,14 +58,18 @@ h1#title {
 .md-form .prefix.active {
 color: #ff954a;
 }
-
+#result{
+    width: 64%;
+}
 #services{
     background-color: #F8F9FA;
 }
 
 .hr-light {
-    border-top: 3px solid #272727e8;
-    width: 80px;
+    border-top: 3px solid #ff954a;
+    width: 90px;
+    margin: auto;
+    padding: 30px;
 }
 .carousel-multi-item{
     display: flex;
@@ -108,24 +108,20 @@ color: #ff954a;
     height: 80vh;
 }
 
+.alert {
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 .alert-danger {
     color: #de0303;
     background-color: #ffb580;
     border-color: #ff954a;
 }
 
-#alertLogin{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    top: 70%;
-}
-#alertRegister{
-    position: absolute;
-    left: 80%;
-    transform: translate(-50%);
-    top: 30%;
-}
 
 .fas{
     color: #ff4a4a;

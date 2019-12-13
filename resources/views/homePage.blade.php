@@ -34,9 +34,8 @@
           <br>
           <div class="result dropdown-menu input-dropdown-menu position-absolute resulthome" id="result"></div>
         </div>
-        <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
-
       </div>
+      <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
     </form>
   </div>
 
