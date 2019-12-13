@@ -19,14 +19,18 @@
 
 <!--Navbar -->
 <header>
-  <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
-  <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-      <ul class="navbar-nav mr-auto">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="d-flex flex-grow-1">
+      <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+      <div class="w-100 text-right">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto flex-nowrap">
         <li class="nav-item">
           <a class="nav-link" href="">About us</a>
         </li>
@@ -39,12 +43,12 @@
         </li>
         @elseif(Auth::user())
         @if(Auth::user()->admin == true)
-      <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="/control-panel">Admin panel</a>
         </li>
-      @endif
+        @endif
         <li class="nav-item">
-            <a class="nav-link" href="/add-services">Add a service</a>
+          <a class="nav-link" href="/add-services">Add a service</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/user/{{auth()->user()->id}}">My account</a>
@@ -54,10 +58,10 @@
         </li>
         @endif
       </ul>
-      </div>
-    </nav>
+    </div>
+  </nav>
     <!--/.Navbar -->
-  </header>
+</header>
 
   <div class="content">
     @yield('content')
@@ -119,9 +123,7 @@
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="../js/mdb.min.js"></script>
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
+  
+ </body>
 
 </html>

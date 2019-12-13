@@ -19,7 +19,7 @@
     <?php echo $loginError; ?>
 @endif
     <section id="login">
-        <div  class="mask h-100 d-flex justify-content-center align-items-center">
+        <div  class="h-100 d-flex justify-content-center align-items-center">
             <div class="container">
             <div class="row">
             <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
