@@ -49,9 +49,7 @@ header a {
 .btn.btn-lg {
     padding: 0.5rem 1.4rem;
 }
-.md-form .prefix.active {
-color: #ff954a;
-}
+
 #result{
     width: 64%;
 }
@@ -101,9 +99,9 @@ h1#title {
 }
 /*LOGIN REGISTER*/
 #login {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/landscape.jpg");
     background-size: cover;
-    height: 80vh;
+    height: 100vh;
 }
 
 .alert {
@@ -126,9 +124,6 @@ footer {
     padding: 5px;
 }
 
-footer a:hover {
-    color: #ff4a4a;
-}
 
 /*ADMIN*/
 
@@ -147,20 +142,14 @@ article {
 }
 
 .admin-panel-card-deck {
-    margin: 2%;
-}
-
-.admin-panel-h2 {
-    width: fit-content;
-    margin: auto;
+    margin: 5%;
 }
 
 .admin-panel-body {
-    height: 59.2vh;
-    width: 80%;
     margin: auto;
-    margin-top: 15vh;
+    padding: 15vh 0;
 }
+
 .report-control-panel {
     display: flex;
     margin: 3% auto;
