@@ -4,7 +4,9 @@
 
 @section('content')
 
+
 <h1>My services:</h1>
+
 
 @if(Auth::user() && Auth::user()->admin == true)
 <form action="/user-control" method="POST">

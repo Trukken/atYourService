@@ -34,10 +34,7 @@ Route::post('/forgotpassword/{token}', 'ForgotController@update');
 Route::get('/', 'ServiceController@index');
 //search results
 Route::post('/search-results', 'ServiceController@searchResults');
-
-//sorting
 Route::post('/search-results2', 'ServiceController@searchResults2');
-
 Route::get('/livesearch', 'ServiceController@livesearch');
 
 Route::get('/search-results', 'ServiceController@searchResults');
@@ -80,4 +77,3 @@ Route::post('/user-control', 'AdminController@userControl');
 
 Route::get('/admin-panel', 'AdminController@displayOptions');
 Route::post('/admin-panel', 'AdminController@redirect');
-

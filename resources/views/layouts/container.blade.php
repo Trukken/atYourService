@@ -8,6 +8,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
   <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
@@ -17,51 +18,51 @@
 
 <body>
 
-<!--Navbar -->
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="d-flex flex-grow-1">
-      <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
-      <div class="w-100 text-right">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <!--Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="d-flex flex-grow-1">
+        <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+        <div class="w-100 text-right">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto flex-nowrap">
-        <li class="nav-item">
-          <a class="nav-link" href="">About us</a>
-        </li>
-        @if(!Auth::user())
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/register">Register</a>
-        </li>
-        @elseif(Auth::user())
-        @if(Auth::user()->admin == true)
-      <li class="nav-item">
-          <a class="nav-link" href="/admin-panel">Admin panel</a>
-        </li>
-        @endif
-        <li class="nav-item">
-          <a class="nav-link" href="/add-services">Add a service</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user/{{auth()->user()->id}}">My account</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Log out</a>
-        </li>
-        @endif
-      </ul>
-    </div>
-  </nav>
+      <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item">
+            <a class="nav-link" href="">About us</a>
+          </li>
+          @if(!Auth::user())
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          @elseif(Auth::user())
+          @if(Auth::user()->admin == true)
+          <li class="nav-item">
+            <a class="nav-link" href="/admin-panel">Admin panel</a>
+          </li>
+          @endif
+          <li class="nav-item">
+            <a class="nav-link" href="/add-services">Add a service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/{{auth()->user()->id}}">My account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log out</a>
+          </li>
+          @endif
+        </ul>
+      </div>
+    </nav>
     <!--/.Navbar -->
-</header>
+  </header>
 
   <div class="content">
     @yield('content')
@@ -113,8 +114,8 @@
     </div>
     <!--/.Copyright-->
 
-</footer>
-    <!--  SCRIPTS  -->
+  </footer>
+  <!--  SCRIPTS  -->
   <!-- JQuery -->
   <script type="text/javascript" src="../js/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
@@ -123,6 +124,7 @@
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="../js/mdb.min.js"></script>
+
 </body>
 
 </html>
