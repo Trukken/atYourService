@@ -10,12 +10,6 @@
 body {
     font-family: "Bree Serif", serif;
 }
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #272727e8;
-}
 
 header a {
     text-decoration: none;
@@ -28,9 +22,7 @@ header img {
 li {
     padding: 10px;
 }
-.navbar {
-    box-shadow: none;
-}
+
 
 #home {
     display: flex;
@@ -61,15 +53,25 @@ h1#title {
     padding: 50px;
 }
 .form-control {
-    border: 2px solid #ff954a;
+    border: 2px solid #ff4a4a;
 }
+
 .btn.btn-lg {
     padding: 0.5rem 1.4rem;
 }
-#services {
-    background-color: #f8f9fa;
+.md-form .prefix.active {
+color: #ff954a;
 }
-.carousel-multi-item {
+
+#services{
+    background-color: #F8F9FA;
+}
+
+.hr-light {
+    border-top: 3px solid #272727e8;
+    width: 80px;
+}
+.carousel-multi-item{
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -103,9 +105,13 @@ h1#title {
     background-image: url("../images/background.jpg");
     background-size: cover;
     height: 80vh;
-    background-color: none;
 }
 
+.alert-danger {
+    color: #de0303;
+    background-color: #ffb580;
+    border-color: #ff954a;
+}
 
 #alertLogin{
     position: absolute;

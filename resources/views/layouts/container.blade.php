@@ -19,14 +19,18 @@
 
 <!--Navbar -->
 <header>
-  <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
-  <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-      <ul class="navbar-nav mr-auto">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="d-flex flex-grow-1">
+      <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+      <div class="w-100 text-right">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto flex-nowrap">
         <li class="nav-item">
           <a class="nav-link" href="">About us</a>
         </li>
@@ -42,9 +46,9 @@
       <li class="nav-item">
           <a class="nav-link" href="/admin-panel">Admin panel</a>
         </li>
-      @endif
+        @endif
         <li class="nav-item">
-            <a class="nav-link" href="/add-services">Add a service</a>
+          <a class="nav-link" href="/add-services">Add a service</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/user/{{auth()->user()->id}}">My account</a>
@@ -54,10 +58,10 @@
         </li>
         @endif
       </ul>
-      </div>
-    </nav>
+    </div>
+  </nav>
     <!--/.Navbar -->
-  </header>
+</header>
 
   <div class="content">
     @yield('content')
