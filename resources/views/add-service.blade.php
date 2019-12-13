@@ -1,19 +1,19 @@
 @extends('layouts.container')
 
-@section('title','Helooooooooo')
+@section('title','Add service')
 
 @section('content')
-
+<div class="add-service-body">
 @if (!Auth::user())
 <div class="">
-    <p> <a href="/login">log in</a> to post an offer</p>
+    <p> <a href="/login">Log in</a> to post an offer!</p>
 </div>
 
 @elseif(Auth::user())
 
-<h1>Add a service</h1>
 
 <div class="form-container">
+    <h1>Add a service</h1>
     <form id="resultForm" action="" method="post">
         @csrf
         <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
@@ -34,10 +34,8 @@
     </form>
 </div>
 <div class="result"></div>
-<br>
-<a href="./">Back</a>
 @endif
-
+</div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
