@@ -23,7 +23,7 @@
 
 <h3>Search results:</h3>
 <form name='filterform' method='POST' action='/search-results'>
-    <select name="order" id="order">
+    <select class="sorting" name="order" id="order">
         <option selected value="date">Order by</option>
         <option value="updated_at">Last updated</option>
         <option value="name">Name</option>
@@ -42,7 +42,9 @@
     @endforeach
 </div>
 
-
+<th width="5%" class="sorting" data-sorting_type="asc" data-column_name="id" style="cursor: pointer">ID <span id="id_icon"></span></th>
+<th width="38%" class="sorting" data-sorting_type="asc" data-column_name="post_title" style="cursor: pointer">Title <span id="post_title_icon"></span></th>
+<th width="57%">Description</th>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
@@ -95,48 +97,74 @@
     /**
      *
      * lots of things to figure out in the *near* future
-     * about filtering
+     * about sorting
      *
      **/
 
+    //SORTING
 
 
-    let mockup = $('.mockup').clone();
-    $(function() {
-        $('#order').on('change', function(e) {
-            if ($('#order').val() !== '') {
-
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    url: '/search-results2',
-                    type: 'post',
-                    data: $('#order').serialize(),
-                    success: function(results) {
-                        if (results !== '') {
-                            console.log(results);
-                            $('.wrapper').html('');
-                            for (const result of results) {
-
-                                mockup.find('a').href = '/services/detail/' + result.id
-                                $('.wrapper').append(mockup);
-                            }
-
-                        }
-                    },
-                    error: function(err) {
-                        // If ajax errors happens
-                        console.log('Error with ajax call');
-                    }
-                });
-            } else {
-                console.log('what is even here?');
-            }
-        });
+    $(document).on('click', '.sorting', function() {
+        var column_name = $(this).data('column_name');
+        var order_type = $(this).data('sorting_type');
+        var reverse_order = '';
+        if (order_type == 'asc') {
+            $(this).data('sorting_type', 'desc');
+            reverse_order = 'desc';
+            clear_icon();
+            $('#' + column_name + '_icon').html('<span class="glyphicon glyphicon-triangle-bottom"></span>');
+        }
+        if (order_type == 'desc') {
+            $(this).data('sorting_type', 'asc');
+            reverse_order = 'asc';
+            clear_icon
+            $('#' + column_name + '_icon').html('<span class="glyphicon glyphicon-triangle-top"></span>');
+        }
+        $('#hidden_column_name').val(column_name);
+        $('#hidden_sort_type').val(reverse_order);
+        var page = $('#hidden_page').val();
+        var query = $('#serach').val();
+        fetch_data(page, reverse_order, column_name, query);
     });
+
+
+
+    // let mockup = $('.mockup').clone();
+    // $(function() {
+    //     $('#order').on('change', function(e) {
+    //         if ($('#order').val() !== '') {
+
+    //             $.ajaxSetup({
+    //                 headers: {
+    //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //                 }
+    //             });
+    //             $.ajax({
+    //                 url: '/search-results2',
+    //                 type: 'post',
+    //                 data: $('#order').serialize(),
+    //                 success: function(results) {
+    //                     if (results !== '') {
+    //                         console.log(results);
+    //                         $('.wrapper').html('');
+    //                         for (const result of results) {
+
+    //                             mockup.find('a').href = '/services/detail/' + result.id
+    //                             $('.wrapper').append(mockup);
+    //                         }
+
+    //                     }
+    //                 },
+    //                 error: function(err) {
+    //                     // If ajax errors happens
+    //                     console.log('Error with ajax call');
+    //                 }
+    //             });
+    //         } else {
+    //             console.log('what is even here?');
+    //         }
+    //     });
+    // });
 </script>
 
 

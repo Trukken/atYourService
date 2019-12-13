@@ -96,15 +96,29 @@ class ServiceController extends Controller
 
     public function searchResults2(Request $request)
     {
-        if ($request->order) {
-            $ordered = $request->order;
-        } else {
-            $ordered = 'created_at';
-        }
-        $usersearch = $request->searchbar;
-        $query = \App\Service::where('name', 'like', '%' . $usersearch . '%')->orderBy($ordered, 'DESC')->get();
 
-        return $query;
+        if ($request->ajax()) {
+            $sort_by = $request->get('sortby');
+            $sort_type = $request->get('sorttype');
+            $query = $request->get('query');
+            $query = str_replace(" ", "%", $query);
+            $data = \App\Service::where('id', 'like', '%' . $query . '%')
+                ->orWhere('post_title', 'like', '%' . $query . '%')
+                ->orWhere('post_description', 'like', '%' . $query . '%')
+                ->orderBy($sort_by, $sort_type)
+                ->paginate(5);
+            return view('search-results2', compact('data'))->render();
+        }
+
+        // if ($request->order) {
+        //     $ordered = $request->order;
+        // } else {
+        //     $ordered = 'created_at';
+        // }
+        // $usersearch = $request->searchbar;
+        // $query = \App\Service::where('name', 'like', '%' . $usersearch . '%')->orderBy($ordered, 'DESC')->get();
+
+        // return $query;
     }
 
     // LIVE SEARCH
