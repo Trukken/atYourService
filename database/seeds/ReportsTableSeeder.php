@@ -16,7 +16,7 @@ class ReportsTableSeeder extends Seeder
                 [
                     'service_id' => 1,
                     'report_reason' => 'Too smelly.',
-                    'handled' => false
+                    'handled' => false,
                 ], [
                     'service_id' => 1,
                     'report_reason' => 'Too smelly.',
