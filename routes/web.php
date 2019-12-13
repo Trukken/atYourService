@@ -80,3 +80,4 @@ Route::post('/user-control', 'AdminController@userControl');
 
 Route::get('/admin-panel', 'AdminController@displayOptions');
 Route::post('/admin-panel', 'AdminController@redirect');
+
