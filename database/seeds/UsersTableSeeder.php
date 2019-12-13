@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
                     'email_verified' => false,
                     'phone_number' => 661666666,
                     'image' => 'https://randomuser.me/api/portraits/men/29.jpg',
-                    'admin' => false,
+                    'admin' => true,
                     'banned' => false,
                     'reported' => false,
                 ],

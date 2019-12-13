@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title',{{ $service->name }})
+@section('title', $service->name)
 
 @section('content')
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
