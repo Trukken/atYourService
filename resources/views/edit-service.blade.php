@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title','Helooooooooo')
+@section('title','Edit {{ $service->name }}')
 
 @section('content')
 

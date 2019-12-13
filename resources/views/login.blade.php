@@ -1,24 +1,25 @@
 @extends('layouts.container')
 
-@section('title','Atyourservice Login')
+@section('title','Login')
 
 @section('content')
 
 @if($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
+<section id="alertLogin">
+    <div class="alert alert-danger ">
+        <ul>
+            @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
+            @endforeach
+        </ul>
+    </div>
+</section>
 @endif
-
 @if(isset($loginError))
     <?php echo $loginError; ?>
 @endif
     <section id="login">
-        <div  class="mask h-100 d-flex justify-content-center align-items-center">
+        <div  class="h-100 d-flex justify-content-center align-items-center">
             <div class="container">
             <div class="row">
             <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
@@ -69,7 +70,7 @@
         </div>
         </div>
     </section>
-
+    
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>
 <script>

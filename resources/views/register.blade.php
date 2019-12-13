@@ -4,13 +4,15 @@
 
 @section('content')
 @if($errors->any())
-<div class="alert alert-danger">
-    <ul>
+<section id="alertRegister">
+    <div class="alert alert-danger">
+        <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-</div>
+    </div>
+</section>
 @endif
 @if(isset($loginError))
 <ul>
@@ -19,7 +21,7 @@
 @endif
 
 <section id="login">
-    <div  class="mask h-100 d-flex justify-content-center align-items-center">
+    <div  class="h-100 d-flex justify-content-center align-items-center">
         <div class="container">
         <div class="row">
         <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
@@ -69,7 +71,7 @@
                     <input type="hidden" name="token" id="token">
 
                     <div class="text-center">
-                    <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" value="Submit">
+                    <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" name="submit" value="Submit">
                     </div>
                 </form>
 

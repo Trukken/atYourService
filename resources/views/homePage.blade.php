@@ -45,7 +45,8 @@
 <section id="services">
     <!--View random offers-->
   <h1 id="title" class="h1-reponsive text-center font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">Our services</h1>
-    <!--Carousel Wrapper-->
+  <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">  
+  <!--Carousel Wrapper-->
     <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
   
       <!--Slides-->

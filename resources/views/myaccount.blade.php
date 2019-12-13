@@ -1,6 +1,6 @@
 @extends('layouts.container')
 
-@section('title','Helooooooooo')
+@section('title','My account')
 
 @section('content')
 

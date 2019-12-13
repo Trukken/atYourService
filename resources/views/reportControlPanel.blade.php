@@ -3,12 +3,11 @@
 @section('title','Control Panel')
 
 @section('content')
-
 @if($errors->any())
 <div class="alert alert-info">
     <ul>
         @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
     </ul>
 </div>
@@ -17,10 +16,10 @@
 
 
 
-<h1>Unhandled reports:</h1>
+<div class="report-control-panel">
 <div class="unhandled-reports">
+    <h1>Unhandled reports:</h1>
     @foreach ($unhandledReports as $unhandledReport)
-    <hr>
     <div class="unhandled-report">
         <h4>Reported service: <a href="/services/detail/{{ $unhandledReport->service_id }}">{{ $unhandledReport->name }}</a> service id: {{ $unhandledReport->service_id }}</h4>
         <h4>Provider's name: <a href="/user/{{ $unhandledReport->id }}">{{ $unhandledReport->name }}</a></h4>
@@ -30,7 +29,7 @@
         <form action="/control-panel" method="POST">
         @csrf
         <input type="hidden" name="id" value="{{ $unhandledReport->id }}">
-        <button>Trash report</button>
+        <button class="btn peach-gradient btn-rounded btn-sm waves-effect waves-light">Trash report</button>
         </form>
     </div>
     @endforeach
@@ -43,8 +42,8 @@
 </div>
 
 
-<h1>Handled reports:</h1>
 <div class="handled-reports">
+    <h1>Handled reports:</h1>
     @foreach ($handledReports as $handledReport)
     <div class="handled-report">
         <h4>Reported service: <a href="/services/detail/{{ $handledReport->service_id }}">{{ $handledReport->name }}</a> service id: {{ $handledReport->service_id }}</h4>
@@ -61,6 +60,6 @@
     ?>
     {{ $handledReports -> appends(["unhandledReports" => $unhandledReports -> currentPage()]) -> links() }}
 </div>
-
+</div>
 
 @endsection
