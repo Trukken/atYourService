@@ -228,12 +228,11 @@ bottom: .5em;
 
 .user-page{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .user-details{
     display: flex;
     align-content: center;
-    justify-content: space-around;
 }
 .button{
     margin-top: 1rem !important;
@@ -246,4 +245,7 @@ bottom: .5em;
 }
 .editing-user{
     width: 50vw;
+}
+.user-profile, .user-services{
+width: 40vw;
 }
