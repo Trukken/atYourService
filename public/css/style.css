@@ -225,3 +225,25 @@ table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
 bottom: .5em;
 }
+
+.user-page{
+    display: flex;
+    justify-content: space-around;
+}
+.user-details{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+}
+.button{
+    margin-top: 1rem !important;
+}
+.user-picture{
+    padding: .5rem 2rem .5rem 0;
+}
+.user-picture img{
+    border-radius: 15px;
+}
+.editing-user{
+    width: 50vw;
+}

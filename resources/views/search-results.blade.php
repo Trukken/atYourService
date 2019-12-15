@@ -22,41 +22,40 @@
 
 
 <h3>Search results:</h3>
-<!-- <form name='filterform' method='POST' action='/search-results'>
+<form name='filterform' method='POST' action='/search-results'>
     <select name="order" id="order">
         <option selected value="date">Order by</option>
         <option value="updated_at">Last updated</option>
         <option value="name">Name</option>
     </select>
-</form> -->
+</form>
 
 
 <div class="wrapper">
-
-
-    <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th class="th-sm">Name
-                </th>
-                <th class="th-sm">Description
-                </th>
-                <th class="th-sm">Created at
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach($servicesResult as $service)
-            <tr>
-                <td>{{ucwords($service->name)}}</td>
-                <td>{{$service->short_description}}</td>
-                <td>{{$service->created_at}}</td>
-            </tr>
-            @endforeach
-        </tbody>
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th class="th-sm">Name
+      </th>
+      <th class="th-sm">Description
+      </th>
+      <th class="th-sm">Date
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach($servicesResult as $service)
+<tr>
+    <td>{{ucwords($service->name)}}</td>
+    <td>{{$service->short_description}}</td>
+    <td>{{$service->updated_at}}</td>
+</tr>
+@endforeach
+    </tbody>
     </table>
 </div>
+
+{!! $servicesResult->render() !!}
 
 
 
@@ -115,18 +114,6 @@
      *
      **/
 
-
-    $(document).ready(function() {
-        $('#dtOrderExample').DataTable({
-            "order": [
-                [3, "desc"]
-            ]
-        });
-        $('.dataTables_length').addClass('bs-select');
-    });
-
-
-    /** */
 
 
     let mockup = $('.mockup').clone();

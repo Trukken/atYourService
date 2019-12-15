@@ -71,9 +71,15 @@ Route::post('/control-panel', 'AdminController@trash');
 Route::post('/services/comments/add/{id}', 'CommentController@store');
 
 
-//MY SERVICES PAGE
+//MY SERVICES/USER PAGE
 Route::get('/user/{id}', 'ServiceController@showmyaccount');
 Route::post('/user-control', 'AdminController@userControl');
 
 Route::get('/admin-panel', 'AdminController@displayOptions');
 Route::post('/admin-panel', 'AdminController@redirect');
+
+
+//USERS
+//edit or update
+Route::get('/user/edit/{id}', 'UserController@edit');
+Route::put('/user/edit/{id}', 'UserController@update');
