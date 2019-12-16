@@ -4,22 +4,33 @@
 
 @section('content')
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
-<h1> {{ucwords($service->name)}} @if($service->banned) - This service is currently banned @endif</h1>
 
+<div class="container">
+    <div class="card user-account-card">
+        <div class="card-body">
+            <!--Header-->
+            <div class="form-header peach-gradient text-align-center">
+            <h1> {{ucwords($service->name)}}</h1>
+            </div>
 
+ @if($service->banned) - This service is currently banned @endif
+ <div class="card-flex d-flex justify-content-around align-items-center">
+ <img src="{{$service->user->image}}" alt="profile picture">
+ <p><strong>Summary:</strong> <br>{{$service->short_description}}</p>
+ </div>
 
-<p>{{$service->short_description}}</p>
-
-<br>
-@if (!Auth::user())
+ @if (!Auth::user())
 <div class="">
-    <p> <a href="/login">log in</a> to see contact information and full description</p>
+    <p class="text-center"> <a href="/login">log in</a> to see contact information and full description</p>
 </div>
+
+
 @elseif(Auth::user())
 <form action="/report-service" method="POST">
     @csrf
     <button name="id" value="{{ $service->id }}">Report service</button>
 </form>
+
 @if(Auth::user()->admin == true)
 <br>
 <a href="/ban-service/{{ $service->id }}">Ban service</a>
@@ -30,9 +41,7 @@
 
 <div class="">
     <h2>Provider: </h2>
-    <a href="/user/{{$service->user_id}}">{{$service->user->name}}</a>
-    <h2>Full description:</h2>
-    {{$service->long_description}}
+    <p>{{$service->user->name}}</p>
     <h2>Contact info:</h2>
     <p>
         <strong> Phone number: </strong>
@@ -41,52 +50,57 @@
         <strong> E-mail : </strong>
         {{$service->user->email}}
     </p>
+    <h2>Full description:</h2>
+    {{$service->long_description}}
 </div>
 @endif
+            <!-- end of card body-->
+        </div>
+        <!-- end of card -->
+    </div>
 
-
-<!-- COMMENTS -->
-
-<h3>Comments: </h3>
-
-
+<!-- COMMENTS card -->
+    <div class="card user-account-card">
+        <div class="card-body">
+            <!--Header-->
+            <div class="form-header peach-gradient text-align-center">
+            <h1>Comments</h1>
+            </div>
+            <div class="reload">
 <!--display comments-->
-<div class="reload">
-
-    @foreach($comments as $comment)
-    <p>
-        <strong>User: </strong> {{$comment->user->name}}
-        <br>
-        <strong>Date: </strong>
-        <?php $date = $comment->created_at;
-        $newDate = date("d.m.Y - H:i", strtotime($date));
-        echo $newDate; ?>
-        <br>
-        <strong>Comment: </strong> {{$comment->message}}
-        <hr>
-    </p>
-    @endforeach
+@foreach($comments as $comment)
+<p>
+    <strong>User: </strong> {{$comment->user->name}}
+    <br>
+    <strong>Date: </strong>
+    <?php $date = $comment->created_at;
+    $newDate = date("d.m.Y - H:i", strtotime($date));
+    echo $newDate; ?>
+    <br>
+    <strong>Comment: </strong> {{$comment->message}}
+    <hr>
+</p>
+@endforeach
 </div>
-
 
 
 
 <!--Leave a comment-->
 @if (!Auth::user())
 <div class="">
-    <p> <a href="/login">log in</a> to leave a comment</p>
+    <p class="text-center"> <a href="/login">log in</a> to leave a comment</p>
 </div>
 @else
-
+<h4>Leave a comment</h4>
 <form id="form" action="/services/comments/add/{{$service->id}}" method="POST">
     @csrf
     <br>
     <input type="hidden" name="service_id" value="{{$service->id}}">
     <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
 
-    <textarea name="message" id="commentfield" cols="30" rows="10" placeholder="message..."></textarea>
+    <textarea name="message" id="commentfield" cols="30" rows="10" class="form-control" placeholder="message..." maxlength="500"></textarea>
     <br>
-    <input type="submit" name="comment" id="comment" value="Add a comment">
+    <input type="submit" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="comment" id="comment" value="Add a comment">
 </form>
 @foreach($errors->all() as $error)
 {{$error}}
@@ -95,6 +109,32 @@
 @endif
 <div class="result"></div>
 <br>
+
+     
+
+
+            <!-- end of card body-->
+        </div>
+        <!-- end of card -->
+    </div>
+    <!-- end of container -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

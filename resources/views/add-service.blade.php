@@ -45,7 +45,7 @@
 
                                 <div class="form-group amber-border">
                                     <label for="form-control">Full description::</label>
-                                    <textarea class="form-control" name="longdescription" maxlength="500" cols="30" rows="10"></textarea>
+                                    <textarea class="form-control" name="longdescription" maxlength="900" cols="30" rows="10"></textarea>
                                 </div>
 
                                 <div class="text-center">
