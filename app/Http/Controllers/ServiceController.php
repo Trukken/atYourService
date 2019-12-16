@@ -81,7 +81,8 @@ class ServiceController extends Controller
         $service->banned = 0;
 
         $service->save();
-        return  redirect('')->withErrors(['msg' => 'Service had been updated!']);
+        
+        return redirect('')->withErrors(['msg' => 'Service had been updated!']);
         //
     }
 
