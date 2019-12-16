@@ -1,77 +1,43 @@
 @extends('layouts.container')
-
 @section('title','Contact us')
-
 @section('content')
-
-<div class="contactus">
+<div class="contactus d-flex justify-content-center align-items-center">
     <div class="col-md-12 col-lg-6 col-xl-5 mx-auto mb-4">
-
-
+        <section class="form-gradient">
             <div class="card">
                 <form method="POST">
                 <!--Header-->
-                @csrf
-                <div class="header pt-3 peach-gradient">
-
-    <div class="card">
-
-        <!--Header-->
-        <div class="header pt-3 peach-gradient">
-
-            <div class="row d-flex justify-content-center">
-                <h3 class="white-text mb-3 pt-3 font-weight-bold">Contact Us</h3>
-            </div>
-
-                    <!--Body-->
-                    <div class="md-form">
-                        <input type="text" name="name" id="Form-name3" class="form-control">
-                        <label for="Form-email3">Your name</label>
-                    </div>
-
-                    <div class="md-form">
-                        <input type="text" name="email" id="Form-mail3" class="form-control">
-                        <label for="Form-pass3">Your email</label>
-                    </div>
-
-                    <div class="md-form">
-                        <textarea type="text" id="message5" name="message" rows="2" class="form-control md-textarea"></textarea>
-                        <label for="message">Your message</label>
-                        <div class="form-group">
+                    @csrf
+                    <div class="header pt-3 peach-gradient">
+                        <div class="row d-flex justify-content-center">
+                            <h3 class="white-text mb-3 pt-3 font-weight-bold"><img src="{{asset('images/justlogo.png')}}" height="60" width="60"> Contact Us</h3>
                         </div>
                     </div>
-
-            <div class="md-form">
-                <input type="text" id="Form-mail3" class="form-control">
-                <label for="Form-pass3">Your mail</label>
-            </div>
-
-                        <!--Grid column-->
-                        <div class="col-md-1 col-md-5 d-flex  ml-auto">
-                            <div class="text-center">
-                            <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Send</button>
-                            </div>
+                    <!--Header-->
+                    <div class="card-body mx-4 mt-4">
+                        <!--Body-->
+                        <div class="md-form" onclick="document.querySelector('.name-input').focus()">
+                            <input type="text" id="orangeForm" name="name" class="form-control name-input">
+                            <label for="orangeForm-name" onclick="className='active'; document.querySelector('.name-input').focus()">Your name</label>
                         </div>
-                        <!--Grid column-->
 
-            <!--Grid row-->
-            <div class="row d-flex mb-4">
+                        <div class="md-form" onclick="document.querySelector('.email-input').focus()">
+                            <input type="text" id="orangeForm" name="email" class="form-control email-input" value="{{ Session::get('email') }}">
+                            <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
+                        </div>
 
-                <!--Grid column-->
-                <div class="col-md-1 col-md-5 d-flex  ml-auto">
-                    <div class="text-center">
-                    <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Send</button>
+                        <div class="md-form" onclick="document.querySelector('.md-textarea').focus()">
+                            <textarea type="text" id="orangeForm" name="message" class="form-control md-textarea"></textarea>
+                            <label for="message" onclick="className='active'; document.querySelector('.md-textarea').focus()">Your message</label>
+                        </div>
+                        
+                        <div class="text-center">
+                            <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" name="submit" value="Send">                        </div>
+                        </div>
                     </div>
-                    <!--Grid row-->
-                    </form>
-                </div>
-                <!--Grid column-->
+                </form>
             </div>
-            <!--Grid row-->
-        </div>
-
+        </section>
     </div>
-
-</section>      
-
+</div>
 @endsection

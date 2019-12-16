@@ -27,33 +27,33 @@
                 <!--Body-->
                 <form action="" method="POST">
                     @csrf
-                    <div class="md-form">
-                        <i class="fas fa-user prefix" onclick="document.querySelector('.name-input').focus()"></i>
-                        <input type="text" id="orangeForm-name" name="name" class="form-control">
+                    <div class="md-form" onclick="document.querySelector('.name-input').focus()">
+                        <i class="fas fa-user prefix" ></i>
+                        <input type="text" id="orangeForm" name="name" class="form-control name-input">
                         <label for="orangeForm-name" onclick="className='active'; document.querySelector('.name-input').focus()">Your name</label>
                     </div>
 
                     <div class="md-form" onclick="document.querySelector('.email-input').focus()">
-                        <i class="fas fa-envelope prefix"></i>
-                        <input type="text" id="orangeForm-email" name="email" class="form-control" value="{{ Session::get('email') }}">
+                        <i class="fas fa-envelope prefix" ></i>
+                        <input type="text" id="orangeForm" name="email" class="form-control email-input" value="{{ Session::get('email') }}">
                         <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                     </div>
 
-                    <div class="md-form">
-                        <i class="fas fa-lock prefix" onclick="document.querySelector('.password-input').focus()"></i>
-                        <input type="password" id="orangeForm-pass" name="password" class="form-control">
+                    <div class="md-form" onclick="document.querySelector('.password-input').focus()">
+                        <i class="fas fa-lock prefix" ></i>
+                        <input type="password" id="orangeForm" name="password" class="form-control password-input">
                         <label for="orangeForm-pass">Your password</label>
                     </div>
 
-                    <div class="md-form">
-                        <i class="fas fa-lock prefix" onclick="document.querySelector('.password_confirmation-input').focus()"></i>
-                        <input type="password" id="orangeForm-pass" name="password_confirmation" class="form-control">
+                    <div class="md-form" onclick="document.querySelector('.password_confirmation-input').focus()">
+                        <i class="fas fa-lock prefix" ></i>
+                        <input type="password" id="orangeForm" name="password_confirmation" class="form-control password_confirmation-input">
                         <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.password_confirmation-input').focus()">Confirmation password</label>
                     </div>
 
-                    <div class="md-form">
-                        <i class="fas fa-phone prefix" onclick="document.querySelector('.phone-input').focus()"></i>
-                        <input type="text" id="orangeForm-pass" name="phone" class="form-control">
+                    <div class="md-form" onclick="document.querySelector('.phone-input').focus()">
+                        <i class="fas fa-phone prefix" ></i>
+                        <input type="text" id="orangeForm" name="phone" class="form-control phone-input">
                         <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.phone-input').focus()">Your phone number</label>
                     </div>
 
