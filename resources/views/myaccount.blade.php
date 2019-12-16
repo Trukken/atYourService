@@ -37,8 +37,8 @@
 
 
     @if(Auth::user() && Auth::user()->id == $user->id)
-    <p>(<a href="/services/edit/{{ $service->id }}">Update</a>/
-    <a id="delete" href="/services/delete/{{$service->id}}">Delete</a>)</p>
+    <div>(<a href="/services/edit/{{ $service->id }}">Update</a>/
+    <a id="delete" href="/services/delete/{{$service->id}}">Delete</a>)</div>
     @endif
 @endforeach
 <div class="result"></div>
