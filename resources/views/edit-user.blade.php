@@ -1,6 +1,6 @@
 @extends('layouts.container')
 ​
-@section('title','Edit {{ $user->name }}')
+@section('title','Edit account')
 ​
 @section('content')
 ​

@@ -24,7 +24,7 @@
 ​
 ​
 <div class="user-page">
-    <div class="user-profile">
+    <div class="user-profile user-pg-frame">
         <h2>Profile</h2>
         <div class="user-details">
             <div class="user-picture">
@@ -39,7 +39,7 @@
         <a href="/user/edit/{{auth()->user()->id}}" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Edit</a>
     </div>
     ​
-    <div class="user-services">
+    <div class="user-services user-pg-frame">
         <h2>Provided Services:</h2>
         @foreach($user->services as $service)
         <br>
