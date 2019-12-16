@@ -3,11 +3,7 @@
 @section('title','Register')
 
 @section('content')
-@if(isset($loginError))
-<ul>
-    <li> {!! $loginError !!}</li>
-</ul>
-@endif
+
 
 <section id="login">
     <div  class="h-100 d-flex justify-content-center align-items-center">
@@ -27,16 +23,16 @@
                 <!--Body-->
                 <form action="" method="POST">
                     @csrf
-                    <div class="md-form">
-                        <i class="fas fa-user prefix" onclick="document.querySelector('.name-input').focus()"></i>
-                        <input type="text" id="orangeForm-name" name="name" class="form-control">
+                    <div class="md-form" onclick="document.querySelector('.name-input').focus()">
+                        <i class="fas fa-user prefix"></i>
                         <label for="orangeForm-name" onclick="className='active'; document.querySelector('.name-input').focus()">Your name</label>
+                        <input type="text" id="orangeForm-name" name="name" class="form-control name-input">
                     </div>
 
                     <div class="md-form" onclick="document.querySelector('.email-input').focus()">
                         <i class="fas fa-envelope prefix"></i>
-                        <input type="text" id="orangeForm-email" name="email" class="form-control" value="{{ Session::get('email') }}">
                         <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
+                        <input type="text" id="orangeForm-email" name="email" class="form-control" value="{{ Session::get('email') }}">
                     </div>
 
                     <div class="md-form">
