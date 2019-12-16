@@ -27,6 +27,16 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
+        // validate(rules,return messages)
+        $request->validate([
+            'servicename' => 'required|min:4',
+            'shortdescription' => 'required|min:4',
+            'longdescription' => 'required|min:20'
+        ], [
+            'servicename.min' => 'The service\'s name must be at least 4 characters.',
+            'shortdescription.min' => 'The short description must be at least 4 characters.',
+            'longdescription.min' => 'The long description must be at least 20 characters.',
+        ]);
         if (isset($_POST['submit'])) {
             $url = 'https://www.google.com/recaptcha/api/siteverify';
             $data = [

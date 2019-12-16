@@ -43,7 +43,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-    
+
         if (isset($_POST['submit'])) {
             $url = 'https://www.google.com/recaptcha/api/siteverify';
             $data = [
@@ -90,6 +90,7 @@ class RegisterController extends Controller
                     $newUser->phone_number = $request->phone;
                     $newUser->email_verified = false;
                     $newUser->verification_token = $token;
+                    $newUser->image = 'http://pixsector.com/cache/94bed8d5/av3cbfdc7ee86dab9a41d.png';
                     $details = [
                         'name' => $newUser->name,
                         'token' => $token,

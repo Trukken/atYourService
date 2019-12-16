@@ -35,17 +35,17 @@
                                 <input type="hidden" name="token" id="token">
                                 <div class="form-group amber-border">
                                     <label for="form-control">Service</label>
-                                    <input type="text" name="servicename" class="form-control">
+                                    <input type="text" placeholder="Long description, minimum 4 characters" name="servicename" class="form-control">
                                 </div>
 
                                 <div class="form-group amber-border">
                                     <label for="form-control">Write a short description (max. 144 characters):</label>
-                                    <textarea class="form-control" name="shortdescription" maxlength="144" cols="30" rows="5"></textarea>
+                                    <textarea class="form-control" placeholder="Long description, minimum 4 characters" name="shortdescription" maxlength="144" cols="30" rows="5"></textarea>
                                 </div>
 
                                 <div class="form-group amber-border">
-                                    <label for="form-control">Full description::</label>
-                                    <textarea class="form-control" name="longdescription" maxlength="500" cols="30" rows="10"></textarea>
+                                    <label for="form-control">Full description:</label>
+                                    <textarea class="form-control" placeholder="Long description, minimum 20 characters" name="longdescription" maxlength="500" cols="30" rows="10"></textarea>
                                 </div>
 
                                 <div class="text-center">
