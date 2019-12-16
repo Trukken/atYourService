@@ -43,6 +43,9 @@ class ServiceController extends Controller
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
+        if (empty($services)) {
+            return redirect('')->withErrors('Service page does not exist.');
+        }
         $comments = $service->comments;
 
         return view('service-page', ['user' => $user, 'service' => $service, 'comments' => $comments]);
@@ -51,8 +54,18 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        $service = \App\Service::find($id);
-        return view('edit-service', ["service" => $service]);
+        if (Auth::user()) {
+
+            $service = Service::where('id', '=', $id)->get();
+            if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
+                $service = \App\Service::find($id);
+
+                return view('edit-service', ["service" => $service]);
+            }
+            return redirect('')->withErrors(['msg' => 'You can not edit another user\'s service!']);
+        }
+        return redirect('')->withErrors(['msg' => 'You can not edit that!']);
+
         //
     }
 
@@ -75,8 +88,17 @@ class ServiceController extends Controller
 
     public function destroy($id)
     {
-        \App\Service::destroy($id);
-        return redirect('')->withErrors(['msg' => 'Service had been deleted!']);
+        if (Auth::user()) {
+
+            $service = Service::where('id', '=', $id)->get();
+            if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
+                \App\Service::destroy($id);
+
+                return redirect('')->withErrors(['msg' => 'Service had been deleted!']);
+            }
+            return redirect('')->withErrors(['msg' => 'You can not delete another user\'s service!']);
+        }
+        return redirect('')->withErrors(['msg' => 'You can not delete that!']);
     }
 
     public function searchResults(Request $request)
