@@ -59,6 +59,7 @@
         <!-- end of card -->
     </div>
 
+
 <!-- COMMENTS card -->
     <div class="card user-account-card">
         <div class="card-body">
@@ -69,6 +70,11 @@
             <div class="reload">
 <!--display comments-->
 @foreach($comments as $comment)
+<div class="comment-single d-flex align-items-center justify-content-around">
+<div class="comment-image">
+    <img src="{{$comment->user->image}}" alt="avatar">
+</div>
+<div class="comment-info">
 <p>
     <strong>User: </strong> {{$comment->user->name}}
     <br>
@@ -80,6 +86,8 @@
     <strong>Comment: </strong> {{$comment->message}}
     <hr>
 </p>
+</div>
+</div>
 @endforeach
 </div>
 
@@ -98,7 +106,7 @@
     <input type="hidden" name="service_id" value="{{$service->id}}">
     <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
 
-    <textarea name="message" id="commentfield" cols="30" rows="10" class="form-control" placeholder="message..." maxlength="500"></textarea>
+    <textarea name="message" id="commentfield" cols="30" rows="5" class="form-control" placeholder="message..." maxlength="500"></textarea>
     <br>
     <input type="submit" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="comment" id="comment" value="Add a comment">
 </form>
