@@ -2,17 +2,7 @@
 
 @section('title','My account')
 @section('content')
-@if(Auth::user() && Auth::user()->admin == true)
-<form action="/user-control" method="POST">
-    @csrf
-    <input type="hidden" name="id" value="{{ $user->id }}">
-    @if($user->banned == false)
-    <button name="status" value="ban">Ban user</button>
-    @elseif($user->banned == true)
-    <button name="status" value="unban">Unban user</button>
-    @endif
-</form>
-@endif
+
 <div class="container">
     <div class="card user-account-card">
         <div class="card-body">
@@ -42,6 +32,17 @@
         <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light d-flex justify-content-center button-account" type="submit">Edit account</button>
         ​
         </form>
+        @if(Auth::user() && Auth::user()->admin == true)
+        <form action="/user-control" method="POST">
+            @csrf
+            <input type="hidden" name="id" value="{{ $user->id }}">
+            @if($user->banned == false)
+            <button name="status" value="ban">Ban user</button>
+            @elseif($user->banned == true)
+            <button name="status" value="unban">Unban user</button>
+            @endif
+        </form>
+        @endif
     </div>
     <!-- SERVICES CARD -->
 
