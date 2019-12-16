@@ -30,7 +30,7 @@
 
 <div class="">
     <h2>Provider: </h2>
-    {{$service->user->name}}
+    <a href="/user/{{$service->user_id}}">{{$service->user->name}}</a>
     <h2>Full description:</h2>
     {{$service->long_description}}
     <h2>Contact info:</h2>
