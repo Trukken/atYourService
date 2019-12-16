@@ -52,6 +52,11 @@ header a {
 
 #result {
     width: 64%;
+    padding-left: 10px;
+}
+
+.result a{
+    color: #ff954a;
 }
 
 /*HOME SERVICES*/
