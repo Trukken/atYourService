@@ -89,7 +89,6 @@ class ServiceController extends Controller
     {
         if (Auth::user()) {
             $service = \App\Service::find($id);
-            //$service = Service::where('id', '=', $id)->get();
             if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
                 \App\Service::destroy($id);
 
