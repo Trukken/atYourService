@@ -48,12 +48,7 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         if (Auth::user()) {
@@ -63,7 +58,7 @@ class UserController extends Controller
             if ($user->id == Auth::user()->id || Auth::user()->admin == true) {
                 $user = \App\User::find($id);
 
-                return view('edit-user', ["user" => $user]);
+                return view('myaccount', ["user" => $user]);
             }
             return redirect('')->withErrors(['msg' => 'You can not edit another user\'s service!']);
         }
@@ -72,13 +67,7 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         //UPDATE THE FORM
@@ -89,16 +78,11 @@ class UserController extends Controller
         $user->banned = 0;
 
         $user->save();
-        return  redirect('user/' . $id)->withErrors(['msg' => 'Service has been updated!']);
+        return  redirect('/user/' . $id)->withErrors(['msg' => 'Service has been updated!']);
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
         //
