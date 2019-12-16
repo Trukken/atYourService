@@ -30,37 +30,37 @@
         </div>
       </div>
 
-    <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto flex-nowrap">
-        <li class="nav-item">
-          <a class="nav-link" href="">Contact us</a>
-        </li>
-        @if(!Auth::user())
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/register">Register</a>
-        </li>
-        @elseif(Auth::user())
-        @if(Auth::user()->admin == true)
-      <li class="nav-item">
-          <a class="nav-link" href="/admin-panel">Admin panel</a>
-        </li>
-        @endif
-        <li class="nav-item">
-          <a class="nav-link" href="/add-services">Add a service</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user/{{auth()->user()->id}}">My account</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Log out</a>
-        </li>
-        @endif
-      </ul>
-    </div>
-  </nav>
+      <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item">
+            <a class="nav-link" href="">Contact us</a>
+          </li>
+          @if(!Auth::user())
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+          @elseif(Auth::user())
+          @if(Auth::user()->admin == true)
+          <li class="nav-item">
+            <a class="nav-link" href="/admin-panel">Admin panel</a>
+          </li>
+          @endif
+          <li class="nav-item">
+            <a class="nav-link" href="/add-services">Add a service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/{{auth()->user()->id}}">My account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log out</a>
+          </li>
+          @endif
+        </ul>
+      </div>
+    </nav>
     <!--/.Navbar -->
   </header>
 

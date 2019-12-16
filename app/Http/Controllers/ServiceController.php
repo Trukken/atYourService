@@ -43,7 +43,7 @@ class ServiceController extends Controller
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
-        if (empty($services)) {
+        if (empty($service)) {
             return redirect('')->withErrors('Service page does not exist.');
         }
         $comments = $service->comments;
@@ -71,7 +71,6 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $service = \App\Service::find($id);
         $service->name = $request->name;
         $service->short_description = $request->short_description;
@@ -94,7 +93,7 @@ class ServiceController extends Controller
             if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
                 \App\Service::destroy($id);
 
-                return redirect('')->withErrors(['msg' => 'Service has been deleted!']);
+                return redirect('user/' . $service->user_id)->withErrors(['msg' => 'Service has been deleted!']);
             }
             return redirect('')->withErrors(['msg' => 'You can not delete another user\'s service!']);
         }

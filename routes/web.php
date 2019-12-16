@@ -56,6 +56,8 @@ Route::get('/services/detail/{id}', 'ServiceController@show');
 //edit or update
 Route::get('/services/edit/{id}', 'ServiceController@edit');
 Route::put('/services/edit/{id}', 'ServiceController@update');
+Route::put('user/{id}', 'ServiceController@update');
+
 //delete from database
 Route::get('/services/delete/{id}', 'ServiceController@destroy');
 Route::delete('/services/delete/{id}', 'ServiceController@destroy');
