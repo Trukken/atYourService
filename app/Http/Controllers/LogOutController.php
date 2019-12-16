@@ -15,9 +15,11 @@ class LogOutController extends Controller
     public function index()
     {
         //
-        Auth::logout();
+        if (Auth::user()) {
+            Auth::logout();
 
-        return redirect('/');
+            return redirect('/')->withErrors(['msg' => 'You had been logged out.']);
+        }
     }
 
     /**

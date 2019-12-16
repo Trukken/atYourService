@@ -22,30 +22,27 @@
 
 <section id="home">
 
-  
+<h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
+<h2 class="h2-reponsive text-center mb-5 white-text fadeInDown"" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
 
-    <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
-    <h2 class="h2-reponsive text-center mb-5 white-text fadeInDown"" data-wow-delay=" 0.4s">Linking expats to experts in Luxembourg</h2>
-
-    <div class="search-container position-relative">
-      <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
-        {{ csrf_field() }}
-        <div class="search-results-and-buttom d-flex align-items-start justify-between">
-          <div class="search-and-results">
-            <input class="form-control mr-sm-2 position-relative searchhome" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
-            <br>
-            <div class="result dropdown-menu input-dropdown-menu position-absolute resulthome" id="result"></div>
-          </div>
-          <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
-
+  <div class="search-container position-relative">
+    <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
+      {{ csrf_field() }}
+      <div class="search-results-and-buttom d-flex align-items-start justify-between">
+        <div class="search-and-results">
+          <input class="form-control mr-sm-2 position-relative searchhome" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+          <br>
+          <div class="result dropdown-menu input-dropdown-menu position-absolute resulthome" id="result"></div>
         </div>
-      </form>
-    </div>
+      </div>
+      <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
+    </form>
+  </div>
 
 </section>
 
-<section id="services">
-  <!--View random offers-->
+<div class="mask rgba-grey-slight" id="services">
+    <!--View random offers-->
   <h1 id="title" class="h1-reponsive text-center font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">Our services</h1>
   <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
   <!--Carousel Wrapper-->
@@ -83,11 +80,8 @@
         <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
       </a>
     </div>
-    <!--/.Slides-->
-
-  </div>
-  <!--/.Carousel Wrapper-->
-</section>
+    <!--/.Carousel Wrapper-->
+</div>
 
 
 
