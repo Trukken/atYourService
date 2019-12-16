@@ -56,19 +56,26 @@
 
                 <input type="hidden" name="token" id="token">
                 <div class="text-center">
-                        <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" name="submit" value="Submit">
-                    </div>
-                </form>
+                    <input id="loginButton" class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" name="submit" value="Submit">
+                </div>
 
-                </div>
-                </div>
-                <!--/Form with header-->
+                <div class="card-footer">
+				<div class="d-flex justify-content-center links">Don't have an account? <a href="/register"> Sign Up</a>
+				</div>
+				<div class="d-flex justify-content-center"><a href="/forgotpassword">Forgot your password?</a>
+				</div>
+			</div>
+            </form>
 
             </div>
             </div>
+            <!--/Form with header-->
+
         </div>
         </div>
-    </section>
+    </div>
+    </div>
+</section>
     
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>

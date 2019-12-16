@@ -130,7 +130,7 @@ class ForgotController extends Controller
 
             User::where('id', '=', $user->id)->update(['password_reset' => $token]);
             \Mail::to($request->email)->send(new \App\Mail\ResetPassword($details));
-            return view('login', ['loginError' => 'An e-mail was sent to the given address, follow the instructions in the email.']);
+            return redirect('/login',)->withErrors(['msg' => 'An e-mail was sent to the given address, follow the instructions in the email.']);
         } else {
             return view('forgotPassword', ['emailError' => 'The email you have entered does not exist.']);
         }
