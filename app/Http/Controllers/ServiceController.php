@@ -27,16 +27,38 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
+        if (isset($_POST['submit'])) {
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $data = [
+                'secret' => '6LeqRcYUAAAAABcma1DiapUfHaPrD0qREXSv4064',
+                'response' => $_POST['token']
+            ];
+            $options = array(
+                'http' => array(
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query($data)
+                )
+            );
+            $context  = stream_context_create($options);
+            $response = file_get_contents($url, false, $context);
+            $res = json_decode($response, true);
+            if ($res['success'] == true) {
+                $newService = new \App\Service;
+                $newService->name = $request->servicename;
+                $newService->short_description = $request->shortdescription;
+                $newService->long_description = $request->longdescription;
+                $newService->user_id = auth()->user()->id;
+                $newService->banned = 0;
+                $newService->save();
 
-        $newService = new \App\Service;
-        $newService->name = $request->servicename;
-        $newService->short_description = $request->shortdescription;
-        $newService->long_description = $request->longdescription;
-        $newService->user_id = auth()->user()->id;
-        $newService->banned = 0;
-        $newService->save();
-
-        return redirect('user/' . $newService->user_id)->withErrors(['msg' => 'Success']);
+                return redirect('user/' . $newService->user_id)->withErrors(['msg' => 'Your service was added successfully.']);
+            } else {
+                return redirect('/add-services')->withErrors(['msg' => 'You can not send messages that fast.']);
+            }
+        } else {
+            return redirect('/add-services')->withErrors(['msg' => 'You can not send messages that fast.']);
+        }
     }
 
     public function show($id)
