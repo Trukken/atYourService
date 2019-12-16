@@ -151,7 +151,11 @@ class ServiceController extends Controller
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
-        $comments = $service->comments;
+        if (!empty($service->comments)) {
+            $comments = $service->comments;
+        } else {
+            $comments = ['You have no comments yet.'];
+        }
         if (Auth::user() && Auth::user()->id == $id || Auth::user() && Auth::user()->admin == true) {
             return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
         } else {

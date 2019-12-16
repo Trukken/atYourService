@@ -23,7 +23,6 @@ li {
     padding: 10px;
 }
 
-
 #home {
     display: flex;
     justify-content: center;
@@ -60,18 +59,18 @@ h1#title {
     padding: 0.5rem 1.4rem;
 }
 .md-form .prefix.active {
-color: #ff954a;
+    color: #ff954a;
 }
 
-#services{
-    background-color: #F8F9FA;
+#services {
+    background-color: #f8f9fa;
 }
 
 .hr-light {
     border-top: 3px solid #272727e8;
     width: 80px;
 }
-.carousel-multi-item{
+.carousel-multi-item {
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -113,20 +112,20 @@ color: #ff954a;
     border-color: #ff954a;
 }
 
-#alertLogin{
+#alertLogin {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
     top: 70%;
 }
-#alertRegister{
+#alertRegister {
     position: absolute;
     left: 80%;
     transform: translate(-50%);
     top: 30%;
 }
 
-.fas{
+.fas {
     color: #ff4a4a;
 }
 footer {
@@ -167,6 +166,7 @@ article {
     margin: auto;
     margin-top: 15vh;
 }
+
 .report-control-panel {
     display: flex;
     margin: 3% auto;
@@ -176,6 +176,7 @@ article {
 
 .unhandled-reports {
     width: 60%;
+    margin: 0 auto;
     border-right: 1px solid black;
     padding: 1%;
 }
@@ -192,7 +193,8 @@ article {
 
 .handled-reports {
     width: 60%;
-    margin: 1%;
+    margin: 0 auto;
+    padding: 1%;
 }
 
 .handled-report {
@@ -211,4 +213,16 @@ article {
 .add-service-body {
     width: 80%;
     margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .report-control-panel {
+        display: block;
+    }
+    .unhandled-reports {
+        width: 80%;
+    }
+    .handled-reports {
+        width: 80%;
+    }
 }
