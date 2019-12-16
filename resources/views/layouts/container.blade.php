@@ -17,25 +17,22 @@
 
 <body>
 
-<!--Navbar -->
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="d-flex flex-grow-1">
-      <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
-      <div class="w-100 text-right">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <!--Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="d-flex flex-grow-1">
+        <a class="navbar-brand" href="/"><img src="{{asset('images/logo5.png')}}" alt=""></a>
+        <div class="w-100 text-right">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
       </div>
-    </div>
 
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto flex-nowrap">
         <li class="nav-item">
-          <a class="nav-link" href="">About us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Contact us</a>
+          <a class="nav-link" href="/contact">Contact us</a>
         </li>
         @if(!Auth::user())
         <li class="nav-item">
@@ -64,9 +61,18 @@
     </div>
   </nav>
     <!--/.Navbar -->
-</header>
+  </header>
 
   <div class="content">
+    @if($errors->any())
+    <div class="alert alert-info">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
     @yield('content')
   </div>
 
@@ -116,16 +122,17 @@
     </div>
     <!--/.Copyright-->
 
-</footer>
-    <!--  SCRIPTS  -->
+  </footer>
+  <!--  SCRIPTS  -->
   <!-- JQuery -->
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="../js/popper.min.js"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/popper.min.js') }}"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="../js/mdb.min.js"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/mdb.min.js') }}"></script>
+
 </body>
 
 </html>

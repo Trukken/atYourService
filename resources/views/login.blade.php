@@ -4,14 +4,6 @@
 
 @section('content')
 
-@if($errors->any())
-<div class="alert alert-danger ">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
 
 @endif
 @if(isset($loginError))
@@ -73,10 +65,8 @@
 
         </div>
         </div>
-    </div>
-    </div>
-</section>
-    
+    </section>
+
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>
 <script>

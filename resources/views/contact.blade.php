@@ -4,6 +4,11 @@
 
 @section('content')
 
+<div class="contactus">
+    <div class="col-md-12 col-lg-6 col-xl-5 mx-auto mb-4">
+
+@section('content')
+
 <div class="col-md-12 col-lg-6 col-xl-5 mx-auto mb-4">
 
 <section class="form-gradient">
@@ -20,7 +25,10 @@
         </div>
         <!--Header-->
 
-        <div class="card-body mx-4 mt-4">
+                    <div class="md-form">
+                        <input type="text" id="Form-mail3" class="form-control">
+                        <label for="Form-pass3">Your email</label>
+                    </div>
 
             <!--Body-->
             <div class="md-form">

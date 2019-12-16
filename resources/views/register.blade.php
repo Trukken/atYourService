@@ -3,15 +3,6 @@
 @section('title','Register')
 
 @section('content')
-@if($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
 @if(isset($loginError))
 <ul>
     <li> {!! $loginError !!}</li>
@@ -33,7 +24,7 @@
                 <h3><i class="fas fa-user mt-2 mb-2"></i> Join us</h3>
                 </div>
 
-                <!--Body--> 
+                <!--Body-->
                 <form action="" method="POST">
                     @csrf
                     <div class="md-form">
@@ -47,13 +38,13 @@
                         <input type="text" id="orangeForm-email" name="email" class="form-control" value="{{ Session::get('email') }}">
                         <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                     </div>
-                
+
                     <div class="md-form">
                         <i class="fas fa-lock prefix" onclick="document.querySelector('.password-input').focus()"></i>
                         <input type="password" id="orangeForm-pass" name="password" class="form-control">
                         <label for="orangeForm-pass">Your password</label>
                     </div>
-                    
+
                     <div class="md-form">
                         <i class="fas fa-lock prefix" onclick="document.querySelector('.password_confirmation-input').focus()"></i>
                         <input type="password" id="orangeForm-pass" name="password_confirmation" class="form-control">
@@ -65,7 +56,7 @@
                         <input type="text" id="orangeForm-pass" name="phone" class="form-control">
                         <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.phone-input').focus()">Your phone number</label>
                     </div>
-                    
+
                     <input type="hidden" name="token" id="token">
 
                     <div class="text-center">

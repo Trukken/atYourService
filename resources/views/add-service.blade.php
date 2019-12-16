@@ -4,12 +4,12 @@
 
 @section('content')
 <div class="add-service-body">
-@if (!Auth::user())
-<div class="">
-    <p> <a href="/login">Log in</a> to post an offer!</p>
-</div>
+    @if (!Auth::user())
+    <div class="">
+        <p> <a href="/login">Log in</a> to post an offer!</p>
+    </div>
 
-@elseif(Auth::user())
+    @elseif(Auth::user())
 
 <div class="result"></div>
 @endif
@@ -66,7 +66,7 @@
 
 <script>
     $(function() {
-        $('input[type="submit"]').click(function(e) {
+        $('button[type="submit"]').click(function(e) {
             console.log('you clicked');
             e.preventDefault();
             $.ajax({

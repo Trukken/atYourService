@@ -34,7 +34,6 @@ class ServiceController extends Controller
         $newService->long_description = $request->longdescription;
         $newService->user_id = auth()->user()->id;
         $newService->banned = 0;
-        return $newService;
         $newService->save();
 
         return 'Service inserted: ' . $request->servicename;
@@ -44,6 +43,9 @@ class ServiceController extends Controller
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
+        if (empty($services)) {
+            return redirect('')->withErrors('Service page does not exist.');
+        }
         $comments = $service->comments;
 
         return view('service-page', ['user' => $user, 'service' => $service, 'comments' => $comments]);
@@ -52,8 +54,17 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        $service = \App\Service::find($id);
-        return view('edit-service', ["service" => $service]);
+        if (Auth::user()) {
+
+            $service = \App\Service::find($id);
+            if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
+
+                return view('edit-service', ["service" => $service]);
+            }
+            return redirect('')->withErrors(['msg' => 'You can not edit another user\'s service!']);
+        }
+        return redirect('')->withErrors(['msg' => 'You can not edit that!']);
+
         //
     }
 
@@ -61,6 +72,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //UPDATE THE FORM
+
         $service = \App\Service::find($id);
         $service->name = $request->name;
         $service->short_description = $request->short_description;
@@ -69,15 +81,25 @@ class ServiceController extends Controller
         $service->banned = 0;
 
         $service->save();
-        return  redirect('')->withErrors(['msg' => 'Service had been updated!']);
+
+        return redirect('user/' . $service->user_id)->withErrors(['msg' => 'Service had been updated!']);
         //
     }
 
 
     public function destroy($id)
     {
-        \App\Service::destroy($id);
-        return redirect('')->withErrors(['msg' => 'Service had been deleted!']);
+
+        $service = Service::find($id)->get();
+        if (Auth::user()->id == $service[0]->user_id) {
+            if ($service[0]->user_id == Auth::user()->id || Auth::user()->admin == true) {
+                \App\Service::destroy($id);
+
+                return redirect('')->withErrors(['msg' => 'Service had been deleted!']);
+            }
+            return redirect('')->withErrors(['msg' => 'You can not delete another user\'s service!']);
+        }
+        return redirect('')->withErrors(['msg' => 'You can not delete that!']);
     }
 
     public function searchResults(Request $request)
@@ -88,7 +110,7 @@ class ServiceController extends Controller
             $usersearch = $request->searchbar;
         }
 
-        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->where('banned', '=', 0)->orderBy('created_at', 'DESC')->get();
+        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->where('banned', '=', 0)->orderBy('created_at', 'DESC')->paginate(10);
 
         return view('search-results', ['servicesResult' => $servicesResult]);
     }
@@ -151,7 +173,11 @@ class ServiceController extends Controller
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
-        $comments = $service->comments;
+        if (!empty($service->comments)) {
+            $comments = $service->comments;
+        } else {
+            $comments = ['You have no comments yet.'];
+        }
         if (Auth::user() && Auth::user()->id == $id || Auth::user() && Auth::user()->admin == true) {
             return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
         } else {

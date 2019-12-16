@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class LogOutController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class LogOutController extends Controller
     public function index()
     {
         //
-        if (Auth::user()) {
-            Auth::logout();
-
-            return redirect('/')->withErrors(['msg' => 'You had been logged out.']);
-        }
+        return view('contact')->withErrors(['msg' => 'This functionality is temporarly disabled.']);
     }
 
     /**

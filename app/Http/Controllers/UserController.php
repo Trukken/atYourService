@@ -16,8 +16,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-    }
+    { }
 
     /**
      * Show the form for creating a new resource.
@@ -36,9 +35,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-
-    }
+    { }
 
     /**
      * Display the specified resource.
@@ -59,6 +56,19 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        if (Auth::user()) {
+
+            //$user = User::where('id', '=', $id)->get();
+            $user = \App\User::find($id);
+            if ($user->id == Auth::user()->id || Auth::user()->admin == true) {
+                $user = \App\User::find($id);
+
+                return view('edit-user', ["user" => $user]);
+            }
+            return redirect('')->withErrors(['msg' => 'You can not edit another user\'s service!']);
+        }
+        return redirect('')->withErrors(['msg' => 'You can not edit that!']);
+
         //
     }
 
@@ -71,6 +81,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //UPDATE THE FORM
+        $user = \App\User::find($id);
+        $user->name = $request->name;
+        $user->phone_number = $request->phone_number;
+        $user->image = $request->image;
+        $user->banned = 0;
+
+        $user->save();
+        return  redirect('user/' . $id)->withErrors(['msg' => 'Service has been updated!']);
         //
     }
 

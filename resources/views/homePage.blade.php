@@ -10,15 +10,7 @@
 @section('content')
 
 
-@if($errors->any())
-<div class="alert alert-info">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+
 
 <section id="home">
 
@@ -44,44 +36,41 @@
 <div class="mask rgba-grey-slight" id="services">
     <!--View random offers-->
   <h1 id="title" class="h1-reponsive text-center font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">Our services</h1>
-  <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">  
+  <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
   <!--Carousel Wrapper-->
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-  
-      <!--Slides-->
-      <div class="carousel-inner" role="listbox">
-        <!--First slide-->
-  
-        <div class="carousel-item mockup-carousel-item">
-  
-          <div class="col-md-4 mockup-col-md-4">
-            <div class="card mb-2 text-center">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text"></p>
-                <a href="/services/detail/"><button class="btn peach-gradient">Details</button></a>
-              </div>
+  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+      <!--First slide-->
+
+      <div class="carousel-item mockup-carousel-item">
+
+        <div class="col-md-4 mockup-col-md-4">
+          <div class="card mb-2 text-center">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text"></p>
+              <a href="/services/detail/"><button class="btn peach-gradient">Details</button></a>
             </div>
           </div>
-  
         </div>
-  
+
       </div>
-      <!--/.First slide-->
-      <!--Slides-->
-  
-      <!--Controls-->
-      <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev">
-          <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
-        </a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next">
-          <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
-        </a>
-      </div>
-      <!--/.Slides-->
-  
+
+    </div>
+    <!--/.First slide-->
+    <!--Slides-->
+
+    <!--Controls-->
+    <div class="controls-top">
+      <a class="btn-floating" href="#multi-item-example" data-slide="prev">
+        <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
+      </a>
+      <a class="btn-floating" href="#multi-item-example" data-slide="next">
+        <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
+      </a>
     </div>
     <!--/.Carousel Wrapper-->
 </div>
@@ -132,7 +121,7 @@
   });
 
 
-  let cards = <?= $randomservices ?> ;
+  let cards = <?= $randomservices ?>;
   console.log(cards);
   let counter = 0;
   let slide = document.querySelector('.mockup-carousel-item');

@@ -50,7 +50,7 @@ header a {
     padding: 0.5rem 1.4rem;
 }
 
-#result{
+#result {
     width: 64%;
 }
 
@@ -67,7 +67,7 @@ h1#title {
     margin: auto;
     padding: 30px;
 }
-.carousel-multi-item{
+.carousel-multi-item {
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -107,7 +107,7 @@ h1#title {
 .alert {
     margin-bottom: 0;
     border: 1px solid transparent;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     left: 50%;
     transform: translate(-50%);
     color: #de0303;
@@ -115,7 +115,7 @@ h1#title {
     border-color: #ff954a;
 }
 
-.fas{
+.fas {
     color: #ff4a4a;
     padding-top: 5px;
 }
@@ -153,7 +153,6 @@ footer {
     padding: 5px;
 }
 
-
 /*ADMIN*/
 
 article {
@@ -182,6 +181,7 @@ article {
 
 .unhandled-reports {
     width: 60%;
+    margin: 0 auto;
     border-right: 1px solid black;
     padding: 1%;
 }
@@ -198,7 +198,8 @@ article {
 
 .handled-reports {
     width: 60%;
-    margin: 1%;
+    margin: 0 auto;
+    padding: 1%;
 }
 
 .handled-report {
@@ -221,7 +222,31 @@ article {
     height: 100vh;
 }
 
-.form-control:focus {
+@media only screen and (max-width: 600px) {
+    .report-control-panel {
+        display: block;
+    }
+    .unhandled-reports {
+        width: 80%;
+    }
+    .handled-reports {
+        width: 80%;
+    }
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+    bottom: 0.5em;
+}
+.amber-border .form-control:focus {
     border: 1px solid #ff954a;
     box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
 }
@@ -236,4 +261,11 @@ article {
 .form-control:focus {
     border: 1px solid #ff954a;
     box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
+pre{
+    display: none;
+}
+
+.contactus {
+    margin-top: 12vh;
+    height: 61.1vh;
 }
