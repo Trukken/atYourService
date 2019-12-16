@@ -50,7 +50,7 @@ header a {
     padding: 0.5rem 1.4rem;
 }
 
-#result{
+#result {
     width: 64%;
 }
 
@@ -107,14 +107,13 @@ h1#title {
 .alert {
     margin-bottom: 0;
     border: 1px solid transparent;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     left: 50%;
     transform: translate(-50%);
     color: #de0303;
     background-color: #ffb580;
     border-color: #ff954a;
 }
-
 
 .fas {
     color: #ff4a4a;
@@ -123,7 +122,6 @@ footer {
     background-color: #272727e8;
     padding: 5px;
 }
-
 
 /*ADMIN*/
 
@@ -188,7 +186,7 @@ article {
 }
 
 /*ADD A SERVICE*/
-.add-service-body{
+.add-service-body {
     background-image: url("../images/landscape2.jpg");
     background-size: cover;
     height: 100vh;
@@ -216,10 +214,13 @@ table.dataTable thead .sorting_desc:after,
 table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
-bottom: .5em;
+    bottom: 0.5em;
 }
 .amber-border .form-control:focus {
     border: 1px solid #ff954a;
     box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
 }
 
+pre {
+    display: none;
+}

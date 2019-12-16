@@ -72,6 +72,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //UPDATE THE FORM
+
         $service = \App\Service::find($id);
         $service->name = $request->name;
         $service->short_description = $request->short_description;
@@ -88,10 +89,10 @@ class ServiceController extends Controller
 
     public function destroy($id)
     {
-        if (Auth::user()) {
 
-            $service = Service::where('id', '=', $id)->get();
-            if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
+        $service = Service::find($id)->get();
+        if (Auth::user()->id == $service[0]->user_id) {
+            if ($service[0]->user_id == Auth::user()->id || Auth::user()->admin == true) {
                 \App\Service::destroy($id);
 
                 return redirect('')->withErrors(['msg' => 'Service had been deleted!']);
