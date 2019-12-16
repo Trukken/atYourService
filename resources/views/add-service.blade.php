@@ -25,7 +25,7 @@
 
             <!--Header-->
             <div class="form-header peach-gradient">
-            <h3><img src="{{asset('images/justlogo.png')}}" height="40" width="40"> Add a service</h3>
+            <h3><img src="{{asset('images/justlogo.png')}}" height="60" width="60"> Add a service</h3>
             </div>
 
             <!--Body--> 
@@ -34,17 +34,17 @@
                 <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
                 
                 <div class="form-group amber-border">
-                    <label for="form-control">Service</label>
+                    <label for="form-control">Service:</label>
                     <input type="text" name="servicename" class="form-control">
                 </div>
 
                 <div class="form-group amber-border">
-                    <label for="form-control">Write a short description (max. 144 characters):</label>
+                    <label for="form-control">Write a short description:</label>
                     <textarea class="form-control" maxlength="144" cols="30" rows="5"></textarea>
                 </div>
 
                 <div class="form-group amber-border">
-                    <label for="form-control">Full description::</label>
+                    <label for="form-control">Full description:</label>
                     <textarea class="form-control" maxlength="500" cols="30" rows="10"></textarea>
                 </div>
         

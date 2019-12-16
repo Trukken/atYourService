@@ -115,10 +115,26 @@ h1#title {
     border-color: #ff954a;
 }
 
-
 .fas{
     color: #ff4a4a;
 }
+.md-form .prefix.active{
+    color: #ff954a;
+}
+
+#orangeForm-name:focus, #orangeForm-email:focus, #orangeForm-pass:focus{
+    border-bottom: 1px solid #ffa000;
+    box-shadow: 0 1px 0 0 #ffa000;
+}
+
+  .md-form input:not([type]):focus:not([readonly])+label,
+  .md-form input[type="text"]:not(.browser-default):focus:not([readonly])+label,
+  .md-form input[type="password"]:not(.browser-default):focus:not([readonly])+label,
+  .md-form input[type="email"]:not(.browser-default):focus:not([readonly])+label{
+    color: #ffa000;
+  }
+
+/* FOOTER */
 footer {
     background-color: #272727e8;
     padding: 5px;
@@ -186,13 +202,25 @@ article {
 }
 
 /*ADD A SERVICE*/
-.add-service-body{
+.add-service-body, #myaccount{
     background-image: url("../images/landscape2.jpg");
     background-size: cover;
     height: 100vh;
 }
+
 .amber-border .form-control:focus {
     border: 1px solid #ff954a;
     box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
 }
 
+.form-group{
+    
+    font-size: 20px;
+    font-weight: 500;
+}
+/*MY ACCOUNT*/
+
+.form-control:focus {
+    border: 1px solid #ff954a;
+    box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
+}

@@ -76,12 +76,11 @@
             </div>
             </div>
             <!--/Form with header-->
-
-        </div>
-        </div>
     </div>
     </div>
-    </section>
+</div>
+</div>
+</section>
 
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>

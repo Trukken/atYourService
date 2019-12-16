@@ -38,19 +38,19 @@
                 @if(Session::get('email'))
                     <div class="md-form" onclick="document.querySelector('.email-input').focus()">
                     <i class="fas fa-envelope prefix"></i>
-                    <input type="text" name="email" id="orangeForm-email email" class="form-control email-input" value="{{ Session::get('email') }}">
+                    <input type="text" name="email" id="orangeForm-email" class="form-control" value="{{ Session::get('email') }}">
                     <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                     </div>
                 @elseif(!Session::get('email'))
-                    <div class="md-form" onclick="document.querySelector('.email-input').focus()">
+                    <div class="md-form amber-input active-amber-input" onclick="document.querySelector('.email-input').focus()">
                     <i class="fas fa-envelope prefix"></i>
-                    <input type="text" name="email" id="orangeForm-email email" class="form-control email-input">
+                    <input class="form-control email-input" type="text" name="email" id="orangeForm-email">
                     <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                     </div>
                 @endif
-                    <div class="md-form"  onclick="document.querySelector('.password-input').focus()">
+                    <div class="md-form amber-input active-amber-input"  onclick="document.querySelector('.password-input').focus()">
                     <i class="fas fa-lock prefix"></i>
-                    <input type="password" name="password" id="orangeForm-pass password" class="form-control password-input">
+                    <input type="password" name="password" id="orangeForm-pass" class="form-control password-input">
                     <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.password-input').focus()">Your password</label>
                 </div>
 
