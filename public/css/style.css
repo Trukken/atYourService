@@ -16,14 +16,7 @@ header a {
     color: white;
 }
 
-header img {
-    padding-left: 10px;
-}
-li {
-    padding: 10px;
-}
-
-
+/*HOME*/
 #home {
     display: flex;
     justify-content: center;
@@ -48,30 +41,33 @@ li {
     text-shadow: 1px 1px 2px #272727;
 }
 
-h1#title {
-    color: #ff4a4a;
-    padding: 50px;
-}
+/*SEARCH BAR*/
 .form-control {
-    border: 2px solid #ff4a4a;
+    border: 2px solid #ff954a;
 }
 
 .btn.btn-lg {
     padding: 0.5rem 1.4rem;
 }
-.md-form .prefix.active {
-color: #ff954a;
+
+#result{
+    width: 64%;
 }
 
-#services{
-    background-color: #F8F9FA;
+/*HOME SERVICES*/
+
+h1#title {
+    color: #ff4a4a;
+    padding: 50px 50px 0 50px;
 }
 
 .hr-light {
-    border-top: 3px solid #272727e8;
-    width: 80px;
+    border-top: 3px solid #ff954a;
+    width: 90px;
+    margin: auto;
+    padding: 30px;
 }
-.carousel-multi-item{
+.carousel-multi-item {
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -101,32 +97,26 @@ color: #ff954a;
 #btn {
     margin-top: 5px;
 }
+/*LOGIN REGISTER*/
 #login {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/landscape.jpg");
     background-size: cover;
-    height: 80vh;
+    height: 100vh;
 }
 
-.alert-danger {
+.alert {
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    left: 50%;
+    transform: translate(-50%);
     color: #de0303;
     background-color: #ffb580;
     border-color: #ff954a;
 }
 
-#alertLogin{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    top: 70%;
-}
-#alertRegister{
-    position: absolute;
-    left: 80%;
-    transform: translate(-50%);
-    top: 30%;
-}
 
-.fas{
+.fas {
     color: #ff4a4a;
 }
 footer {
@@ -134,9 +124,8 @@ footer {
     padding: 5px;
 }
 
-footer a:hover {
-    color: #ff4a4a;
-}
+
+/*ADMIN*/
 
 article {
     border-bottom: 1px solid black;
@@ -146,27 +135,15 @@ article {
     display: none;
 }
 
-.inner {
-    resize: none;
-    border: 1px solid orange;
-    border-radius: 15px;
-}
-
 .admin-panel-card-deck {
-    margin: 2%;
-}
-
-.admin-panel-h2 {
-    width: fit-content;
-    margin: auto;
+    margin: 5%;
 }
 
 .admin-panel-body {
-    height: 59.2vh;
-    width: 80%;
     margin: auto;
-    margin-top: 15vh;
+    padding: 15vh 0;
 }
+
 .report-control-panel {
     display: flex;
     margin: 3% auto;
@@ -176,6 +153,7 @@ article {
 
 .unhandled-reports {
     width: 60%;
+    margin: 0 auto;
     border-right: 1px solid black;
     padding: 1%;
 }
@@ -192,7 +170,8 @@ article {
 
 .handled-reports {
     width: 60%;
-    margin: 1%;
+    margin: 0 auto;
+    padding: 1%;
 }
 
 .handled-report {
@@ -208,7 +187,26 @@ article {
     background: linear-gradient(40deg, #ffd86f, #fc6262);
 }
 
-.add-service-body {
-    width: 80%;
-    margin: auto;
+/*ADD A SERVICE*/
+.add-service-body{
+    background-image: url("../images/landscape2.jpg");
+    background-size: cover;
+    height: 100vh;
 }
+
+@media only screen and (max-width: 600px) {
+    .report-control-panel {
+        display: block;
+    }
+    .unhandled-reports {
+        width: 80%;
+    }
+    .handled-reports {
+        width: 80%;
+    }
+}
+.amber-border .form-control:focus {
+    border: 1px solid #ff954a;
+    box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
+}
+

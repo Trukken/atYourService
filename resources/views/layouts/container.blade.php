@@ -32,7 +32,7 @@
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto flex-nowrap">
         <li class="nav-item">
-          <a class="nav-link" href="">About us</a>
+          <a class="nav-link" href="">Contact us</a>
         </li>
         @if(!Auth::user())
         <li class="nav-item">

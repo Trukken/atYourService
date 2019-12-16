@@ -37,9 +37,8 @@
 
 
     @if(Auth::user() && Auth::user()->id == $user->id)
-    <p>(<a href="/services/edit/{{$service->id}}">Update</a>/
-    <a id="delete" href="/services/delete/{{$service->id}}">Delete</a>)</p>
-
+    <div>(<a href="/services/edit/{{ $service->id }}">Update</a>/
+    <a id="delete" href="/services/delete/{{$service->id}}">Delete</a>)</div>
     @endif
 @endforeach
 <div class="result"></div>
@@ -47,15 +46,16 @@
 
 
 
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+@if(!empty($service->id))
 <script>
+
     $(function() {
 
         $('#delete').click(function(e) {
             e.preventDefault();
             $.ajax({
-                url: '/services/delete/{{$service->id}}',
+                url: '/services/delete/{{ $service->id }}',
                 type: 'post',
                 data: $('#form').serialize(),
                 success: function(result) {
@@ -91,6 +91,6 @@
         $(this).next('.read-more-content').toggleClass('hide');
     });
 </script>
-
+@endif
 
 @endsection

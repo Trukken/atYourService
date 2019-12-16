@@ -34,15 +34,14 @@
           <br>
           <div class="result dropdown-menu input-dropdown-menu position-absolute resulthome" id="result"></div>
         </div>
-        <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
-
       </div>
+      <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
     </form>
   </div>
 
 </section>
 
-<section id="services">
+<div class="mask rgba-grey-slight" id="services">
     <!--View random offers-->
   <h1 id="title" class="h1-reponsive text-center font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">Our services</h1>
   <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">  
@@ -85,7 +84,7 @@
   
     </div>
     <!--/.Carousel Wrapper-->
-  </section>
+</div>
 
 
 
