@@ -52,6 +52,11 @@ header a {
 
 #result {
     width: 64%;
+    padding-left: 10px;
+}
+
+.result a{
+    color: #ff954a;
 }
 
 /*HOME SERVICES*/
@@ -117,7 +122,35 @@ h1#title {
 
 .fas {
     color: #ff4a4a;
+    padding-top: 5px;
 }
+.md-form .prefix.active{
+    color: #ff954a;
+}
+
+ #orangeForm:focus{
+    border-bottom: 1px solid #ffa000;
+    box-shadow: 0 1px 0 0 #ffa000;
+}
+
+.md-form input[type]:focus:not([readonly])+label,
+.md-form input[type="text"]:not(.browser-default):focus:not([readonly])+label,
+.md-form input[type="password"]:not(.browser-default):focus:not([readonly])+label,
+.md-form input[type="email"]:not(.browser-default):focus:not([readonly])+label,
+.md-form textarea.md-textarea:focus:not([readonly])+label{
+    color: #ffa000;
+}
+
+.card-footer a{
+    color: #ff4a4a;
+}
+
+#loginButton{
+    margin: 25px auto;
+}
+
+
+/* FOOTER */
 footer {
     background-color: #272727e8;
     padding: 5px;
@@ -186,7 +219,7 @@ article {
 }
 
 /*ADD A SERVICE*/
-.add-service-body {
+.add-service-body, #myaccount{
     background-image: url("../images/landscape2.jpg");
     background-size: cover;
     height: 100vh;
@@ -221,11 +254,25 @@ table.dataTable thead .sorting_desc_disabled:before {
     box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
 }
 
-pre {
+.form-group{
+    
+    font-size: 20px;
+    font-weight: 500;
+}
+/*MY ACCOUNT*/
+
+.form-control:focus {
+    border: 1px solid #ff954a;
+    box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
+}
+
+pre{
     display: none;
 }
 
 .contactus {
-    margin-top: 12vh;
-    height: 61.1vh;
+    
+    background-image: url("../images/landscape2.jpg");
+    background-size: cover;
+    height: 100vh;
 }
