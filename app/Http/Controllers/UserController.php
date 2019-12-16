@@ -86,11 +86,10 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->phone_number = $request->phone_number;
         $user->image = $request->image;
-        //$user->user_id = auth()->user()->id;
         $user->banned = 0;
 
         $user->save();
-        return  redirect('')->withErrors(['msg' => 'Service had been updated!']);
+        return  redirect('user/' . $id)->withErrors(['msg' => 'Service has been updated!']);
         //
     }
 

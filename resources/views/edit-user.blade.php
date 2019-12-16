@@ -11,7 +11,7 @@
     @method('PUT')
     <label for="name">Name:</label>
     <br>
-    <input type="text" class="inner editing-user" name="name" value="{{$user->name}}" id="">
+    <input type="text" class="inner editing-user" name="name" value="{{$user->name}}">
     <br>
     <label for="phone">Phone number:</label>
     <br>

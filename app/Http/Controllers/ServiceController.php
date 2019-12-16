@@ -56,9 +56,8 @@ class ServiceController extends Controller
     {
         if (Auth::user()) {
 
-            $service = Service::where('id', '=', $id)->get();
+            $service = \App\Service::find($id);
             if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
-                $service = \App\Service::find($id);
 
                 return view('edit-service', ["service" => $service]);
             }
@@ -81,8 +80,8 @@ class ServiceController extends Controller
         $service->banned = 0;
 
         $service->save();
-        
-        return redirect('')->withErrors(['msg' => 'Service had been updated!']);
+
+        return redirect('user/' . $service->user_id)->withErrors(['msg' => 'Service had been updated!']);
         //
     }
 

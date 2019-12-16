@@ -70,14 +70,6 @@
 </div>
 
 
-    @if(Auth::user() && Auth::user()->id == $user->id)
-    <div>(<a href="/services/edit/{{ $service->id }}">Update</a>/
-    <a id="delete" href="/services/delete/{{$service->id}}">Delete</a>)</div>
-    @endif
-@endforeach
-<div class="result"></div>
-
-
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
