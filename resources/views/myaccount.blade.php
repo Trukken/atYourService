@@ -29,12 +29,11 @@
                         <br>
                         <input name="image" class="inner editing-user form-control" value="{{$user->image}}">
                         <br>
+                        <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light d-flex justify-content-center button-account" type="submit">Edit account</button>
+                        ​
+                    </form>
                 </div>
-
             </div>
-            <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light d-flex justify-content-center button-account" type="submit">Edit account</button>
-            ​
-            </form>
             @if(Auth::user() && Auth::user()->admin == true)
             <form action="/user-control" method="POST">
                 @csrf
@@ -77,17 +76,15 @@
 
                             <div class="buttonflex d-flex justify-content-between w-100">
                                 <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Edit</button>
+                            </div>
                         </form>
                         ​<a href="/services/delete/{{$service->id}}" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Delete</a>
                     </div>
-
+                    ​
             </div>
-            ​
         </div>
+        @endforeach
     </div>
-    @endforeach
-</div>
-</div>
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 @if(!empty($service->id))
