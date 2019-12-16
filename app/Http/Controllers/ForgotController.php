@@ -61,11 +61,12 @@ class ForgotController extends Controller
 
         $users = User::all();
         foreach ($users as $user) {
-            if ($user->password_reset == $token && !empty($user->password_reset)) {
+            if (!empty($user->password_reset) && $user->password_reset == $token) {
                 //User::where('id', '=', $user->id)->update(['email_verified' => true, 'verification_token' => null]);
                 return view('forgotInput');
             }
         }
+        return redirect("/forgotpassword")->withErrors(['msg' => 'The token has expired.']);
     }
 
     /**

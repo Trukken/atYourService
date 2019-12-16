@@ -26,7 +26,7 @@
 
                 <!--Header-->
                 <div class="form-header peach-gradient">
-                <h3><i class="fas fa-lock prefix"></i> Reset your password</h3>
+                <h3>Reset your password</h3>
                 </div>
 
                 <!--Body-->
