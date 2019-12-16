@@ -23,8 +23,6 @@
     <br>
     <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Edit</button>
     ​
-    <!-- <input type="submit" name="edit" value="edit"> -->
-    ​
 </form>
 ​
 <div id="resultForm"></div>

@@ -36,7 +36,7 @@ class ServiceController extends Controller
         $newService->banned = 0;
         $newService->save();
 
-        return 'Service inserted: ' . $request->servicename;
+        return redirect('user/' . $newService->user_id)->withErrors(['msg' => 'Success']);
     }
 
     public function show($id)
@@ -71,7 +71,7 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id)
     {
-        //UPDATE THE FORM
+
         $service = \App\Service::find($id);
         $service->name = $request->name;
         $service->short_description = $request->short_description;
@@ -89,12 +89,12 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         if (Auth::user()) {
-
-            $service = Service::where('id', '=', $id)->get();
+            $service = \App\Service::find($id);
+            //$service = Service::where('id', '=', $id)->get();
             if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
                 \App\Service::destroy($id);
 
-                return redirect('')->withErrors(['msg' => 'Service had been deleted!']);
+                return redirect('')->withErrors(['msg' => 'Service has been deleted!']);
             }
             return redirect('')->withErrors(['msg' => 'You can not delete another user\'s service!']);
         }

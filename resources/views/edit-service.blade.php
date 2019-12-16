@@ -23,8 +23,6 @@
     <br>
     <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Edit</button>
 
-    <!-- <input type="submit" name="edit" value="edit"> -->
-
 </form>
 
 <div id="resultForm"></div>
@@ -34,7 +32,7 @@
 
 
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- 
 <script>
     $(function() {
         $('input[type="submit"]').click(function(e) {
@@ -55,5 +53,5 @@
             });
         });
     });
-</script>
+</script> -->
 @endsection
