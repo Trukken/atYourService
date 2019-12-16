@@ -5,15 +5,7 @@
 @section('content')
 <h1>Reporting: <a href="/services/detail/{{ $report->id }}">{{ $report->name }}</a></h1>
 
-@if($errors->any())
-<div class="alert alert-danger">
-    <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-</div>
-@endif
+
 
 <form action="/send-report" method="POST">
     @csrf

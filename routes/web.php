@@ -82,3 +82,6 @@ Route::post('/admin-panel', 'AdminController@redirect');
 //edit or update
 Route::get('/user/edit/{id}', 'UserController@edit');
 Route::put('/user/edit/{id}', 'UserController@update');
+
+
+Route::get('/contact', 'ContactController@index');
