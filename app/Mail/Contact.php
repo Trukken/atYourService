@@ -24,6 +24,6 @@ class Contact extends Mailable
      */
     public function build()
     {
-        return $this->from('somethingforspamthatisforme@gmail.com', 'Contact')->subject('Contact')->view('mail.verification', ['details' => $this->details]);
+        return $this->from('somethingforspamthatisforme@gmail.com', 'Contact')->text('mail.contact_plain', ['details' => $this->details]);
     }
 }
