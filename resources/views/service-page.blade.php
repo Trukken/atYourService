@@ -6,7 +6,7 @@
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
 <h1> {{ucwords($service->name)}} @if($service->banned) - This service is currently banned @endif</h1>
 
-<h2>Description</h2>
+
 
 <p>{{$service->short_description}}</p>
 
