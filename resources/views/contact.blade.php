@@ -6,7 +6,7 @@
         <section class="form-gradient">
             <div class="card">
                 <form method="POST">
-                <!--Header-->
+                    <!--Header-->
                     @csrf
                     <div class="header pt-3 peach-gradient">
                         <div class="row d-flex justify-content-center">
@@ -17,27 +17,27 @@
                     <div class="card-body mx-4 mt-4">
                         <!--Body-->
                         <div class="md-form" onclick="document.querySelector('.name-input').focus()">
-                            <input type="text" id="orangeForm" name="name" class="form-control name-input">
+                            <input type="text" name="name" class="form-control name-input">
                             <label for="orangeForm-name" onclick="className='active'; document.querySelector('.name-input').focus()">Your name</label>
                         </div>
 
                         <div class="md-form" onclick="document.querySelector('.email-input').focus()">
-                            <input type="text" id="orangeForm" name="email" class="form-control email-input" value="{{ Session::get('email') }}">
+                            <input type="text" name="email" class="form-control email-input" value="{{ Session::get('email') }}">
                             <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                         </div>
 
                         <div class="md-form" onclick="document.querySelector('.md-textarea').focus()">
-                            <textarea type="text" id="orangeForm" name="message" class="form-control md-textarea"></textarea>
+                            <textarea type="text" name="message" class="form-control md-textarea"></textarea>
                             <label for="message" onclick="className='active'; document.querySelector('.md-textarea').focus()">Your message</label>
                         </div>
-                        
+
                         <div class="text-center">
-                            <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" name="submit" value="Send">                        </div>
-                        </div>
+                            <input class="btn peach-gradient btn-rounded btn-lg waves-effect waves-light" type="submit" name="submit" value="Send"> </div>
                     </div>
-                </form>
             </div>
-        </section>
+            </form>
     </div>
+    </section>
+</div>
 </div>
 @endsection

@@ -7,7 +7,7 @@
 <section id="home">
 
   <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
-  <h2 class="h2-reponsive text-center mb-5 white-text fadeInDown"" data-wow-delay=" 0.4s">Linking expats to experts in Luxembourg</h2>
+  <h2 class="h2-reponsive text-center mb-5 white-text fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
 
   <div class="search-container position-relative">
     <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
@@ -60,10 +60,10 @@
     </div>
     <div class="controls-top">
       <a class="btn-floating" href="#multi-item-example" data-slide="prev">
-        <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
+        <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="Button to scroll image left.">
       </a>
       <a class="btn-floating" href="#multi-item-example" data-slide="next">
-        <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
+        <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="Botton to scroll image right.">
       </a>
     </div>
   </div>
