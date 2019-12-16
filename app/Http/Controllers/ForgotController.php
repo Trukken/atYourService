@@ -61,11 +61,12 @@ class ForgotController extends Controller
 
         $users = User::all();
         foreach ($users as $user) {
-            if ($user->password_reset == $token && !empty($user->password_reset)) {
+            if (!empty($user->password_reset) && $user->password_reset == $token) {
                 //User::where('id', '=', $user->id)->update(['email_verified' => true, 'verification_token' => null]);
                 return view('forgotInput');
             }
         }
+        return redirect("/forgotpassword")->withErrors(['msg' => 'The token has expired.']);
     }
 
     /**
@@ -125,12 +126,13 @@ class ForgotController extends Controller
             $details = [
                 'email' => $request->email,
                 'name' => $name,
-                'token' => $token
+                'token' => $token,
+                'subject' => 'Atyourservice Forgot Password'
             ];
 
             User::where('id', '=', $user->id)->update(['password_reset' => $token]);
-            \Mail::to($request->email)->send(new \App\Mail\ResetPassword($details));
-            return view('login', ['loginError' => 'An e-mail was sent to the given address, follow the instructions in the email.']);
+            \Mail::to($request->email)->send(new \App\Mail\ResetPassword($details['subject'], $details));
+            return redirect('/login',)->withErrors(['msg' => 'An e-mail was sent to the given address, follow the instructions in the email.']);
         } else {
             return view('forgotPassword', ['emailError' => 'The email you have entered does not exist.']);
         }

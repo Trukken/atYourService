@@ -8,7 +8,6 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-
   <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
@@ -17,7 +16,6 @@
 </head>
 
 <body>
-
   <!--Navbar -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,7 +31,7 @@
       <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto flex-nowrap">
           <li class="nav-item">
-            <a class="nav-link" href="">About us</a>
+            <a class="nav-link" href="/contact">Contact us</a>
           </li>
           @if(!Auth::user())
           <li class="nav-item">
@@ -65,6 +63,15 @@
   </header>
 
   <div class="content">
+    @if($errors->any())
+    <div class="alert alert-info">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
     @yield('content')
   </div>
 
@@ -117,13 +124,14 @@
   </footer>
   <!--  SCRIPTS  -->
   <!-- JQuery -->
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="../js/popper.min.js"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/popper.min.js') }}"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="../js/mdb.min.js"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/mdb.min.js') }}"></script>
+
 </body>
 
 </html>

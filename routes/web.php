@@ -56,6 +56,8 @@ Route::get('/services/detail/{id}', 'ServiceController@show');
 //edit or update
 Route::get('/services/edit/{id}', 'ServiceController@edit');
 Route::put('/services/edit/{id}', 'ServiceController@update');
+Route::put('user/{id}', 'ServiceController@update');
+
 //delete from database
 Route::get('/services/delete/{id}', 'ServiceController@destroy');
 Route::delete('/services/delete/{id}', 'ServiceController@destroy');
@@ -78,8 +80,11 @@ Route::post('/user-control', 'AdminController@userControl');
 Route::get('/admin-panel', 'AdminController@displayOptions');
 Route::post('/admin-panel', 'AdminController@redirect');
 
-
 //USERS
 //edit or update
 Route::get('/user/edit/{id}', 'UserController@edit');
 Route::put('/user/edit/{id}', 'UserController@update');
+
+
+Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'ContactController@send');

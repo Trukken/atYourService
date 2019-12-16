@@ -2,31 +2,13 @@
 
 @section('title','Atyourservice')
 
-@section('header')
-<link rel="stylesheet" href="{{ URL::asset('css/homepage.css')}}">
-
-@endsection
-
 @section('content')
 
-
-@if($errors->any())
-<div class="alert alert-info">
-  <ul>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-  </ul>
-</div>
-@endif
-
-<section id="home">
-
+  <section id="home">
   
-
-    <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
-    <h2 class="h2-reponsive text-center mb-5 white-text fadeInDown"" data-wow-delay=" 0.4s">Linking expats to experts in Luxembourg</h2>
-
+  <h1 class="h1-reponsive white-text font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s"><span>@</span>YourService</h1>
+  <h2 class="h2-reponsive text-center mb-5 white-text fadeInDown"" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
+  
     <div class="search-container position-relative">
       <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
         {{ csrf_field() }}
@@ -36,58 +18,54 @@
             <br>
             <div class="result dropdown-menu input-dropdown-menu position-absolute resulthome" id="result"></div>
           </div>
-          <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
-
         </div>
+        <button class="btn peach-gradient btn-rounded btn-lg my-0 waves-effect waves-light" type="submit">Search</button>
       </form>
     </div>
+  
+  </section>
 
-</section>
-
-<section id="services">
-  <!--View random offers-->
-  <h1 id="title" class="h1-reponsive text-center font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">Our services</h1>
-  <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
-  <!--Carousel Wrapper-->
-  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-      <!--First slide-->
-
-      <div class="carousel-item mockup-carousel-item">
-
-        <div class="col-md-4 mockup-col-md-4">
-          <div class="card mb-2 text-center">
-            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text"></p>
-              <a href="/services/detail/"><button class="btn peach-gradient">Details</button></a>
+  <div class="mask rgba-grey-slight" id="services">
+      <!--View random offers-->
+    <h1 id="title" class="h1-reponsive text-center font-weight-bold mb-3 wow fadeInDown" data-wow-delay="0.3s">Our services</h1>
+    <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+  
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <!--First slide-->
+  
+        <div class="carousel-item mockup-carousel-item">
+  
+          <div class="col-md-4 mockup-col-md-4">
+            <div class="card mb-2 text-center">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text"></p>
+                <a href="/services/detail/"><button class="btn peach-gradient">Details</button></a>
+              </div>
             </div>
           </div>
+  
         </div>
-
+  
+      <!--/.First slide-->
+      <!--Slides-->
+  
+      <!--Controls-->
+      <div class="controls-top">
+        <a class="btn-floating" href="#multi-item-example" data-slide="prev">
+          <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
+        </a>
+        <a class="btn-floating" href="#multi-item-example" data-slide="next">
+          <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
+        </a>
       </div>
-
-    </div>
-    <!--/.First slide-->
-    <!--Slides-->
-
-    <!--Controls-->
-    <div class="controls-top">
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev">
-        <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
-      </a>
-      <a class="btn-floating" href="#multi-item-example" data-slide="next">
-        <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
-      </a>
-    </div>
-    <!--/.Slides-->
-
+      <!--/.Carousel Wrapper-->
   </div>
-  <!--/.Carousel Wrapper-->
-</section>
+</div>
 
 
 

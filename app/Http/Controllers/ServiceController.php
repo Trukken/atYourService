@@ -37,13 +37,16 @@ class ServiceController extends Controller
         return $newService;
         $newService->save();
 
-        return 'Service inserted: ' . $request->servicename;
+        return redirect('user/' . $newService->user_id)->withErrors(['msg' => 'Success']);
     }
 
     public function show($id)
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
+        if (empty($service)) {
+            return redirect('')->withErrors('Service page does not exist.');
+        }
         $comments = $service->comments;
 
         return view('service-page', ['user' => $user, 'service' => $service, 'comments' => $comments]);
@@ -52,15 +55,23 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        $service = \App\Service::find($id);
-        return view('edit-service', ["service" => $service]);
+        if (Auth::user()) {
+
+            $service = \App\Service::find($id);
+            if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
+
+                return view('edit-service', ["service" => $service]);
+            }
+            return redirect('')->withErrors(['msg' => 'You can not edit another user\'s service!']);
+        }
+        return redirect('')->withErrors(['msg' => 'You can not edit that!']);
+
         //
     }
 
 
     public function update(Request $request, $id)
     {
-        //UPDATE THE FORM
         $service = \App\Service::find($id);
         $service->name = $request->name;
         $service->short_description = $request->short_description;
@@ -69,15 +80,24 @@ class ServiceController extends Controller
         $service->banned = 0;
 
         $service->save();
-        return 'Service was updated';
+
+        return redirect('user/' . $service->user_id)->withErrors(['msg' => 'Service had been updated!']);
         //
     }
 
 
     public function destroy($id)
     {
-        \App\Service::destroy($id);
-        return 'Service was deleted';
+        if (Auth::user()) {
+            $service = \App\Service::find($id);
+            if ($service->user_id == Auth::user()->id || Auth::user()->admin == true) {
+                \App\Service::destroy($id);
+
+                return redirect('user/' . $service->user_id)->withErrors(['msg' => 'Service has been deleted!']);
+            }
+            return redirect('')->withErrors(['msg' => 'You can not delete another user\'s service!']);
+        }
+        return redirect('')->withErrors(['msg' => 'You can not delete that!']);
     }
 
     public function searchResults(Request $request)
@@ -151,8 +171,12 @@ class ServiceController extends Controller
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
-        $comments = $service->comments;
-        if (Auth::user() && Auth::user()->id == $id) {
+        if (!empty($service->comments)) {
+            $comments = $service->comments;
+        } else {
+            $comments = ['You have no comments yet.'];
+        }
+        if (Auth::user() && Auth::user()->id == $id || Auth::user() && Auth::user()->admin == true) {
             return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
         } else {
             return 'Access denied';

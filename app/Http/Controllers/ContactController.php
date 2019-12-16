@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
-class LogOutController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +16,7 @@ class LogOutController extends Controller
     public function index()
     {
         //
-        if (Auth::user()) {
-            Auth::logout();
-
-            return redirect('/')->withErrors(['msg' => 'You had been logged out.']);
-        }
+        return view('contact');
     }
 
     /**
@@ -30,6 +27,7 @@ class LogOutController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -38,9 +36,20 @@ class LogOutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function send(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+        $messageEmail = 'somethingforspamthatisforme@gmail.com';
+        $message = strip_tags($request->message);
+        $details = [
+            'message' => $message
+        ];
+        Mail::to($messageEmail)->send(new Contact($details));
     }
 
     /**
