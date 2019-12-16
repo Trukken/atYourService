@@ -49,7 +49,7 @@
 
                 @foreach($servicesResult as $service)
                 <tr>
-                    <td>{{ucwords($service->name)}}</td>
+                    <td><a id="seach-result-name" href="/services/detail/{{ $service->id }}">{{ucwords($service->name)}}</a></td>
                     <td>{{$service->short_description}}</td>
                     <td>{{$service->created_at}}</td>
                 </tr>
@@ -61,36 +61,6 @@
     <?php echo $servicesResult->render(); ?>
 
 </div>
-
-<h3>Search results:</h3>
-<div class="wrapper">
-
-
-    <table id="dtOrderExample" class="table" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th class="th-sm">Name
-                </th>
-                <th class="th-sm">Description
-                </th>
-                <th class="th-sm">Updated at
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach($servicesResult as $service)
-            <tr>
-                <td>{{ucwords($service->name)}}</td>
-                <td>{{$service->short_description}}</td>
-                <td>{{$service->updated_at}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
-
-<?php echo $servicesResult->render(); ?>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>

@@ -55,7 +55,7 @@ header a {
     padding-left: 10px;
 }
 
-.result a{
+.result a {
     color: #ff954a;
 }
 
@@ -124,31 +124,34 @@ h1#title {
     color: #ff4a4a;
     padding-top: 5px;
 }
-.md-form .prefix.active{
+.md-form .prefix.active {
     color: #ff954a;
 }
 
- #orangeForm:focus{
+#orangeForm:focus {
     border-bottom: 1px solid #ffa000;
     box-shadow: 0 1px 0 0 #ffa000;
 }
 
-.md-form input[type]:focus:not([readonly])+label,
-.md-form input[type="text"]:not(.browser-default):focus:not([readonly])+label,
-.md-form input[type="password"]:not(.browser-default):focus:not([readonly])+label,
-.md-form input[type="email"]:not(.browser-default):focus:not([readonly])+label,
-.md-form textarea.md-textarea:focus:not([readonly])+label{
+.md-form input[type]:focus:not([readonly]) + label,
+.md-form input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form
+    input[type="password"]:not(.browser-default):focus:not([readonly])
+    + label,
+.md-form
+    input[type="email"]:not(.browser-default):focus:not([readonly])
+    + label,
+.md-form textarea.md-textarea:focus:not([readonly]) + label {
     color: #ffa000;
 }
 
-.card-footer a{
+.card-footer a {
     color: #ff4a4a;
 }
 
-#loginButton{
+#loginButton {
     margin: 25px auto;
 }
-
 
 /* FOOTER */
 footer {
@@ -219,7 +222,8 @@ article {
 }
 
 /*ADD A SERVICE*/
-.add-service-body, #myaccount{
+.add-service-body,
+#myaccount {
     background-image: url("../images/landscape2.jpg");
     background-size: cover;
     height: 100vh;
@@ -254,8 +258,7 @@ table.dataTable thead .sorting_desc_disabled:before {
     box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
 }
 
-.form-group{
-
+.form-group {
     font-size: 20px;
     font-weight: 500;
 }
@@ -266,31 +269,33 @@ table.dataTable thead .sorting_desc_disabled:before {
     box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.3);
 }
 
-pre{
+pre {
     display: none;
 }
 
 .contactus {
-
     background-image: url("../images/landscape2.jpg");
     background-size: cover;
     height: 100vh;
 }
-.user-account-card{
-   /* width: 50vw;*/
+.user-account-card {
+    /* width: 50vw;*/
     margin: 5rem auto;
 }
 
-.button-account{
+.button-account {
     width: 150px;
     margin: auto;
 }
 
-.account-form{
+.account-form {
     width: 45%;
 }
 
-textarea{
+textarea {
     resize: none;
 }
 
+#seach-result-name {
+    color: #fc6262;
+}

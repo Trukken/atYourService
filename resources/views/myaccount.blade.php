@@ -110,26 +110,6 @@
 @endif
 
 
-<!-- <script>
-    $(function() {
-        $('button[type="submit"]').click(function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: '/services/edit/{{$service->id}}',
-                type: 'put',
-                data: $('.user-form').serialize(),
-                success: function(result) {
-                    console.log(result);
-                    console.log('success');
-                    $('#resultForm').html('<div>' + result + '</div>');
-                },
-                error: function(err) {
-                    // Si une erreur AJAX se produit
-                    console.log('error');
-                }
-            });
-        });
-    });
-</script> -->
+
 
 @endsection
