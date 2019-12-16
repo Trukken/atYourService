@@ -109,7 +109,7 @@ class ServiceController extends Controller
             $usersearch = $request->searchbar;
         }
 
-        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->where('banned', '=', 0)->orderBy('created_at', 'DESC')->get();
+        $servicesResult = \App\Service::where('name', 'like', '%' . $usersearch . '%')->where('banned', '=', 0)->orderBy('created_at', 'DESC')->paginate(10);
 
         return view('search-results', ['servicesResult' => $servicesResult]);
     }
