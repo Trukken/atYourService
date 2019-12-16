@@ -5,10 +5,7 @@
 @section('content')
 
 
-@endif
-@if(isset($loginError))
-    <?php echo $loginError; ?>
-@endif
+
     <section id="login">
         <div  class="h-100 d-flex justify-content-center align-items-center">
             <div class="container">

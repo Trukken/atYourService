@@ -14,7 +14,7 @@ class ContactController extends Controller
     public function index()
     {
         //
-        return view('contact')->withErrors(['msg' => 'This functionality is temporarly disabled.']);
+        return view('contact');
     }
 
     /**
@@ -33,9 +33,16 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function send(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+        $message = strip_tags($request->message);
+        return $message;
     }
 
     /**

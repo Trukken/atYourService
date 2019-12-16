@@ -85,3 +85,4 @@ Route::put('/user/edit/{id}', 'UserController@update');
 
 
 Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'ContactController@send');
