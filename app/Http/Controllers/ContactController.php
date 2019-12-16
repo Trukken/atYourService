@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -14,7 +16,7 @@ class ContactController extends Controller
     public function index()
     {
         //
-        return view('contact')->withErrors(['msg' => 'This functionality is temporarly disabled.']);
+        return view('contact');
     }
 
     /**
@@ -34,9 +36,20 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function send(Request $request)
     {
-        
+        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+        $messageEmail = 'somethingforspamthatisforme@gmail.com';
+        $message = strip_tags($request->message);
+        $details = [
+            'message' => $message
+        ];
+        Mail::to($messageEmail)->send(new Contact($details));
     }
 
     /**
