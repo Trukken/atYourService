@@ -86,7 +86,7 @@ h1#title {
 .card-img-top {
     width: 70%;
     height: 30vh;
-    object-fit: cover;
+    object-fit: fill;
     margin: 20px auto;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
