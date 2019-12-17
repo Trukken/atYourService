@@ -17,17 +17,17 @@
                     <div class="card-body mx-4 mt-4">
                         <!--Body-->
                         <div class="md-form" onclick="document.querySelector('.name-input').focus()">
-                            <input type="text" name="name" class="form-control name-input">
+                            <input type="text" name="name" class="form-control name-input orangeForm">
                             <label for="orangeForm-name" onclick="className='active'; document.querySelector('.name-input').focus()">Your name</label>
                         </div>
 
                         <div class="md-form" onclick="document.querySelector('.email-input').focus()">
-                            <input type="text" name="email" class="form-control email-input" value="{{ Session::get('email') }}">
+                            <input type="text" name="email" class="form-control email-input orangeForm" value="{{ Session::get('email') }}">
                             <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                         </div>
 
                         <div class="md-form" onclick="document.querySelector('.md-textarea').focus()">
-                            <textarea type="text" name="message" class="form-control md-textarea"></textarea>
+                            <textarea type="text" name="message" class="form-control md-textarea orangeForm"></textarea>
                             <label for="message" onclick="className='active'; document.querySelector('.md-textarea').focus()">Your message</label>
                         </div>
 

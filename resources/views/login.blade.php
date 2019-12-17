@@ -25,20 +25,20 @@
                                 @if(Session::get('email'))
                                 <div class="md-form" onclick="document.querySelector('.email-input').focus()">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input type="text" name="email" class="form-control " value="{{ Session::get('email') }}">
-                                    <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
+                                    <input type="text" name="email" class="form-control orangeForm" value="{{ Session::get('email') }}">
+                                    <label for="orangeForm-email" class="orangeForm" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                                 </div>
                                 @elseif(!Session::get('email'))
                                 <div class="md-form" onclick="document.querySelector('.email-input').focus()">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input class="form-control email-input" type="text" name="email">
-                                    <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
+                                    <input class="form-control email-input orangeForm" type="text" name="email">
+                                    <label for="orangeForm-email" class="orangeForm" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                                 </div>
                                 @endif
                                 <div class="md-form" onclick="document.querySelector('.password-input').focus()">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input type="password" name="password" class="form-control password-input">
-                                    <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.password-input').focus()">Your password</label>
+                                    <input type="password" name="password" class="form-control password-input orangeForm">
+                                    <label for="orangeForm-pass" class="orangeForm" onclick="className='active'; document.querySelector('.password-input').focus()">Your password</label>
                                 </div>
 
 

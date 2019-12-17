@@ -360,9 +360,8 @@ textarea {
     min-width: 150px;
 }
 
-.mb-2 {
+.front-page-card {
     min-height: 50vh;
-    max-height: 50vh;
 }
 
 .display-user-image {
@@ -381,6 +380,25 @@ textarea {
 
 thead {
     background-color: #ffa000;
+}
+
+.md-form .prefix.active {
+    color: #ff954a;
+}
+.orangeForm:focus {
+    border-bottom: 1px solid #ffa000 !important;
+    box-shadow: 0 1px 0 0 #ffa000 !important;
+}
+.md-form input[type]:focus:not([readonly]) + label,
+.md-form input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form
+    input[type="password"]:not(.browser-default):focus:not([readonly])
+    + label,
+.md-form
+    input[type="email"]:not(.browser-default):focus:not([readonly])
+    + label,
+.md-form textarea.md-textarea:focus:not([readonly]) + label {
+    color: #ffa000;
 }
 
 @media only screen and (max-width: 600px) {

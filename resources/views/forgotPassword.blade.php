@@ -3,9 +3,7 @@
 @section('title','Forgotpassword')
 
 @section('content')
-@if(!empty($emailError))
-{{ $emailError }}
-@endif
+
 
 <section id="login">
     <div class="h-100 d-flex justify-content-center align-items-center">
