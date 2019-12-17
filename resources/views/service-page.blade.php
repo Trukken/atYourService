@@ -12,7 +12,7 @@
                 </div>
                 @if($service->banned) - This service is currently banned @endif
                 <div class="card-flex justify-content-around align-items-center summary-part">
-                    <img src="{{$service->user->image}}" alt="profile picture">
+                    <img class="display-user-image" src="{{$service->user->image}}" alt="profile picture">
                     <p><strong>Summary:</strong> <br>{{$service->short_description}}</p>
                 </div>
                 @if (!Auth::user())
@@ -68,7 +68,7 @@
                         </div>
                         <div class="comment-info">
                             <p>
-                                <strong>User: </strong> {{$comment->user->name}}
+                                <strong>User: </strong><a href="/user/{{$comment->user->id}}"> {{$comment->user->name}} </a>
                                 <br>
                                 <strong>Date: </strong>
                                 <?php $date = $comment->created_at;

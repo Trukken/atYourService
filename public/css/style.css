@@ -360,3 +360,7 @@ textarea {
         display: block;
     }
 }
+
+.display-user-image{
+    max-width: 200px;
+}
