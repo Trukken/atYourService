@@ -54,31 +54,19 @@
       <!--Slides-->
 
       <!--Controls-->
-      <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev">
-          <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
-        </a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next">
-          <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
-        </a>
-      </div>
-
-      <!--/.First slide-->
-      <!--Slides-->
-
-      <!--Controls-->
 
       <!--/.Carousel Wrapper-->
     </div>
-    <div class="controls-top">
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev">
-        <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="Button to scroll image left.">
-      </a>
-      <a class="btn-floating" href="#multi-item-example" data-slide="next">
-        <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="Botton to scroll image right.">
-      </a>
     </div>
-  </div>
+        <div class="controls-top">
+          <a class="btn-floating" href="#multi-item-example" data-slide="prev">
+            <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="Button to scroll image left.">
+          </a>
+          <a class="btn-floating" href="#multi-item-example" data-slide="next">
+            <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="Botton to scroll image right.">
+          </a>
+        </div>
+</div>
 </div>
 
 
