@@ -15,15 +15,15 @@ class ReportsTableSeeder extends Seeder
             [
                 [
                     'service_id' => 1,
-                    'report_reason' => 'Too smelly.',
+                    'report_reason' => 'Was really rude when we first met!',
                     'handled' => false,
                 ], [
                     'service_id' => 1,
-                    'report_reason' => 'Too smelly.',
+                    'report_reason' => 'Please check.',
                     'handled' => false
                 ], [
                     'service_id' => 2,
-                    'report_reason' => 'Too smelly.',
+                    'report_reason' => 'gidshisagdhasgddsahjdgsaj.',
                     'handled' => false
                 ], [
                     'service_id' => 2,
@@ -31,11 +31,11 @@ class ReportsTableSeeder extends Seeder
                     'handled' => false
                 ], [
                     'service_id' => 3,
-                    'report_reason' => 'Too smelly.',
+                    'report_reason' => 'Was lying about his prices.',
                     'handled' => false
                 ], [
                     'service_id' => 4,
-                    'report_reason' => 'Too smelly.',
+                    'report_reason' => '',
                     'handled' => false
                 ],
             ]

@@ -40,7 +40,7 @@
 
         <div class="col-md-4 mockup-col-md-4">
           <div class="card mb-2 text-center">
-            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
+            <img class="card-img-top card-image-sizer" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title"></h4>
               <p class="card-text"></p>
@@ -128,7 +128,9 @@
     newClone.className = 'col-md-4';
     newClone.querySelector('h4').innerText += card.name;
     if (card.image != null) {
-      newClone.querySelector('img').src = card.image;
+        let image = card.image;
+        image.width = '0px';
+      newClone.querySelector('img').src = image;
     } else {
       newClone.querySelector('img').src = 'http://pixsector.com/cache/94bed8d5/av3cbfdc7ee86dab9a41d.png';
     }

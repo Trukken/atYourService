@@ -338,6 +338,10 @@ textarea {
     padding-bottom: 2rem;
 }
 
+.card-image-sizer {
+    max-height: 100%;
+}
+
 @media only screen and (max-width: 600px) {
     .report-control-panel {
         display: block;
