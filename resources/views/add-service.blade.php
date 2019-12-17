@@ -29,23 +29,23 @@
                             </div>
 
                             <!--Body-->
-                            <form action="" method="POST">
+                            <form method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{auth()->user()->id ?? ''}}">
-
+                                <input type="hidden" name="token" id="token">
                                 <div class="form-group amber-border">
                                     <label for="form-control">Service</label>
-                                    <input type="text" name="servicename" class="form-control">
+                                    <input type="text" placeholder="Long description, minimum 4 characters" name="servicename" class="form-control">
                                 </div>
 
                                 <div class="form-group amber-border">
                                     <label for="form-control">Write a short description (max. 144 characters):</label>
-                                    <textarea class="form-control" name="shortdescription" maxlength="144" cols="30" rows="5"></textarea>
+                                    <textarea class="form-control" placeholder="Long description, minimum 4 characters" name="shortdescription" maxlength="144" cols="30" rows="5"></textarea>
                                 </div>
 
                                 <div class="form-group amber-border">
-                                    <label for="form-control">Full description::</label>
-                                    <textarea class="form-control" name="longdescription" maxlength="900" cols="30" rows="10"></textarea>
+                                    <label for="form-control">Full description:</label>
+                                    <textarea class="form-control" placeholder="Long description, minimum 20 characters" name="longdescription" maxlength="500" cols="30" rows="10"></textarea>
                                 </div>
 
                                 <div class="text-center">
@@ -61,38 +61,41 @@
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-    <script>
-        $(function() {
-            $('button[type="submit"]').click(function(e) {
-                console.log('you clicked');
-                e.preventDefault();
-                $.ajax({
-                    url: '/add-services',
-                    type: 'post',
-                    data: $('#resultForm').serialize(),
-                    success: function(result) {
-                        console.log('here is the result')
-                        console.log(result);
-                        $('.result').html('<p>' + result + '</p>');
-                    },
-                    error: function(err) {
-                        // If ajax errors happens
-                        console.log('ajax error');
-                        $('.result').html('Error with ajax call');
-                    }
-                });
+
+
+
+<script>
+    $(function() {
+        $('button[type="submit"]').click(function(e) {
+            console.log('you clicked');
+            e.preventDefault();
+            $.ajax({
+                url: '/add-services',
+                type: 'post',
+                data: $('#resultForm').serialize(),
+                success: function(result) {
+                    console.log('here is the result')
+                    console.log(result);
+                    $('.result').html('<p>' + result + '</p>');
+                },
+                error: function(err) {
+                    // If ajax errors happens
+                    console.log('ajax error');
+                    $('.result').html('Error with ajax call');
+                }
             });
         });
-    </script>
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    </script>
-</div>
+    });
+</script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 @endsection

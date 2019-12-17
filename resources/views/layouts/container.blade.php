@@ -33,6 +33,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contact us</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/search-results">Search</a>
+          </li>
           @if(!Auth::user())
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
@@ -131,7 +134,16 @@
   <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="{{ URL::asset('js/mdb.min.js') }}"></script>
-
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL', {
+        action: 'addservice'
+      }).then(function(token) {
+        document.querySelector('#token').value = token;
+      });
+    });
+  </script>
 </body>
 
 </html>

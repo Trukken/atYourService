@@ -4,16 +4,17 @@
 
 @section('content')
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
+<div class="service-container">
+    <div class="container">
+        <div class="card user-account-card">
+            <div class="card-body">
+                <!--Header-->
+                <div class="form-header peach-gradient text-align-center">
+                    <h1> {{ucwords($service->name)}}</h1>
+                </div>
 
-<div class="container">
-    <div class="card user-account-card">
-        <div class="card-body">
-            <!--Header-->
-            <div class="form-header peach-gradient text-align-center">
-                <h1> {{ucwords($service->name)}}</h1>
-            </div>
+                @if($service->banned) - This service is currently banned @endif
 
-            @if($service->banned) - This service is currently banned @endif
 
             <div class="card-wrapper">
 
@@ -27,11 +28,10 @@
                     <p class="text-center"> <a href="/login">log in</a> to see contact information and full description</p>
                 </div>
 
-
                 @elseif(Auth::user())
                 <form action="/report-service" method="POST">
                     @csrf
-                    <button name="id" value="{{ $service->id }}">Report service</button>
+                    <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="id" value="{{ $service->id }}">Report service</button>
                 </form>
 
                 @if(Auth::user()->admin == true)
@@ -57,12 +57,10 @@
                     {{$service->long_description}}
                 </div>
                 @endif
-                <!--end of card wrapper div below-->
+                <!-- end of card body-->
             </div>
-            <!-- end of card body-->
+            <!-- end of card -->
         </div>
-        <!-- end of card -->
-    </div>
 
 
     <!-- COMMENTS card -->
@@ -123,13 +121,16 @@
                     @endif
                     <div class="result"></div>
                 </div>
-                <!--end of card wrapper div below-->
+
+
+
+
+                <!-- end of card body-->
             </div>
-            <!-- end of card body-->
+            <!-- end of card -->
         </div>
-        <!-- end of card -->
+        <!-- end of container -->
     </div>
-    <!-- end of container -->
 </div>
 
 

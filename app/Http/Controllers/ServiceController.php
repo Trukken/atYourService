@@ -27,17 +27,48 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
+        // validate(rules,return messages)
+        $request->validate([
+            'servicename' => 'required|min:4',
+            'shortdescription' => 'required|min:4',
+            'longdescription' => 'required|min:20'
+        ], [
+            'servicename.min' => 'The service\'s name must be at least 4 characters.',
+            'shortdescription.min' => 'The short description must be at least 4 characters.',
+            'longdescription.min' => 'The long description must be at least 20 characters.',
+        ]);
+        if (isset($_POST['submit'])) {
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $data = [
+                'secret' => '6LeqRcYUAAAAABcma1DiapUfHaPrD0qREXSv4064',
+                'response' => $_POST['token']
+            ];
+            $options = array(
+                'http' => array(
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query($data)
+                )
+            );
+            $context  = stream_context_create($options);
+            $response = file_get_contents($url, false, $context);
+            $res = json_decode($response, true);
+            if ($res['success'] == true) {
+                $newService = new \App\Service;
+                $newService->name = $request->servicename;
+                $newService->short_description = $request->shortdescription;
+                $newService->long_description = $request->longdescription;
+                $newService->user_id = auth()->user()->id;
+                $newService->banned = 0;
+                $newService->save();
 
-        $newService = new \App\Service;
-        $newService->name = $request->servicename;
-        $newService->short_description = $request->shortdescription;
-        $newService->long_description = $request->longdescription;
-        $newService->user_id = auth()->user()->id;
-        $newService->banned = 0;
-        return $newService;
-        $newService->save();
-
-        return redirect('user/' . $newService->user_id)->withErrors(['msg' => 'Success']);
+                return redirect('user/' . $newService->user_id)->withErrors(['msg' => 'Your service was added successfully.']);
+            } else {
+                return redirect('/add-services')->withErrors(['msg' => 'You can not send messages that fast.']);
+            }
+        } else {
+            return redirect('/add-services')->withErrors(['msg' => 'You can not send messages that fast.']);
+        }
     }
 
     public function show($id)
@@ -167,7 +198,7 @@ class ServiceController extends Controller
         }
     }
 
-    public function showmyaccount($id)
+    public function showUser($id)
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
@@ -176,10 +207,6 @@ class ServiceController extends Controller
         } else {
             $comments = ['You have no comments yet.'];
         }
-        if (Auth::user() && Auth::user()->id == $id || Auth::user() && Auth::user()->admin == true) {
-            return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
-        } else {
-            return 'Access denied';
-        }
+        return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
     }
 }

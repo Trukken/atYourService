@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('short_description');
-            $table->string('long_description');
+            $table->string('long_description', 3000);
             $table->integer('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('banned')->nullable();
