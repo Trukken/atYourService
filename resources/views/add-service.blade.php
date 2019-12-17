@@ -35,7 +35,7 @@
                                 <input type="hidden" name="token" id="token">
                                 <div class="form-group amber-border">
                                     <label for="form-control">Service</label>
-                                    <input type="text" placeholder="Long description, minimum 4 characters" name="servicename" class="form-control">
+                                    <input type="text" placeholder="Service provided, minimum 4 characters" name="servicename" class="form-control">
                                 </div>
 
                                 <div class="form-group amber-border">
