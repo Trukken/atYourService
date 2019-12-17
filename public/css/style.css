@@ -51,8 +51,8 @@ header a {
 }
 
 #result {
-    width: 64%;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .result a {
@@ -351,6 +351,38 @@ textarea {
 .card-wrapper {
     padding: 2rem 0;
 }
+
+.search-and-results {
+    width: min-content;
+}
+
+.search-result-input {
+    min-width: 150px;
+}
+
+.mb-2 {
+    min-height: 50vh;
+    max-height: 50vh;
+}
+
+.display-user-image {
+    max-width: 200px;
+}
+
+.search-results-container {
+    min-height: 80vh;
+}
+
+.search-result-output {
+    left: 21%;
+    top: 17.5%;
+    width: fit-content;
+}
+
+thead {
+    background-color: #ffa000;
+}
+
 @media only screen and (max-width: 600px) {
     .report-control-panel {
         display: block;
@@ -364,13 +396,9 @@ textarea {
     .summary-part {
         display: block;
     }
-}
-
-.mb-2 {
-    min-height: 50vh;
-    max-height: 50vh;
-}
-
-.display-user-image {
-    max-width: 200px;
+    .search-result-output {
+        left: 9.5%;
+        top: 17.5%;
+        width: fit-content;
+    }
 }

@@ -69,6 +69,16 @@
     </div>
 </section>
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute('6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL', {
+      action: 'addservice'
+    }).then(function(token) {
+      document.querySelector('#token').value = token;
+    });
+  });
+</script>
 
 
 @endsection
