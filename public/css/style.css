@@ -85,7 +85,8 @@ h1#title {
 
 .card-img-top {
     width: 70%;
-    height: 30%;
+    height: 30vh;
+    object-fit: cover;
     margin: 20px auto;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
@@ -343,12 +344,12 @@ textarea {
     max-height: 100%;
 }
 
-.searchbar-results{
+.searchbar-results {
     padding: 2rem 0;
 }
 
-.card-wrapper{
-    padding: 2rem 0 ;
+.card-wrapper {
+    padding: 2rem 0;
 }
 @media only screen and (max-width: 600px) {
     .report-control-panel {
@@ -365,6 +366,11 @@ textarea {
     }
 }
 
-.display-user-image{
+.mb-2 {
+    min-height: 50vh;
+    max-height: 60vh;
+}
+
+.display-user-image {
     max-width: 200px;
 }
