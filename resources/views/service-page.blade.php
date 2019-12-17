@@ -71,7 +71,7 @@
 <!--display comments-->
 @foreach($comments as $comment)
 <div class="comment-single d-flex align-items-center justify-content-around">
-<div class="comment-image">
+<div class="comment-image image">
     <img src="{{$comment->user->image}}" alt="avatar">
 </div>
 <div class="comment-info">
