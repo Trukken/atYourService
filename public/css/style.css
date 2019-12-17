@@ -303,12 +303,26 @@ textarea {
 .comment-image {
     display: inline-block;
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
     border-radius: 50%;
   }
  
 .comment-info{
     width: 80%;
+}
+
+.summary-part{
+    padding-bottom: 4rem;
+}
+
+.comment-single{
+    padding: 2rem 0;
+    border-bottom: 1px solid orange;
+}
+
+
+.user-detailed-info{
+    padding-bottom: rem;
 }
