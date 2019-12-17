@@ -15,7 +15,6 @@
       <div class="search-results-and-buttom d-flex align-items-start justify-between">
         <div class="search-and-results">
           <input class="form-control mr-sm-2 position-relative searchhome" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
-          <br>
           <div class="result dropdown-menu input-dropdown-menu position-absolute resulthome" id="result"></div>
         </div>
       </div>

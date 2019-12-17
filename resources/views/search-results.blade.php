@@ -11,7 +11,6 @@
             <div class="search-results-and-buttom d-flex align-items-start justify-between">
                 <div class="search-and-results">
                     <input class="form-control mr-sm-2 position-relative" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
-                    <br>
                     <div class="result dropdown-menu input-dropdown-menu position-relative" id="result"></div>
                 </div>
                 <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
@@ -94,70 +93,9 @@
                 $('#result').css('display', 'none');
 
             }
-            //let $value = $(this).val();
 
         });
     });
-
-
-    /* STUFF I AM WORKING ON
-
-    let servicesResult = @json($servicesResult);
-    console.log(servicesResult);
-
-    let updated = servicesResult.data.sort((a, b) => (a.updated_at < b.updated_at) ? 1 : -1);
-
-    console.log(updated);
-
-
-    */
-
-
-
-    /**
-     *
-     * lots of things to figure out in the *near* future
-     * about filtering
-     *
-     **/
-
-
-    // let mockup = $('.mockup').clone();
-    // $(function() {
-    //     $('#order').on('change', function(e) {
-    //         if ($('#order').val() !== '') {
-
-    //             $.ajaxSetup({
-    //                 headers: {
-    //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //                 }
-    //             });
-    //             $.ajax({
-    //                 url: '/search-results2',
-    //                 type: 'post',
-    //                 data: $('#order').serialize(),
-    //                 success: function(results) {
-    //                     if (results !== '') {
-    //                         console.log(results);
-    //                         $('.wrapper').html('');
-    //                         for (const result of results) {
-
-    //                             mockup.find('a').href = '/services/detail/' + result.id
-    //                             $('.wrapper').append(mockup);
-    //                         }
-
-    //                     }
-    //                 },
-    //                 error: function(err) {
-    //                     // If ajax errors happens
-    //                     console.log('Error with ajax call');
-    //                 }
-    //             });
-    //         } else {
-    //             console.log('what is even here?');
-    //         }
-    //     });
-    // });
 </script>
 
 
