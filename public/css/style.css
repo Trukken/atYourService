@@ -241,6 +241,7 @@ article {
     }
 }
 
+
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting:before,
 table.dataTable thead .sorting_asc:after,
@@ -278,6 +279,7 @@ pre {
     background-size: cover;
     height: 100vh;
 }
+
 .user-account-card {
     /* width: 50vw;*/
     margin: 5rem auto;
@@ -300,6 +302,7 @@ textarea {
     color: #fc6262;
 }
 
+/* SERVICE PAGE */
 .comment-image {
     display: inline-block;
     position: relative;
@@ -328,4 +331,12 @@ textarea {
 
 .user-detailed-info{
     padding-bottom: 2rem;
+}
+
+.searchbar-results{
+    padding: 2rem 0;
+}
+
+.card-wrapper{
+    padding: 2rem 0 ;
 }

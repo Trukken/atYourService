@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
 
-    <div class="search-container d-flex justify-content-center">
+    <div class="search-container d-flex justify-content-center searchbar-results">
         <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
             {{ csrf_field() }}
             <div class="search-results-and-buttom d-flex align-items-start justify-between">
@@ -22,13 +22,6 @@
 
 
     <h3>Search results:</h3>
-    <!-- <form name='filterform' method='POST' action='/search-results'>
-        <select name="order" id="order">
-            <option selected value="date">Order by</option>
-            <option value="updated_at">Last updated</option>
-            <option value="name">Name</option>
-        </select>
-    </form> -->
 
 
     <div class="wrapper">
