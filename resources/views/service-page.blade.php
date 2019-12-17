@@ -33,7 +33,9 @@
                 @endif
                 <div class="user-detailed-info">
                     <h2>Provider: </h2>
-                    <p>{{$service->user->name}}</p>
+                    <a href="/user/{{$service->user->id}}">
+                        <p>{{$service->user->name}}</p>
+                    </a>
                     <h2>Contact info:</h2>
                     <p>
                         <strong> Phone number: </strong>
