@@ -58,6 +58,7 @@
       <!--/.Carousel Wrapper-->
     </div>
     </div>
+    <!--Fix-->
         <div class="controls-top">
           <a class="btn-floating" href="#multi-item-example" data-slide="prev">
             <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="Button to scroll image left.">
