@@ -1,7 +1,5 @@
 @extends('layouts.container')
-
 @section('title', $service->name)
-
 @section('content')
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
 <div class="service-container">
@@ -12,28 +10,20 @@
                 <div class="form-header peach-gradient text-align-center">
                     <h1> {{ucwords($service->name)}}</h1>
                 </div>
-
                 @if($service->banned) - This service is currently banned @endif
-
-
-            <div class="card-wrapper">
-
-                <div class="card-flex d-flex justify-content-around align-items-center summary-part">
+                <div class="card-flex justify-content-around align-items-center summary-part">
                     <img src="{{$service->user->image}}" alt="profile picture">
                     <p><strong>Summary:</strong> <br>{{$service->short_description}}</p>
                 </div>
-
                 @if (!Auth::user())
                 <div class="">
                     <p class="text-center"> <a href="/login">log in</a> to see contact information and full description</p>
                 </div>
-
                 @elseif(Auth::user())
                 <form action="/report-service" method="POST">
                     @csrf
                     <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="id" value="{{ $service->id }}">Report service</button>
                 </form>
-
                 @if(Auth::user()->admin == true)
                 <br>
                 <a href="/ban-service/{{ $service->id }}">Ban service</a>
@@ -41,7 +31,6 @@
                 <a href="/unban-service/{{ $service->id }}">Unban service</a>
                 @endif
                 @endif
-
                 <div class="user-detailed-info">
                     <h2>Provider: </h2>
                     <p>{{$service->user->name}}</p>
@@ -61,16 +50,13 @@
             </div>
             <!-- end of card -->
         </div>
-
-
-    <!-- COMMENTS card -->
-    <div class="card user-account-card">
-        <div class="card-body">
-            <!--Header-->
-            <div class="form-header peach-gradient text-align-center">
-                <h1>Comments</h1>
-            </div>
-            <div class="card-wrapper">
+        <!-- COMMENTS card -->
+        <div class="card user-account-card">
+            <div class="card-body">
+                <!--Header-->
+                <div class="form-header peach-gradient text-align-center">
+                    <h1>Comments</h1>
+                </div>
                 <div class="reload">
                     <!--display comments-->
                     @foreach($comments as $comment)
@@ -93,9 +79,6 @@
                     </div>
                     @endforeach
                 </div>
-
-
-
                 <!--Leave a comment-->
                 <div class="put-comment-box">
                     @if (!Auth::user())
@@ -109,7 +92,6 @@
                         <br>
                         <input type="hidden" name="service_id" value="{{$service->id}}">
                         <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
-
                         <textarea name="message" id="commentfield" cols="30" rows="5" class="form-control" placeholder="message..." maxlength="500"></textarea>
                         <br>
                         <input type="submit" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="comment" id="comment" value="Add a comment">
@@ -121,10 +103,6 @@
                     @endif
                     <div class="result"></div>
                 </div>
-
-
-
-
                 <!-- end of card body-->
             </div>
             <!-- end of card -->
@@ -132,25 +110,6 @@
         <!-- end of container -->
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(function() {
