@@ -198,7 +198,7 @@ class ServiceController extends Controller
         }
     }
 
-    public function showmyaccount($id)
+    public function showUser($id)
     {
         $service = \App\Service::find($id);
         $user = \App\User::find($id);
@@ -207,10 +207,6 @@ class ServiceController extends Controller
         } else {
             $comments = ['You have no comments yet.'];
         }
-        if (Auth::user() && Auth::user()->id == $id || Auth::user() && Auth::user()->admin == true) {
-            return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
-        } else {
-            return 'Access denied';
-        }
+        return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
     }
 }
