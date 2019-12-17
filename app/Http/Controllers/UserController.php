@@ -16,7 +16,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { }
+    {
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +36,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { }
+    {
+    }
 
     /**
      * Display the specified resource.
@@ -48,7 +50,7 @@ class UserController extends Controller
         //
     }
 
-    
+
     public function edit($id)
     {
         if (Auth::user()) {
@@ -67,10 +69,16 @@ class UserController extends Controller
         //
     }
 
-    
+
     public function update(Request $request, $id)
     {
         //UPDATE THE FORM
+        $request->validate([
+            'image' => 'required|min:8|max:300'
+        ], [
+            'image.max' => 'The image path can not be longer than 300 characters.',
+            'image.min' => 'The image path can not be less than 8 characters.'
+        ]);
         $user = \App\User::find($id);
         $user->name = $request->name;
         $user->phone_number = $request->phone_number;
@@ -78,11 +86,11 @@ class UserController extends Controller
         $user->banned = 0;
 
         $user->save();
-        return  redirect('/user/' . $id)->withErrors(['msg' => 'Service has been updated!']);
+        return  redirect('/user/' . $id)->withErrors(['msg' => 'User has been updated!']);
         //
     }
 
-   
+
     public function destroy($id)
     {
         //
