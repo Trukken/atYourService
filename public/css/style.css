@@ -51,8 +51,8 @@ header a {
 }
 
 #result {
-    width: 64%;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .result a {
@@ -85,7 +85,8 @@ h1#title {
 
 .card-img-top {
     width: 70%;
-    height: 30%;
+    height: 30vh;
+    object-fit: fill;
     margin: 20px auto;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
@@ -229,18 +230,6 @@ article {
     height: 100vh;
 }
 
-@media only screen and (max-width: 600px) {
-    .report-control-panel {
-        display: block;
-    }
-    .unhandled-reports {
-        width: 80%;
-    }
-    .handled-reports {
-        width: 80%;
-    }
-}
-
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting:before,
 table.dataTable thead .sorting_asc:after,
@@ -278,9 +267,13 @@ pre {
     background-size: cover;
     height: 100vh;
 }
+
 .user-account-card {
     /* width: 50vw;*/
-    margin: 5rem auto;
+    margin: auto;
+}
+.user-account-card:not(:last-of-type) {
+    margin-bottom: 5rem;
 }
 
 .button-account {
@@ -300,15 +293,130 @@ textarea {
     color: #fc6262;
 }
 
-.image {
+.myaccount-container {
+    background-color: rgba(158, 158, 158, 0.1);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.myaccount-cards:not(:last-of-type) {
+    margin-bottom: 5rem;
+}
+
+.service-container {
+    background-color: rgba(158, 158, 158, 0.1);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.comment-image {
     display: inline-block;
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
     border-radius: 50%;
-  }
- 
-.comment-info{
+}
+
+.comment-info {
     width: 80%;
+}
+
+.summary-part {
+    display: flex;
+    padding-bottom: 4rem;
+}
+
+.comment-single {
+    padding: 2rem 0;
+    border-bottom: 1px solid orange;
+}
+
+.put-comment-box {
+    padding: 2rem 0;
+}
+
+.user-detailed-info {
+    padding-bottom: 2rem;
+}
+
+.card-image-sizer {
+    max-height: 100%;
+}
+
+.searchbar-results {
+    padding: 2rem 0;
+}
+
+.card-wrapper {
+    padding: 2rem 0;
+}
+
+.search-and-results {
+    width: min-content;
+}
+
+.search-result-input {
+    min-width: 150px;
+}
+
+.front-page-card {
+    min-height: 50vh;
+}
+
+.display-user-image {
+    max-width: 200px;
+}
+
+.search-results-container {
+    min-height: 80vh;
+}
+
+.search-result-output {
+    left: 21%;
+    top: 17.5%;
+    width: fit-content;
+}
+
+thead {
+    background-color: #ffa000;
+}
+
+.md-form .prefix.active {
+    color: #ff954a;
+}
+.orangeForm:focus {
+    border-bottom: 1px solid #ffa000 !important;
+    box-shadow: 0 1px 0 0 #ffa000 !important;
+}
+.md-form input[type]:focus:not([readonly]) + label,
+.md-form input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form
+    input[type="password"]:not(.browser-default):focus:not([readonly])
+    + label,
+.md-form
+    input[type="email"]:not(.browser-default):focus:not([readonly])
+    + label,
+.md-form textarea.md-textarea:focus:not([readonly]) + label {
+    color: #ffa000;
+}
+
+@media only screen and (max-width: 600px) {
+    .report-control-panel {
+        display: block;
+    }
+    .unhandled-reports {
+        width: 80%;
+    }
+    .handled-reports {
+        width: 80%;
+    }
+    .summary-part {
+        display: block;
+    }
+    .search-result-output {
+        left: 9.5%;
+        top: 17.5%;
+        width: fit-content;
+    }
 }

@@ -1,151 +1,117 @@
 @extends('layouts.container')
-
 @section('title', $service->name)
-
 @section('content')
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
-
-<div class="container">
-    <div class="card user-account-card">
-        <div class="card-body">
-            <!--Header-->
-            <div class="form-header peach-gradient text-align-center">
-            <h1> {{ucwords($service->name)}}</h1>
+<div class="service-container">
+    <div class="container">
+        <div class="card user-account-card">
+            <div class="card-body">
+                <!--Header-->
+                <div class="form-header peach-gradient text-align-center">
+                    <h1> {{ucwords($service->name)}}</h1>
+                </div>
+                @if($service->banned) - This service is currently banned @endif
+                <div class="card-flex justify-content-around align-items-center summary-part">
+                    <img class="display-user-image" src="{{$service->user->image}}" alt="profile picture">
+                    <p><strong>Summary:</strong> <br>{{$service->short_description}}</p>
+                </div>
+                @if (!Auth::user())
+                <div class="">
+                    <p class="text-center"> <a href="/login">log in</a> to see contact information and full description</p>
+                </div>
+                @elseif(Auth::user())
+                <form action="/report-service" method="POST">
+                    @csrf
+                    <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="id" value="{{ $service->id }}">Report service</button>
+                </form>
+                @if(Auth::user()->admin == true)
+                <br>
+                <a href="/ban-service/{{ $service->id }}">Ban service</a>
+                @if($service->banned == true)
+                <a href="/unban-service/{{ $service->id }}">Unban service</a>
+                @endif
+                @endif
+                <div class="user-detailed-info">
+                    <h2>Provider: </h2>
+                    <a href="/user/{{$service->user->id}}">
+                        <p>{{$service->user->name}}</p>
+                    </a>
+                    <h2>Contact info:</h2>
+                    <p>
+                        <strong> Phone number: </strong>
+                        {{$service->user->phone_number}}
+                        <br>
+                        <strong> E-mail : </strong>
+                        {{$service->user->email}}
+                    </p>
+                    <h2>Full description:</h2>
+                    {{$service->long_description}}
+                </div>
+                @endif
+                <!-- end of card body-->
             </div>
-
- @if($service->banned) - This service is currently banned @endif
- <div class="card-flex d-flex justify-content-around align-items-center">
- <img src="{{$service->user->image}}" alt="profile picture">
- <p><strong>Summary:</strong> <br>{{$service->short_description}}</p>
- </div>
-
- @if (!Auth::user())
-<div class="">
-    <p class="text-center"> <a href="/login">log in</a> to see contact information and full description</p>
-</div>
-
-
-@elseif(Auth::user())
-<form action="/report-service" method="POST">
-    @csrf
-    <button name="id" value="{{ $service->id }}">Report service</button>
-</form>
-
-@if(Auth::user()->admin == true)
-<br>
-<a href="/ban-service/{{ $service->id }}">Ban service</a>
-@if($service->banned == true)
-<a href="/unban-service/{{ $service->id }}">Unban service</a>
-@endif
-@endif
-
-<div class="">
-    <h2>Provider: </h2>
-    <p>{{$service->user->name}}</p>
-    <h2>Contact info:</h2>
-    <p>
-        <strong> Phone number: </strong>
-        {{$service->user->phone_number}}
-        <br>
-        <strong> E-mail : </strong>
-        {{$service->user->email}}
-    </p>
-    <h2>Full description:</h2>
-    {{$service->long_description}}
-</div>
-@endif
-            <!-- end of card body-->
+            <!-- end of card -->
         </div>
-        <!-- end of card -->
-    </div>
-
-
-<!-- COMMENTS card -->
-    <div class="card user-account-card">
-        <div class="card-body">
-            <!--Header-->
-            <div class="form-header peach-gradient text-align-center">
-            <h1>Comments</h1>
+        <!-- COMMENTS card -->
+        <div class="card user-account-card">
+            <div class="card-body">
+                <!--Header-->
+                <div class="form-header peach-gradient text-align-center">
+                    <h1>Comments</h1>
+                </div>
+                <div class="reload">
+                    <!--display comments-->
+                    @foreach($comments as $comment)
+                    <div class="comment-single d-flex justify-content-around">
+                        <div class="comment-image">
+                            <img width="80" height="80" src="{{$comment->user->image}}" alt="avatar">
+                        </div>
+                        <div class="comment-info">
+                            <p>
+                                <strong>User: </strong><a href="/user/{{$comment->user->id}}"> {{$comment->user->name}} </a>
+                                <br>
+                                <strong>Date: </strong>
+                                <?php $date = $comment->created_at;
+                                $newDate = date("d.m.Y - H:i", strtotime($date));
+                                echo $newDate; ?>
+                                <br>
+                                <strong>Comment: </strong> {{$comment->message}}
+                            </p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <!--Leave a comment-->
+                <div class="put-comment-box">
+                    @if (!Auth::user())
+                    <div class="">
+                        <p class="text-center"> <a href="/login">log in</a> to leave a comment</p>
+                    </div>
+                    @else
+                    <h4>Leave a comment</h4>
+                    <form id="form" action="/services/comments/add/{{$service->id}}" method="POST">
+                        @csrf
+                        <br>
+                        <input type="hidden" name="service_id" value="{{$service->id}}">
+                        <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
+                        <textarea name="message" id="commentfield" cols="30" rows="5" class="form-control" placeholder="message..." maxlength="500"></textarea>
+                        <br>
+                        <input type="submit" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="comment" id="comment" value="Add a comment">
+                    </form>
+                    @foreach($errors->all() as $error)
+                    {{$error}}
+                    <br>
+                    @endforeach
+                    @endif
+                    <div class="result"></div>
+                </div>
+                <!-- end of card body-->
             </div>
-            <div class="reload">
-<!--display comments-->
-@foreach($comments as $comment)
-<div class="comment-single d-flex align-items-center justify-content-around">
-<div class="comment-image image">
-    <img src="{{$comment->user->image}}" alt="avatar">
-</div>
-<div class="comment-info">
-<p>
-    <strong>User: </strong> {{$comment->user->name}}
-    <br>
-    <strong>Date: </strong>
-    <?php $date = $comment->created_at;
-    $newDate = date("d.m.Y - H:i", strtotime($date));
-    echo $newDate; ?>
-    <br>
-    <strong>Comment: </strong> {{$comment->message}}
-    <hr>
-</p>
-</div>
-</div>
-@endforeach
-</div>
-
-
-
-<!--Leave a comment-->
-@if (!Auth::user())
-<div class="">
-    <p class="text-center"> <a href="/login">log in</a> to leave a comment</p>
-</div>
-@else
-<h4>Leave a comment</h4>
-<form id="form" action="/services/comments/add/{{$service->id}}" method="POST">
-    @csrf
-    <br>
-    <input type="hidden" name="service_id" value="{{$service->id}}">
-    <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
-
-    <textarea name="message" id="commentfield" cols="30" rows="5" class="form-control" placeholder="message..." maxlength="500"></textarea>
-    <br>
-    <input type="submit" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="comment" id="comment" value="Add a comment">
-</form>
-@foreach($errors->all() as $error)
-{{$error}}
-<br>
-@endforeach
-@endif
-<div class="result"></div>
-<br>
-
-     
-
-
-            <!-- end of card body-->
+            <!-- end of card -->
         </div>
-        <!-- end of card -->
+        <!-- end of container -->
     </div>
-    <!-- end of container -->
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(function() {

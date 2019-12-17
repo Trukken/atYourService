@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('password_reset')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image', 300)->nullable();
             $table->boolean('admin')->nullable();
             $table->boolean('banned')->nullable();
             $table->boolean('reported')->nullable();

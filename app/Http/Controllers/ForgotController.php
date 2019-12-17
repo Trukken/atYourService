@@ -91,9 +91,10 @@ class ForgotController extends Controller
 
                 User::where('id', '=', $user->id)->update(['password' => Hash::make($password)]);
                 $request->session()->put('email', $user->email);
-                return redirect('login');
+                return redirect('login')->withErrors(['msg' => 'Your password had been updated.']);
             }
         }
+        return redirect('login')->withErrors(['msg' => 'Something went wrong with your account, ask for a new password.']);
     }
 
     /**
@@ -134,7 +135,7 @@ class ForgotController extends Controller
             \Mail::to($request->email)->send(new \App\Mail\ResetPassword($details['subject'], $details));
             return redirect('/login',)->withErrors(['msg' => 'An e-mail was sent to the given address, follow the instructions in the email.']);
         } else {
-            return view('forgotPassword', ['emailError' => 'The email you have entered does not exist.']);
+            return redirect('forgotpassword')->withErrors(['msg' => 'The email you have entered does not exist.']);
         }
     }
 }

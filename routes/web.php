@@ -74,7 +74,7 @@ Route::post('/services/comments/add/{id}', 'CommentController@store');
 
 
 //MY SERVICES/USER PAGE
-Route::get('/user/{id}', 'ServiceController@showmyaccount');
+Route::get('/user/{id}', 'ServiceController@showUser');
 Route::post('/user-control', 'AdminController@userControl');
 
 Route::get('/admin-panel', 'AdminController@displayOptions');

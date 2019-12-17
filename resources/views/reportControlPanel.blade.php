@@ -6,15 +6,13 @@
 
 
 
-
-
 <div class="report-control-panel">
 <div class="unhandled-reports">
     <h1>Unhandled reports:</h1>
     @foreach ($unhandledReports as $unhandledReport)
     <div class="unhandled-report">
         <h4>Reported service: <a href="/services/detail/{{ $unhandledReport->service_id }}">{{ $unhandledReport->name }}</a> service id: {{ $unhandledReport->service_id }}</h4>
-        <h4>Provider's name: <a href="/user/{{ $unhandledReport->id }}">{{ $unhandledReport->name }}</a></h4>
+        <h4>Provider's name: <a href="/user/{{ $unhandledReport->id }}">{{ $unhandledReport->user_name }}</a></h4>
             @if(!empty($unhandledReport->report_reason))
             {{ $unhandledReport->report_reason }}
                 @endif
@@ -39,7 +37,7 @@
     @foreach ($handledReports as $handledReport)
     <div class="handled-report">
         <h4>Reported service: <a href="/services/detail/{{ $handledReport->service_id }}">{{ $handledReport->name }}</a> service id: {{ $handledReport->service_id }}</h4>
-        <h4>Provider's name: <a href="/user/{{ $handledReport->id }}">{{ $handledReport->name }}</a></h4>
+        <h4>Provider's name: <a href="/user/{{ $handledReport->id }}">{{ $handledReport->user_name }}</a></h4>
             @if(!empty($handledReport->report_reason))
             {{ $handledReport->report_reason }}
             @endif
