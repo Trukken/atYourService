@@ -50,6 +50,7 @@ class ContactController extends Controller
             'message' => $message
         ];
         Mail::to($messageEmail)->send(new Contact($details));
+        return redirect('')->withErrors(['msg' => 'Your mail had been sent to our support, we will look into the matter shortly and contact you back.']);
     }
 
     /**

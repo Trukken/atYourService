@@ -51,8 +51,8 @@ header a {
 }
 
 #result {
-    width: 64%;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .result a {
@@ -86,7 +86,7 @@ h1#title {
 .card-img-top {
     width: 70%;
     height: 30vh;
-    object-fit: cover;
+    object-fit: fill;
     margin: 20px auto;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
@@ -351,6 +351,56 @@ textarea {
 .card-wrapper {
     padding: 2rem 0;
 }
+
+.search-and-results {
+    width: min-content;
+}
+
+.search-result-input {
+    min-width: 150px;
+}
+
+.front-page-card {
+    min-height: 50vh;
+}
+
+.display-user-image {
+    max-width: 200px;
+}
+
+.search-results-container {
+    min-height: 80vh;
+}
+
+.search-result-output {
+    left: 21%;
+    top: 17.5%;
+    width: fit-content;
+}
+
+thead {
+    background-color: #ffa000;
+}
+
+.md-form .prefix.active {
+    color: #ff954a;
+}
+.orangeForm:focus {
+    border-bottom: 1px solid #ffa000 !important;
+    box-shadow: 0 1px 0 0 #ffa000 !important;
+}
+.md-form input[type]:focus:not([readonly]) + label,
+.md-form input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+.md-form
+    input[type="password"]:not(.browser-default):focus:not([readonly])
+    + label,
+.md-form
+    input[type="email"]:not(.browser-default):focus:not([readonly])
+    + label,
+.md-form textarea.md-textarea:focus:not([readonly]) + label {
+    color: #ffa000;
+}
+
 @media only screen and (max-width: 600px) {
     .report-control-panel {
         display: block;
@@ -364,13 +414,9 @@ textarea {
     .summary-part {
         display: block;
     }
-}
-
-.mb-2 {
-    min-height: 50vh;
-    max-height: 50vh;
-}
-
-.display-user-image {
-    max-width: 200px;
+    .search-result-output {
+        left: 9.5%;
+        top: 17.5%;
+        width: fit-content;
+    }
 }

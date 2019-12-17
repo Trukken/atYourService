@@ -25,31 +25,31 @@
                                 @csrf
                                 <div class="md-form" onclick="document.querySelector('.name-input').focus()">
                                     <i class="fas fa-user prefix"></i>
-                                    <label for="orangeForm-name" onclick="className='active'; document.querySelector('.name-input').focus()">Your name</label>
-                                    <input type="text" name="name" class="form-control name-input">
+                                    <input type="text" name="name" class="form-control name-input orangeForm">
+                                    <label for="orangeForm-name" class="orangeForm" onclick="className='active'; document.querySelector('.name-input').focus()">Your name</label>
                                 </div>
 
                                 <div class="md-form" onclick="document.querySelector('.email-input').focus()">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <label for="orangeForm-email" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
-                                    <input type="text" name="email" class="form-control email-input" value="{{ Session::get('email') }}">
+                                    <input type="text" name="email" class="form-control email-input orangeForm" value="{{ Session::get('email') }}">
+                                    <label for="orangeForm-email" class="orangeForm" onclick="className='active'; document.querySelector('.email-input').focus()">Your email</label>
                                 </div>
 
                                 <div class="md-form" onclick="document.querySelector('.password-input').focus()">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input type="password" name="password" class="form-control password-input">
-                                    <label for="orangeForm-pass">Your password</label>
+                                    <input type="password" name="password" class="form-control password-input orangeForm">
+                                    <label class="orangeForm" for="orangeForm-pass" onclick="className='active'; document.querySelector('.password-input').focus()">Your password</label>
                                 </div>
 
                                 <div class="md-form" onclick="document.querySelector('.password_confirmation-input').focus()">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input type="password" name="password_confirmation" class="form-control password_confirmation-input">
-                                    <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.password_confirmation-input').focus()">Confirmation password</label>
+                                    <input type="password" name="password_confirmation" class="form-control password_confirmation-input orangeForm">
+                                    <label class="orangeForm" for="orangeForm-pass" onclick="className='active'; document.querySelector('.password_confirmation-input').focus()">Confirmation password</label>
                                 </div>
 
                                 <div class="md-form" onclick="document.querySelector('.phone-input').focus()">
                                     <i class="fas fa-phone prefix"></i>
-                                    <input type="text" name="phone" class="form-control phone-input">
+                                    <input type="text" name="phone" class="form-control phone-input orangeForm">
                                     <label for="orangeForm-pass" onclick="className='active'; document.querySelector('.phone-input').focus()">Your phone number</label>
                                 </div>
 
@@ -69,6 +69,16 @@
     </div>
 </section>
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL"></script>
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute('6LeqRcYUAAAAAC6bqp95JOb30MzDlY1gskQng9kL', {
+      action: 'addservice'
+    }).then(function(token) {
+      document.querySelector('#token').value = token;
+    });
+  });
+</script>
 
 
 @endsection

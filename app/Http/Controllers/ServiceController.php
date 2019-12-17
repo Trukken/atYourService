@@ -163,7 +163,7 @@ class ServiceController extends Controller
     public function livesearch(Request $request)
     {
         $result = $request->searchbar;
-        $servicesResult = \App\Service::distinct()->select('name')->where('name', 'like', '%' . $result . '%')->where('banned', '=', 0)->get();
+        $servicesResult = \App\Service::distinct()->select('name')->where('name', 'like', '%' . $result . '%')->where('banned', '!=', 1)->get();
         //echo '<div class="specialcontainer">';
         foreach ($servicesResult as $service) {
             echo '<a href="/services/select/' . $service->name . '">' .  ucwords($service->name) . '</a><br>';
@@ -191,8 +191,8 @@ class ServiceController extends Controller
             $report->report_reason = strip_tags($request->reportReason);
             $report->handled = false;
             $report->save();
-            $services = Service::all();
-            return view('search-results', ['servicesResult' => $services]);
+            $services = Service::where('name', 'like', '%' . '' . '%')->where('banned', '=', 0)->orderBy('created_at', 'DESC')->paginate(10);
+            return redirect('search-results')->withErrors(['msg' => 'Report had been sent.']);
         } else {
             return redirect('');
         }

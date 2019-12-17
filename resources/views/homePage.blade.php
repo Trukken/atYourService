@@ -10,7 +10,7 @@
   <h2 class="h2-reponsive text-center mb-5 white-text fadeInDown" data-wow-delay="0.4s">Linking expats to experts in Luxembourg</h2>
 
   <div class="search-container position-relative">
-    <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
+    <form action="/search-results" method="post" id="form" class="form-inline search-box">
       {{ csrf_field() }}
       <div class="search-results-and-buttom d-flex align-items-start justify-between">
         <div class="search-and-results">
@@ -38,7 +38,7 @@
       <div class="carousel-item mockup-carousel-item">
 
         <div class="col-md-4 mockup-col-md-4">
-          <div class="card mb-2 text-center">
+          <div class="card mb-2 text-center front-page-card">
             <img class="card-img-top card-image-sizer" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title"></h4>

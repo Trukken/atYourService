@@ -132,10 +132,10 @@ class RegisterController extends Controller
         foreach ($users as $user) {
             if ($user->verification_token == $token && !empty($user->verification_token)) {
                 User::where('id', '=', $user->id)->update(['email_verified' => true, 'verification_token' => null]);
-                return redirect('/');
+                return redirect('/')->withErrors(['msg' => 'Your email had been verified.']);
             }
         }
-        return 'The verification key had expired.';
+        return redirect('')->withErrors(['msg' => 'The verification key had expired.']);
     }
 
     /**

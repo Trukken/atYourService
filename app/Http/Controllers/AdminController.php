@@ -56,7 +56,8 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    { }
+    {
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -96,7 +97,8 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    { }
+    {
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -123,9 +125,11 @@ class AdminController extends Controller
         if (Auth::user() && Auth::user()->admin == true) {
             if ($request->status == 'ban') {
                 User::where('id', '=', $request->id)->update(['banned' => true]);
+                Service::where('user_id', '=', $request->id)->update(['banned' => true]);
                 return redirect('/control-panel')->withErrors(['msg' => 'User id: ' . $request->id . ' had been banned.']);
             } else if ($request->status == 'unban') {
                 User::where('id', '=', $request->id)->update(['banned' => false]);
+                Service::where('user_id', '=', $request->id)->update(['banned' => false]);
                 return redirect('/control-panel')->withErrors(['msg' => 'User id: ' . $request->id . ' had been unbanned.']);
             }
         } else {
