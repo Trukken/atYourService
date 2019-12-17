@@ -322,7 +322,10 @@ textarea {
     border-bottom: 1px solid orange;
 }
 
+.put-comment-box{
+    padding: 2rem 0;
+}
 
 .user-detailed-info{
-    padding-bottom: rem;
+    padding-bottom: 2rem;
 }

@@ -95,30 +95,30 @@
 
 
             <!--Leave a comment-->
+            <div class="put-comment-box">
+                @if (!Auth::user())
+                <div class="">
+                    <p class="text-center"> <a href="/login">log in</a> to leave a comment</p>
+                </div>
+                @else
+                <h4>Leave a comment</h4>
+                <form id="form" action="/services/comments/add/{{$service->id}}" method="POST">
+                    @csrf
+                    <br>
+                    <input type="hidden" name="service_id" value="{{$service->id}}">
+                    <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
 
-            @if (!Auth::user())
-            <div class="">
-                <p class="text-center"> <a href="/login">log in</a> to leave a comment</p>
+                    <textarea name="message" id="commentfield" cols="30" rows="5" class="form-control" placeholder="message..." maxlength="500"></textarea>
+                    <br>
+                    <input type="submit" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="comment" id="comment" value="Add a comment">
+                </form>
+                @foreach($errors->all() as $error)
+                {{$error}}
+                <br>
+                @endforeach
+                @endif
+                <div class="result"></div>
             </div>
-            @else
-            <h4>Leave a comment</h4>
-            <form id="form" action="/services/comments/add/{{$service->id}}" method="POST">
-                @csrf
-                <br>
-                <input type="hidden" name="service_id" value="{{$service->id}}">
-                <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
-
-                <textarea name="message" id="commentfield" cols="30" rows="5" class="form-control" placeholder="message..." maxlength="500"></textarea>
-                <br>
-                <input type="submit" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="comment" id="comment" value="Add a comment">
-            </form>
-            @foreach($errors->all() as $error)
-            {{$error}}
-            <br>
-            @endforeach
-            @endif
-            <div class="result"></div>
-
 
 
 
