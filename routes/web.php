@@ -73,7 +73,7 @@ Route::post('/control-panel', 'AdminController@trash');
 Route::post('/services/comments/add/{id}', 'CommentController@store');
 
 
-//MY SERVICES PAGE
+//MY SERVICES/USER PAGE
 Route::get('/user/{id}', 'ServiceController@showmyaccount');
 Route::post('/user-control', 'AdminController@userControl');
 

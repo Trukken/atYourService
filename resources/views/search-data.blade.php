@@ -2,7 +2,7 @@
 <tr>
     <td>{{ucwords($service->name)}}</td>
     <td>{{$service->short_description}}</td>
-    <td>{{$service->created_at}}</td>
+    <td>{{$service->updated_at}}</td>
 </tr>
 @endforeach
 

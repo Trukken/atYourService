@@ -47,8 +47,20 @@
               <a href="/services/detail/"><button class="btn peach-gradient">Details</button></a>
             </div>
           </div>
+
         </div>
 
+      <!--/.First slide-->
+      <!--Slides-->
+
+      <!--Controls-->
+      <div class="controls-top">
+        <a class="btn-floating" href="#multi-item-example" data-slide="prev">
+          <img id="btn" src="{{ URL::asset('images/arrow_left.svg')}}" alt="">
+        </a>
+        <a class="btn-floating" href="#multi-item-example" data-slide="next">
+          <img id="btn" src="{{ URL::asset('images/arrow_right.svg')}}" alt="">
+        </a>
       </div>
 
       <!--/.First slide-->

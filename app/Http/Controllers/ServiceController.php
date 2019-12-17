@@ -176,7 +176,7 @@ class ServiceController extends Controller
             $report = Service::where('id', '=', $request->id)->get();
             return view('reportForm', ['report' => $report[0]]);
         } else {
-            return redirect('')->withErrors(['msg' => 'You are not logged in!']);
+            return redirect('');
         }
     }
     public function sendReport(Request $request)
@@ -194,7 +194,7 @@ class ServiceController extends Controller
             $services = Service::all();
             return view('search-results', ['servicesResult' => $services]);
         } else {
-            return redirect('')->withErrors(['msg' => 'Your report had been sent.']);
+            return redirect('');
         }
     }
 
@@ -210,7 +210,7 @@ class ServiceController extends Controller
         if (Auth::user() && Auth::user()->id == $id || Auth::user() && Auth::user()->admin == true) {
             return view('myaccount', ['user' => $user, 'service' => $service, 'comments' => $comments]);
         } else {
-            return redirect('')->withErrors(['msg' => 'Access denied']);
+            return 'Access denied';
         }
     }
 }

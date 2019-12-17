@@ -304,10 +304,22 @@ textarea {
     background-color: rgba(158,158,158,0.1);
     padding-top:5rem;
     padding-bottom:5rem;
-    
+
 }
 
 .myaccount-cards:not(:last-of-type){
     margin-bottom:5rem;
 }
 
+.comment-image {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+.comment-info{
+    width: 80%;
+}
