@@ -78,7 +78,7 @@
 
 
   <!--Footer-->
-  <footer class="page-footer pt-0">
+  <footer class="page-footer pt-0 ">
 
     <!--Footer Links-->
     <div class="container">

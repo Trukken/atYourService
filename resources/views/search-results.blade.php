@@ -4,62 +4,56 @@
 @section('title','Atyourservice Search')
 
 @section('content')
-<div class="container">
+
+<div id="searchresults" class="mask rgba-grey-slight d-flex align-items-center">
     
-    <div class="search-container d-flex justify-content-center">
-        <form action="/search-results" method="post" id="form" class="form-inline mr-auto search-box">
-            {{ csrf_field() }}
-            <div class="search-results-and-buttom d-flex align-items-start justify-between">
-                <div class="search-and-results">
-                    <input class="form-control mr-sm-2 position-relative" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
-                    <br>
-                    <div class="result dropdown-menu input-dropdown-menu position-relative" id="result"></div>
+    <div class="container">
+        <div id="search-container" class="search-container d-flex justify-content-center position-relative">
+            <form action="/search-results" method="post" id="form" class="form-inline search-box">
+                {{ csrf_field() }}
+                <div class="search-results-and-buttom d-flex align-items-start justify-between">
+                    <div class="search-and-results">
+                        <input class="form-control mr-sm-2 position-relative" type="text" name="searchbar" id="search" autocomplete="off" placeholder="Search" aria-label="Search">
+                        <br>
+                        <div class="result dropdown-menu input-dropdown-menu position-relative" id="search-result"></div>
+                    </div>
+                    <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+        
                 </div>
-                <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Search</button>
+            </form>
+        </div>
+           
     
-            </div>
-        </form>
+        <h3 class="h3-responsive">Search results:</h3>
+
+        <div class="wrapper">
+           
+            <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Name </th>
+                        <th class="th-sm">Description</th>
+                        <th class="th-sm">Last updated
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+                    @foreach($servicesResult as $service)
+                    <tr>
+                        <td>{{ucwords($service->name)}}</td>
+                        <td>{{$service->short_description}}</td>
+                        <td>{{date('d-m-Y', strtotime($service->updated_at))}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="d-flex justify-content-center">
+            <?php echo $servicesResult->render(); ?>
+        </div>
     </div>
-    
-    
-    <h3>Search results:</h3>
-    <!-- <form name='filterform' method='POST' action='/search-results'>
-        <select name="order" id="order">
-            <option selected value="date">Order by</option>
-            <option value="updated_at">Last updated</option>
-            <option value="name">Name</option>
-        </select>
-    </form> -->
-    
-    
-    <div class="wrapper">
-    
-    
-        <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th class="th-sm">Name
-                    </th>
-                    <th class="th-sm">Description
-                    </th>
-                    <th class="th-sm">Created at
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-    
-                @foreach($servicesResult as $service)
-                <tr>
-                    <td>{{ucwords($service->name)}}</td>
-                    <td>{{$service->short_description}}</td>
-                    <td>{{$service->created_at}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-    
-    <?php echo $servicesResult->render(); ?>
     
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>

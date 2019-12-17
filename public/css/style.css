@@ -149,7 +149,21 @@ h1#title {
     margin: 25px auto;
 }
 
+/*SEARCH RESULTS*/
 
+#searchresults{
+    height: 100vh;
+}
+thead{
+    background-color: #ff954a;
+}
+#search-container{
+    padding: 10%;
+}
+
+#search-result{
+    width: 96%;;
+}
 /* FOOTER */
 footer {
     background-color: #272727e8;
