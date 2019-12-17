@@ -90,8 +90,8 @@
                     @else
                     <div class="user-form">
                         <br>
-                        <h3 class="my-account-form"><a href="/services/detail/{{ $service->id }}">{{$service->name}}</a></h3>
                         <p class="my-account-form">{{ $service->long_description }}</p>
+                        <p class="my-account-form"><a href="/services/detail/{{ $service->id }}">See details</a></p>
                     </div>
                     @endif
             </div>
