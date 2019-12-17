@@ -266,6 +266,7 @@ pre {
     background-size: cover;
     height: 100vh;
 }
+
 .user-account-card {
     /* width: 50vw;*/
     margin: auto;
@@ -342,6 +343,13 @@ textarea {
     max-height: 100%;
 }
 
+.searchbar-results{
+    padding: 2rem 0;
+}
+
+.card-wrapper{
+    padding: 2rem 0 ;
+}
 @media only screen and (max-width: 600px) {
     .report-control-panel {
         display: block;
@@ -355,4 +363,8 @@ textarea {
     .summary-part {
         display: block;
     }
+}
+
+.display-user-image{
+    max-width: 200px;
 }

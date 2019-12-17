@@ -12,7 +12,7 @@
                     <h3>Profile</h3>
                 </div>
                 <div class="card-flex d-flex justify-content-around align-items-center">
-                    <img src="{{$user->image}}" alt="profile picture">
+                    <img class="display-user-image" src="{{$user->image}}" alt="profile picture">
                     @if(Auth::user() && Auth::user()->id == $user->id || Auth::user() && Auth::user()->admin == true)
                     <form id="form" class="account-form" action="/user/edit/{{$user->id}}" method="POST">
                         @csrf
@@ -32,11 +32,11 @@
                         ​
                     </form>
                     @else
-                        <div class="account-form">
-                            <h2 class="inner editing-user">{{ $user->name }}</h2>
-                            <h2 class="inner editing-user">{{ $user->email }}</h2>
-                            <h2 class="inner editing-user">{{ $user->phone_number }}</h2>
-                        </div>
+                    <div class="account-form">
+                        <h2 class="inner editing-user">{{ $user->name }}</h2>
+                        <h2 class="inner editing-user">{{ $user->email }}</h2>
+                        <h2 class="inner editing-user">{{ $user->phone_number }}</h2>
+                    </div>
 
                     @endif
                 </div>
@@ -84,21 +84,21 @@
 
                             <div class="buttonflex d-flex justify-content-between w-100">
                                 <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Edit</button>
-                            </form>
-                            ​<a href="/services/delete/{{$service->id}}" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Delete</a>
-                        </div>
-                        @else
-                            <div class="user-form">
-                                <br>
-                                <h3 class="my-account-form"><a href="/services/detail/{{ $service->id }}">{{$service->name}}</a></h3>
-                                <p class="my-account-form">{{ $service->long_description }}</p>
-                            </div>
-                        @endif
+                        </form>
+                        ​<a href="/services/delete/{{$service->id}}" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" type="submit">Delete</a>
                     </div>
-                    @endforeach
+                    @else
+                    <div class="user-form">
+                        <br>
+                        <p class="my-account-form">{{ $service->long_description }}</p>
+                        <p class="my-account-form"><a href="/services/detail/{{ $service->id }}">See details</a></p>
+                    </div>
+                    @endif
             </div>
+            @endforeach
         </div>
     </div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 @if(!empty($service->id))

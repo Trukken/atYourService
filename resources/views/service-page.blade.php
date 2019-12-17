@@ -1,7 +1,5 @@
 @extends('layouts.container')
-
 @section('title', $service->name)
-
 @section('content')
 @if($service->banned !=true || Auth::user() && Auth::user()->admin == true)
 <div class="service-container">
@@ -12,27 +10,20 @@
                 <div class="form-header peach-gradient text-align-center">
                     <h1> {{ucwords($service->name)}}</h1>
                 </div>
-
                 @if($service->banned) - This service is currently banned @endif
-
-
                 <div class="card-flex justify-content-around align-items-center summary-part">
-                    <img src="{{$service->user->image}}" alt="profile picture">
+                    <img class="display-user-image" src="{{$service->user->image}}" alt="profile picture">
                     <p><strong>Summary:</strong> <br>{{$service->short_description}}</p>
                 </div>
-
                 @if (!Auth::user())
                 <div class="">
                     <p class="text-center"> <a href="/login">log in</a> to see contact information and full description</p>
                 </div>
-
-
                 @elseif(Auth::user())
                 <form action="/report-service" method="POST">
                     @csrf
                     <button class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="id" value="{{ $service->id }}">Report service</button>
                 </form>
-
                 @if(Auth::user()->admin == true)
                 <br>
                 <a href="/ban-service/{{ $service->id }}">Ban service</a>
@@ -40,10 +31,11 @@
                 <a href="/unban-service/{{ $service->id }}">Unban service</a>
                 @endif
                 @endif
-
                 <div class="user-detailed-info">
                     <h2>Provider: </h2>
-                    <p>{{$service->user->name}}</p>
+                    <a href="/user/{{$service->user->id}}">
+                        <p>{{$service->user->name}}</p>
+                    </a>
                     <h2>Contact info:</h2>
                     <p>
                         <strong> Phone number: </strong>
@@ -60,8 +52,6 @@
             </div>
             <!-- end of card -->
         </div>
-
-
         <!-- COMMENTS card -->
         <div class="card user-account-card">
             <div class="card-body">
@@ -78,7 +68,7 @@
                         </div>
                         <div class="comment-info">
                             <p>
-                                <strong>User: </strong> {{$comment->user->name}}
+                                <strong>User: </strong><a href="/user/{{$comment->user->id}}"> {{$comment->user->name}} </a>
                                 <br>
                                 <strong>Date: </strong>
                                 <?php $date = $comment->created_at;
@@ -91,9 +81,6 @@
                     </div>
                     @endforeach
                 </div>
-
-
-
                 <!--Leave a comment-->
                 <div class="put-comment-box">
                     @if (!Auth::user())
@@ -107,7 +94,6 @@
                         <br>
                         <input type="hidden" name="service_id" value="{{$service->id}}">
                         <input type="hidden" name="user_id" value="{{auth::user()->id ?? '1'}}">
-
                         <textarea name="message" id="commentfield" cols="30" rows="5" class="form-control" placeholder="message..." maxlength="500"></textarea>
                         <br>
                         <input type="submit" class="btn peach-gradient btn-rounded btn-sm my-0 waves-effect waves-light" name="comment" id="comment" value="Add a comment">
@@ -119,10 +105,6 @@
                     @endif
                     <div class="result"></div>
                 </div>
-
-
-
-
                 <!-- end of card body-->
             </div>
             <!-- end of card -->
@@ -130,25 +112,6 @@
         <!-- end of container -->
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(function() {
